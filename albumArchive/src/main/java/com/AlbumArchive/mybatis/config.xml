@@ -1,1 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <properties resource="mybatis/db.properties"/> 
+
+  <typeAliases>
+      <typeAlias type="vo.CartVO" alias="cart"/>
+      <typeAlias type="vo.MemberVO" alias="member"/>
+      <typeAlias type="vo.AlbumVO" alias="album"/>
+      <typeAlias type="vo.ArtistVO" alias="aritst"/>
+      <typeAlias type="vo.InquiryVO" alias="inquiry"/>
+      <typeAlias type="vo.LikesVO" alias="likes"/>
+      <typeAlias type="vo.PurchaseVO" alias="purchase"/>
+      <typeAlias type="vo.ReviewVO" alias="review"/>
+      <typeAlias type="vo.SearchVO" alias="search"/>
+      <typeAlias type="vo.SongVO" alias="song"/> 
+  </typeAliases> 
+
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+
+  <mappers>
+    <mapper resource="mybatis/CartMapper.xml"/>
+    <mapper resource="mybatis/MemberMapper.xml"/>
+    <mapper resource="mybatis/AlbumMapper.xml"/>
+    <mapper resource="mybatis/ArtistMapper.xml"/>
+    <mapper resource="mybatis/InquiryMapper.xml"/>
+    <mapper resource="mybatis/LikesMapper.xml"/>
+    <mapper resource="mybatis/PurchaseMapper.xml"/> 
+  </mappers>
+</configuration>
