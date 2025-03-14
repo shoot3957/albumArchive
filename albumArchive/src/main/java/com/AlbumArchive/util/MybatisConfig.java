@@ -11,7 +11,7 @@ public class MybatisConfig {
 
     static {
         try {
-            String resource = "mybatis/config.xml"; 
+            String resource = "com/AlbumArchive/mybatis/config.xml"; 
             System.out.println("MyBatis 설정 파일 로드 시도: " + resource);
             
             InputStream inputStream = Resources.getResourceAsStream(resource);

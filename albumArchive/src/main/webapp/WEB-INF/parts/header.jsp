@@ -12,11 +12,25 @@
 
 	<header>
 		<div class="container">
-			
 			<nav>
 				<div class="banner">
+			<c:if test="${loginId eq 'admin'}">
+					<a href="/albumArchive/join.do">회원관리</a>
+					<a href="/albumArchive/join.do">앨범관리</a>
+					<a href="/albumArchive/join.do">문의관리</a>
+					<a href="/albumArchive/join.do">구매관리</a>
+					<a href="/albumArchive/join.do">리뷰관리</a>
+					<a href="${ctx}/logout.do">로그아웃</a>
+			</c:if>
+			<c:if test="${loginId eq null}">
 					<a href="/albumArchive/join.do">회원가입</a>
-					<a href="/albumArchive/login.do">로그인</a>
+					<a href="${ctx}/login.do">로그인</a>
+			</c:if>
+			<c:if test="${loginId ne null and loginId ne 'admin'}">
+                        <a href="${ctx}/cart.do">장바구니</a>
+                        <a href="${ctx}/myPage.do">마이페이지</a>
+                        <a href="${ctx}/logout.do">로그아웃</a>
+                    </c:if>
 				</div>
 			</nav>
 
