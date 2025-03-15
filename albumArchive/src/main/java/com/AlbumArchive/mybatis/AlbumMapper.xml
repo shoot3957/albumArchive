@@ -3,6 +3,18 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.AlbumArchive.mybatis.AlbumMapper">  
+<mapper namespace="com.AlbumArchive.mybatis.AlbumMapper">
+
+    <!-- 앨범 전체 리스트 조회 (등록일 순) -->
+    <select id="getAllAlbums" resultType="album">
+        SELECT * FROM album
+        ORDER BY date DESC;
+    </select>
 	
+	<!-- 장르별 앨범 조회 -->
+    <select id="getAlbumsByGenre" resultType="album">
+        SELECT * FROM album
+        WHERE category = #{category}
+        ORDER BY date DESC;
+    </select>
 </mapper>
