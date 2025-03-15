@@ -5,4 +5,4 @@ public class ViewResolver {
 
 		   return "/WEB-INF/"+nextPage+".jsp";
 	   }
-	}
+}

@@ -18,6 +18,8 @@ public class MemberVO {
 		this.phone = phone;
 		this.age = age;
 	}
+	public MemberVO() {
+	}
 	public String getId() {
 		return id;
 	}
