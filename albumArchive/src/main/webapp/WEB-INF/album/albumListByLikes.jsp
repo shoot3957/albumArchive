@@ -2,11 +2,11 @@
 <%@taglib prefix="c" uri="jakarta.tags.core"%>
 <html>
 <head>
-    <title>앨범 리스트</title>
+    <title>좋아요 순 앨범 리스트</title>
     <script src="/script/album.js"></script> <!-- album.js 파일 로드 -->
 </head>
 <body>
-    <h1>앨범 리스트</h1>
+    <h1>좋아요 순 앨범 리스트</h1>
     <div>
         <c:forEach var="album" items="${albumList}">
             <div>

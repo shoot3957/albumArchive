@@ -5,6 +5,10 @@
 
 <main>
 <h1>메인 홈</h1>
+<li><a href="albumListAll.do">앨범 리스트</a></li>
+<li><a href="albumSortedByGenre.do?category=Ballad">발라드 앨범 리스트</a></li>
+<li><a href="albumSortedByLikes.do">좋아요 순 보기</a>
+<li><a href="albumSortedByArtist.do?artist_num=2">2번 아티스트앨범보기</a></li>
 <c:if test="${sessionScope.loginId ne null}">
         <c:choose>
             <c:when test="${sessionScope.loginId eq 'admin'}">
