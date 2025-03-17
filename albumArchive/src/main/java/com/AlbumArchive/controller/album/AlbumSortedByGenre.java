@@ -1,7 +1,6 @@
 package com.AlbumArchive.controller.album;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import com.AlbumArchive.DAO.AlbumDAO;
@@ -23,10 +22,12 @@ public class AlbumSortedByGenre implements Controller {
 
         // category가 null이거나 빈 문자열인 경우, 오류 처리
         if (category == null || category.trim().isEmpty()) {
+            // JavaScript로 alert을 띄우고, history.back()으로 이전 페이지로 돌아가게 함
             response.setContentType("text/html; charset=UTF-8");
-            PrintWriter writer = response.getWriter();
-            writer.println("<script>alert('장르를 선택해주세요.'); history.back();</script>");
-            writer.close();
+            response.getWriter().println("<script src='/js/album.js'></script>");
+            response.getWriter().println("<script>");
+            response.getWriter().println("alertNoGenre();");  // 장르 선택 안 했을 때 처리
+            response.getWriter().println("</script>");
             return null;
         }
 
@@ -35,11 +36,13 @@ public class AlbumSortedByGenre implements Controller {
 
         // 만약 결과가 비어 있다면, 오류 처리 또는 다른 페이지로 리디렉션
         if (albumListByGenre == null || albumListByGenre.isEmpty()) {
+            // JavaScript로 alert을 띄우고, 메인 페이지로 리디렉션
             response.setContentType("text/html; charset=UTF-8");
-            PrintWriter writer = response.getWriter();
-            writer.println("<script>alert('해당 장르의 앨범이 없습니다.'); history.back();</script>");
-            writer.close();
-            return null;  // 실패 시 null을 반환해 리디렉션하지 않음
+            response.getWriter().println("<script src='/js/album.js'></script>");
+            response.getWriter().println("<script>");
+            response.getWriter().println("redirectToHomePage('해당 장르의 앨범이 없습니다.');");  // 장르별 앨범이 없을 때 메인 페이지로 리디렉션
+            response.getWriter().println("</script>");
+            return null;
         }
 
         // 앨범 리스트를 request에 저장하여 JSP로 전달

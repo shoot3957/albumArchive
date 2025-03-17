@@ -39,4 +39,28 @@ public class AlbumDAO {
         }
         return albumList;
     }
+    
+    public List<AlbumVO> getAlbumsByLikes(){
+    	List<AlbumVO> albumList = null;
+    	try(SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()){
+    		albumList = session.selectList("com.AlbumArchive.mybatis.AlbumMapper.getAlbumsByLikes");
+    	} catch (Exception e) {
+    		System.out.println("getAlbumsByLikes 에러");
+    		e.printStackTrace();
+    	}
+    	return albumList;
+    }
+    
+    public List<AlbumVO> getAlbumsByArtist(int artistNum) {
+        List<AlbumVO> albumList = null;
+        try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+            albumList = session.selectList("com.AlbumArchive.mybatis.AlbumMapper.getAlbumsByArtist", artistNum);
+            System.out.println("앨범 리스트 크기: " + (albumList != null ? albumList.size() : "null"));
+        } catch (Exception e) {
+            System.out.println("getAlbumsByArtist 에러");
+            e.printStackTrace();
+        }
+        return albumList;
+    }
+
 }

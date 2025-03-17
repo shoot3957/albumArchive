@@ -6,10 +6,10 @@ public class AlbumVO {
     private String info;      // 앨범 설명
     private String img;       // 앨범 이미지 경로
     private int price;        // 가격
-    private int like;         // 좋아요 수
+    private int likes;         // 좋아요 수
     private int total_qty;    // 총 수량
     private String category;  // 카테고리
-    private String date;      // 등록일
+    private String dates;      // 등록일
 
     // Getters and Setters
     public String getName() {
@@ -52,12 +52,12 @@ public class AlbumVO {
         this.price = price;
     }
 
-    public int getLike() {
-        return like;
+    public int getLikes() {
+        return likes;
     }
 
-    public void setLike(int like) {
-        this.like = like;
+    public void setLikes(int likes) {
+        this.likes = likes;
     }
 
     public int getTotal_qty() {
@@ -76,11 +76,11 @@ public class AlbumVO {
         this.category = category;
     }
 
-    public String getDate() {
-        return date;
+    public String getDates() {
+        return dates;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDates(String dates) {
+        this.dates = dates;
     }
 }
