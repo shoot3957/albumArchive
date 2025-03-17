@@ -21,6 +21,13 @@
    <td colspan="2">
       <button class="btn-submit" > 로그인 </button>
    </td>
+	
+ 	<td>
+   <a href="/albumArchive/findId.do">아이디 찾기</a> <!-- 문자 인증 -->
+   <a href="/albumArchive/findPw.do">비밀번호 찾기</a>  <!-- 이메일 인증  -->
+ 	</td>
+   
+   
 </table>
 </form>
 </div>
