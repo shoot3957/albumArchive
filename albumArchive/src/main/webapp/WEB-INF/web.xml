@@ -23,9 +23,7 @@
     <error-code>404</error-code>
     <location>/errorHandler</location>
 </error-page>
-  
-  
-  
+
 	<context-param>
 		<param-name>UPLOAD_DIR</param-name>
 		<param-value>C:\upload</param-value>
