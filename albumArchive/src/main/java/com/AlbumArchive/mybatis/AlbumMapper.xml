@@ -27,4 +27,12 @@
     	SELECT * FROM album 
     	where artist_num = #{artist_num};
     </select>
+    
+    <!-- 좋아요 순으로 상위 10개 앨범 가져오기 -->
+<select id="getTopLikedAlbums" resultType="album">
+    SELECT * FROM album
+    ORDER BY likes DESC
+    LIMIT 10;
+</select>
+    
 </mapper>

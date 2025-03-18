@@ -62,5 +62,18 @@ public class AlbumDAO {
         }
         return albumList;
     }
+    
+ // 좋아요 순으로 상위 10개 앨범 가져오기
+    public List<AlbumVO> getTopLikedAlbums() {
+        List<AlbumVO> topLikedAlbums = null;
+        try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+            topLikedAlbums = session.selectList("com.AlbumArchive.mybatis.AlbumMapper.getTopLikedAlbums");
+        } catch (Exception e) {
+            System.out.println("getTopLikedAlbums 에러");
+            e.printStackTrace();
+        }
+        return topLikedAlbums;
+    }
+
 
 }
