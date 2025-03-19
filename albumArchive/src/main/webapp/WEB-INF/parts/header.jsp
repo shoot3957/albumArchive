@@ -15,7 +15,7 @@
 			<nav>
 				<div class="banner">
 			<c:if test="${loginId eq 'admin'}">
-					<a href="/albumArchive/join.do">회원관리</a>
+					<a href="/albumArchive/adminMemberList.do">회원관리</a>
 					<a href="/albumArchive/join.do">앨범관리</a>
 					<a href="/albumArchive/join.do">문의관리</a>
 					<a href="/albumArchive/join.do">구매관리</a>

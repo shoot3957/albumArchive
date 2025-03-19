@@ -1,6 +1,7 @@
 package com.AlbumArchive.controller.member;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import com.AlbumArchive.DAO.MemberDAO;
 import com.AlbumArchive.frontcontroller.Controller;
@@ -15,14 +16,24 @@ public class ValidEmailAjaxController implements Controller{
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String id=request.getParameter("id"); // { "id" : id  }
-		System.out.println("id = "+id);
-		String passData = MemberDAO.getInstance().isVaildId(id)? "notValid" : "valid";
-		System.out.println("passData = "+passData);
-	
-		response.getWriter().print(passData); // "notValid" : "valid";
-		
-		return null;
+		String email = request.getParameter("email");
+	    System.out.println("받은 이메일: " + email);  // 이메일 값 확인
+
+	    String id = MemberDAO.getInstance().isValidEmail(email);
+	    System.out.println("조회된 ID: " + id);  // id 값 확인
+	    
+	    response.setContentType("application/json");
+	    response.setCharacterEncoding("UTF-8");
+
+	    // JSON 형식으로 명확하게 반환
+	    PrintWriter out = response.getWriter();
+	    String jsonResponse = "{\"id\": " + (id == null ? "null" : "\"" + id + "\"") + "}";
+	    
+	    System.out.println("서버 응답: " + jsonResponse); // 콘솔에서 응답 확인
+	    out.print(jsonResponse);
+	    out.flush();
+	    
+	    return null;
 	}
 
 }

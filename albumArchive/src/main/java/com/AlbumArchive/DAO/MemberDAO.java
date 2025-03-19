@@ -64,5 +64,32 @@ public class MemberDAO {
         }
         return result != null; // 결과가 null이 아니면 로그인 성공
     }
+	
+	public String isValidEmail(String email) {
+		
+		String id = null;
+		
+		try(SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+			id = session.selectOne("isValidEmail", email);
+		}catch(Exception e) {
+			System.out.println(" isValidEmail 에러");
+			e.printStackTrace();
+		}
+		
+	    return id;
+	}
+	
+	public String getPw(String email) {
+		
+		String pw = null;
+		
+		try(SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+			pw = session.selectOne("getPw",email);
+		}catch(Exception e) {
+			System.out.println(" getPw 에러");
+			e.printStackTrace();
+		}
+		return pw;
+	}
 
 }
