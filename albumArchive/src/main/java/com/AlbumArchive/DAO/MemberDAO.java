@@ -1,5 +1,8 @@
 package com.AlbumArchive.DAO;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.AlbumArchive.VO.MemberVO;
@@ -90,6 +93,38 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 		return pw;
+	}
+	
+	public MemberVO getMemerInfo(String id) {
+		MemberVO m = new MemberVO();
+		
+		try(SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+			m = session.selectOne("getMemberInfo",id);
+		}catch(Exception e) {
+			System.out.println("getMemerInfo 에러");
+			e.printStackTrace();
+		}
+		
+		return m;
+	}
+	
+	public void updateMemberInfo(String pw,String address,String email,String id) {
+
+		
+		 Map<String, String> m = new HashMap<>();
+		    m.put("pw", pw);
+		    m.put("address", address);
+		    m.put("email", email);
+		    m.put("id", id);
+		
+		try(SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+			session.update("updateMemberInfo",m);
+			session.commit();
+		}catch(Exception e) {
+			System.out.println("updateMemberInfo 에러");
+			e.printStackTrace();
+		}
+		
 	}
 
 }

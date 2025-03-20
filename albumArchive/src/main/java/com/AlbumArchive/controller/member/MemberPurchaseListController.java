@@ -1,4 +1,4 @@
-package com.AlbumArchive.controller.admin;
+package com.AlbumArchive.controller.member;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,15 +11,17 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class AdminPurchaseListController implements Controller{
+public class MemberPurchaseListController implements Controller{
 
 	@Override
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		String id = request.getParameter("id");
+		
 		ArrayList<PurchaseVO> list = new ArrayList<PurchaseVO>();
 		
-		list = (ArrayList<PurchaseVO>) PurchaseDAO.getInstance().getPurchaseList();
+		list = (ArrayList<PurchaseVO>) PurchaseDAO.getInstance().getMemberPurchaseList(id);
 		request.setAttribute("list", list);
 		
 		return "purchase/adminPurchaseList";

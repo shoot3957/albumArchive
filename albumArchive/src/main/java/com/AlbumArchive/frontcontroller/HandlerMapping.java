@@ -3,8 +3,10 @@ package com.AlbumArchive.frontcontroller;
 import java.util.HashMap;
 
 import com.AlbumArchive.controller.MainController;
+import com.AlbumArchive.controller.admin.AdminInquiryListController;
 import com.AlbumArchive.controller.admin.AdminMemberDeleteController;
 import com.AlbumArchive.controller.admin.AdminMemberListController;
+import com.AlbumArchive.controller.admin.AdminPurchaseListController;
 import com.AlbumArchive.controller.album.AlbumListAllController;
 import com.AlbumArchive.controller.album.AlbumSortedByArtist;
 import com.AlbumArchive.controller.album.AlbumSortedByGenre;
@@ -15,7 +17,10 @@ import com.AlbumArchive.controller.member.FindPwController;
 import com.AlbumArchive.controller.member.JoinController;
 import com.AlbumArchive.controller.member.LoginController;
 import com.AlbumArchive.controller.member.LogoutController;
+import com.AlbumArchive.controller.member.MemberPurchaseListController;
+import com.AlbumArchive.controller.member.MyPageController;
 import com.AlbumArchive.controller.member.RdCodeResultController;
+import com.AlbumArchive.controller.member.UpdateMemberController;
 import com.AlbumArchive.controller.member.VaildIdAjaxController;
 import com.AlbumArchive.controller.member.ValidEmailAjaxController;
 
@@ -38,6 +43,10 @@ public class HandlerMapping {
 		mappings.put("/validEmailAjax.do", new ValidEmailAjaxController());
 		mappings.put("/checkRdCode.do", new CheckRdCode());
 		mappings.put("/rdCodeResult.do", new RdCodeResultController());
+		mappings.put("/myPage.do", new MyPageController());
+		mappings.put("/updateMember.do", new UpdateMemberController());
+		mappings.put("/memberPurchaseList.do", new MemberPurchaseListController());
+		
 		
 		// 앨범 컨트롤러
 		mappings.put("/albumListAll.do", new AlbumListAllController());
@@ -48,6 +57,8 @@ public class HandlerMapping {
 		// 관리자 컨트롤러
 		mappings.put("/adminMemberList.do", new AdminMemberListController());
 		mappings.put("/adminMemberDelete.do", new AdminMemberDeleteController());
+		mappings.put("/adminPurchaseList.do", new AdminPurchaseListController());
+		mappings.put("/adminInquiryList.do", new AdminInquiryListController());
 		
 	}
 

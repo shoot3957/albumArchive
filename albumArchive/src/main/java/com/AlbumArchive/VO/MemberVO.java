@@ -1,7 +1,7 @@
 package com.AlbumArchive.VO;
 
 public class MemberVO {
-	private String id;
+	private String id; 
 	private String pw;
 	private String name;
 	private String address;
