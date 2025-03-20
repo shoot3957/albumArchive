@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<%@ taglib uri="jakarta.tags.core" prefix="c" %>
-<%@ include file="../parts/header.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,11 +11,12 @@
         .album-details { flex: 2; margin-left: 20px; }
         .btn { margin-right: 10px; padding: 5px 10px; }
         .footer-note { font-size: 0.8em; color: gray; }
-        #trackList ul { list-style: none; padding: 0; }
-        #trackList li { margin: 10px 0; }
+        li { margin: 10px 0; }
     </style>
 </head>
 <body>
+<%@ include file="../parts/header.jsp"%>
+
 <h1>앨범 정보</h1>
 
 <c:choose>
@@ -28,14 +28,12 @@
             <div class="container">
                 <div class="album-cover">
                     <c:if test="${not empty album.img}">
-                        <img src="./${album.img}" alt="Album Cover" style="width: 50%; height: 50%;">
+                        <img src="${album.img}" alt="Album Cover" style="width: 50%; height: 50%;">
                     </c:if>
                 </div>
                 <div class="album-details">
                     <div class="album-title">${album.name}</div>
-                    <div class="price-info">
-                        <span style="color: red;">가격: ${album.price}원</span>
-                    </div>
+                    <div class="price-info"><span style="color: red;">가격: ${album.price}원</span></div>
                     <div class="release-info">발매일: ${album.dates}</div>
                     <div class="likes-info">좋아요: ${album.likes}</div>
                     <div class="buttons">
@@ -47,6 +45,7 @@
             </div>
         </form>
 
+        <!-- 수록곡 목록 -->
         <div id="trackList">
             <h3>수록곡 목록 로딩 중...</h3>
         </div>
@@ -55,9 +54,6 @@
             * 사진은 실제 상품과 다를 수 있습니다. 품질 보증: KRPOPMART에서 구매 시 품질 보증 / 교환 및 반품은 구매일로부터 7일 이내
         </div>
 
-        <c:if test="${empty album.albumId}">
-            <p style="color: red;">경고: albumId가 서버에서 제공되지 않았습니다.</p>
-        </c:if>
         <input id="albumId" type="hidden" value="${album.albumId}">
         <input id="artistId" type="hidden" value="${album.artistId}">
     </c:otherwise>
@@ -86,19 +82,15 @@ async function getTokenInfo() {
         const data = await response.json();
         accessToken = data.access_token;
         console.log("Token acquired:", accessToken);
-        if (!accessToken) {
-            throw new Error("액세스 토큰을 가져오지 못했습니다.");
-        }
         await getAlbumTracks();
     } catch (error) {
         console.error("Token error:", error);
-        trackListDiv.innerHTML = `<p>토큰 오류: ${error.message}</p>`;
+        trackListDiv.innerHTML = `<p>오류: ${error.message}</p>`;
     }
 }
 
 async function getAlbumTracks() {
     const albumId = document.querySelector('#albumId')?.value;
-    console.log("albumId from input:", albumId);
     if (!albumId) {
         trackListDiv.innerHTML = "<p>앨범 ID가 제공되지 않았습니다.</p>";
         console.error("No albumId found");
@@ -108,10 +100,7 @@ async function getAlbumTracks() {
     const tracksUrl = `https://api.spotify.com/v1/albums/${albumId}/tracks`;
 
     try {
-        if (!accessToken) {
-            throw new Error("액세스 토큰이 없습니다. 토큰 발급을 먼저 시도하세요.");
-        }
-        console.log("Sending request with Authorization: Bearer", accessToken);
+        if (!accessToken) await getTokenInfo();
         const response = await fetch(tracksUrl, {
             method: "GET",
             headers: {
@@ -135,14 +124,13 @@ async function getAlbumTracks() {
             const previewHtml = track.preview_url 
                 ? `<audio src="${track.preview_url}" controls style="width: 200px;"></audio>`
                 : '<span style="color: red;">미리듣기 없음</span>';
-            const artists = track.artists.map(artist => artist.name).join(', ');
 
             tracksHtml += `
                 <li>
                     ${index + 1}. ${track.name}
                     <br>길이: ${durationFormatted}
                     <br>미리듣기: ${previewHtml}
-                    <br>아티스트: ${artists}
+                    <br>아티스트: ${track.artists.map(artist => artist.name).join(', ')}
                 </li>
             `;
         });
@@ -157,6 +145,6 @@ async function getAlbumTracks() {
 window.onload = getTokenInfo;
 </script>
 
-<%@ include file="../parts/footer.jsp" %>
+<%@ include file="../parts/footer.jsp"%>
 </body>
 </html>

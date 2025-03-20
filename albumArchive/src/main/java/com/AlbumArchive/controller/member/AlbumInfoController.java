@@ -16,12 +16,13 @@ public class AlbumInfoController implements Controller {
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String name = request.getParameter("name");
-		
+		String name = request.getParameter("albumName");
+		System.out.println(name);
 		AlbumVO album = AlbumDAO.getInstance().getOneAlbum(name);
+		System.out.println("아이디는 "+album.getId());
 		request.setAttribute("album", album);
 		
-		return "album/albumInfo";
+		return "album/albumInfoForm";
 	}
 
 }

@@ -9,6 +9,7 @@ import com.AlbumArchive.controller.album.AlbumListAllController;
 import com.AlbumArchive.controller.album.AlbumSortedByArtist;
 import com.AlbumArchive.controller.album.AlbumSortedByGenre;
 import com.AlbumArchive.controller.album.AlbumSortedByLikes;
+import com.AlbumArchive.controller.member.AlbumInfoController;
 import com.AlbumArchive.controller.member.CheckRdCode;
 import com.AlbumArchive.controller.member.FindIdController;
 import com.AlbumArchive.controller.member.FindPwController;
@@ -44,10 +45,13 @@ public class HandlerMapping {
         mappings.put("/albumSortedByGenre.do", new AlbumSortedByGenre());  // 장르별 앨범 리스트
 		mappings.put("/albumSortedByLikes.do", new AlbumSortedByLikes());
 		mappings.put("/albumSortedByArtist.do", new AlbumSortedByArtist());
+		mappings.put("/albumDetail.do", new AlbumInfoController());
 		
 		// 관리자 컨트롤러
 		mappings.put("/adminMemberList.do", new AdminMemberListController());
 		mappings.put("/adminMemberDelete.do", new AdminMemberDeleteController());
+		
+		
 		
 	}
 

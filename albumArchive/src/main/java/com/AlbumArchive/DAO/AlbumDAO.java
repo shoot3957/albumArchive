@@ -80,6 +80,8 @@ public class AlbumDAO {
 		AlbumVO album = null;
 		try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
 			album = session.selectOne("com.AlbumArchive.mybatis.AlbumMapper.getOneAlbumInfo", name);
+			System.out.println("앨범아이디는 " + album.getId());
+			System.out.println("앨범이름ㅇㅡㄴ " + album.getName());
 		} catch (Exception e) {
 			System.out.println("getOneAlbumInfo 에러");
 			e.printStackTrace();

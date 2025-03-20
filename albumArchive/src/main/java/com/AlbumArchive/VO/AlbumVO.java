@@ -1,86 +1,97 @@
 package com.AlbumArchive.VO;
 
 public class AlbumVO {
-    private String name;      // 앨범명
-    private int artist_num;   // 아티스트 번호
-    private String info;      // 앨범 설명
-    private String img;       // 앨범 이미지 경로
-    private int price;        // 가격
-    private int likes;         // 좋아요 수
-    private int total_qty;    // 총 수량
-    private String category;  // 카테고리
-    private String dates;      // 등록일
 
-    // Getters and Setters
-    public String getName() {
-        return name;
-    }
+	private String id; // 앨범명
+	private String name; // 앨범명
+	private int artistId; // 아티스트 번호
+	private String info; // 앨범 설명
+	private String img; // 앨범 이미지 경로
+	private int price; // 가격
+	private int likes; // 좋아요 수
+	private int total_qty; // 총 수량
+	private String category; // 카테고리
+	private String dates; // 등록일
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public int getArtist_num() {
-        return artist_num;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setArtist_num(int artist_num) {
-        this.artist_num = artist_num;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getInfo() {
-        return info;
-    }
+	// Getters and Setters
+	public String getName() {
+		return name;
+	}
 
-    public void setInfo(String info) {
-        this.info = info;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getImg() {
-        return img;
-    }
+	public int getArtistId() {
+		return artistId;
+	}
 
-    public void setImg(String img) {
-        this.img = img;
-    }
+	public void setArtistId(int artistId) {
+		this.artistId = artistId;
+	}
 
-    public int getPrice() {
-        return price;
-    }
+	public String getInfo() {
+		return info;
+	}
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
+	public void setInfo(String info) {
+		this.info = info;
+	}
 
-    public int getLikes() {
-        return likes;
-    }
+	public String getImg() {
+		return img;
+	}
 
-    public void setLikes(int likes) {
-        this.likes = likes;
-    }
+	public void setImg(String img) {
+		this.img = img;
+	}
 
-    public int getTotal_qty() {
-        return total_qty;
-    }
+	public int getPrice() {
+		return price;
+	}
 
-    public void setTotal_qty(int total_qty) {
-        this.total_qty = total_qty;
-    }
+	public void setPrice(int price) {
+		this.price = price;
+	}
 
-    public String getCategory() {
-        return category;
-    }
+	public int getLikes() {
+		return likes;
+	}
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
+	public void setLikes(int likes) {
+		this.likes = likes;
+	}
 
-    public String getDates() {
-        return dates;
-    }
+	public int getTotal_qty() {
+		return total_qty;
+	}
 
-    public void setDates(String dates) {
-        this.dates = dates;
-    }
+	public void setTotal_qty(int total_qty) {
+		this.total_qty = total_qty;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getDates() {
+		return dates;
+	}
+
+	public void setDates(String dates) {
+		this.dates = dates;
+	}
 }
