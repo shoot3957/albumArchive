@@ -1,17 +1,29 @@
 package com.AlbumArchive.VO;
 
+import java.util.UUID;
+
 public class AlbumVO {
-    private String name;      // 앨범명
-    private int artist_num;   // 아티스트 번호
-    private String info;      // 앨범 설명
-    private String img;       // 앨범 이미지 경로
-    private int price;        // 가격
-    private int likes;         // 좋아요 수
-    private int total_qty;    // 총 수량
-    private String category;  // 카테고리
-    private String dates;      // 등록일
+    
+    private UUID album_id;  // UUID 타입으로 앨범 ID
+    private String name;    // 앨범 이름
+    private UUID artist_id; // 아티스트 ID (UUID)
+    private String info;    // 앨범 정보
+    private int price;      // 가격
+    private int likes;      // 좋아요 수
+    private int total_qty;  // 총 재고 수량
+
+    // 기본 생성자
+    public AlbumVO() {}
 
     // Getters and Setters
+    public UUID getAlbum_id() {
+        return album_id;
+    }
+
+    public void setAlbum_id(UUID album_id) {
+        this.album_id = album_id;
+    }
+
     public String getName() {
         return name;
     }
@@ -20,12 +32,12 @@ public class AlbumVO {
         this.name = name;
     }
 
-    public int getArtist_num() {
-        return artist_num;
+    public UUID getArtist_id() {
+        return artist_id;
     }
 
-    public void setArtist_num(int artist_num) {
-        this.artist_num = artist_num;
+    public void setArtist_id(UUID artist_id) {
+        this.artist_id = artist_id;
     }
 
     public String getInfo() {
@@ -34,14 +46,6 @@ public class AlbumVO {
 
     public void setInfo(String info) {
         this.info = info;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
     }
 
     public int getPrice() {
@@ -68,19 +72,9 @@ public class AlbumVO {
         this.total_qty = total_qty;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getDates() {
-        return dates;
-    }
-
-    public void setDates(String dates) {
-        this.dates = dates;
+    @Override
+    public String toString() {
+        return "AlbumVO [album_id=" + album_id + ", name=" + name + ", artist_id=" + artist_id + ", info=" + info
+                + ", price=" + price + ", likes=" + likes + ", total_qty=" + total_qty + "]";
     }
 }
