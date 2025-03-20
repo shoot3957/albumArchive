@@ -17,8 +17,8 @@
 			<c:if test="${loginId eq 'admin'}">
 					<a href="/albumArchive/adminMemberList.do">회원관리</a>
 					<a href="/albumArchive/join.do">앨범관리</a>
-					<a href="/albumArchive/join.do">문의관리</a>
-					<a href="/albumArchive/join.do">구매관리</a>
+					<a href="/albumArchive/adminInquiryList.do">문의관리</a>
+					<a href="/albumArchive/adminPurchaseList.do">판매리스트</a>
 					<a href="/albumArchive/join.do">리뷰관리</a>
 					<a href="${ctx}/logout.do">로그아웃</a>
 			</c:if>
@@ -28,7 +28,8 @@
 			</c:if>
 			<c:if test="${loginId ne null and loginId ne 'admin'}">
                         <a href="${ctx}/cart.do">장바구니</a>
-                        <a href="${ctx}/myPage.do">마이페이지</a>
+                        <a href="${ctx}/myPage.do?id=${loginId}">마이페이지</a>
+                        <a href="/albumArchive/memberPurchaseList.do?id=${loginId}">구매내역</a>
                         <a href="${ctx}/logout.do">로그아웃</a>
                     </c:if>
 				</div>

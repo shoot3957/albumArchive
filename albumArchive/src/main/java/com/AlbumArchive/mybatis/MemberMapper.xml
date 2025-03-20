@@ -27,4 +27,16 @@
     <select id="deleteMember" parameterType="String">
     delete from member where id=#{id}
     </select>
+    <select id="getMemberInfo" parameterType="String" resultType="member">
+    select * from member where id = #{id}
+    </select>
+    <update id="updateMemberInfo" parameterType="map">
+    UPDATE member
+    SET
+        pw = #{pw},
+        address = #{address},
+        email = #{email}
+    WHERE
+        id = #{id}
+</update>
 </mapper>
