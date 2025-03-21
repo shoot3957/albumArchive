@@ -2,11 +2,19 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.AlbumArchive.mybatis.InquiryMapper">  
+    <!-- 전체 문의 수를 계산하는 쿼리 -->
+    <select id="getTotalInquiryCount" resultType="int">
+        SELECT COUNT(*) FROM inquiry
+    </select>
 
-<mapper namespace="com.AlbumArchive.mybatis.InquiryMapper">
-
-    <select id="getAllInquiryList" resultType="inquiry">
+    <!-- 페이징을 지원하도록 수정된 쿼리 -->
+    <select id="getAllInquiryList" parameterType="map" resultType="inquiry">
         SELECT * FROM inquiry
+        ORDER BY num DESC
+        LIMIT #{pageSize}
+        OFFSET #{start}
     </select>
 
     <select id="getInquiryInfo" parameterType="String" resultType="inquiry">
@@ -20,35 +28,12 @@
         WHERE user_id = #{id}
     </update>
 
-    <delete id="adminDeleteInquiry" parameterType="String">
-        DELETE FROM inquiry WHERE user_id = #{id}
+    <delete id="adminDeleteInquiry" parameterType="integer">
+        DELETE FROM inquiry WHERE num = #{number}
     </delete>
-
-    <!-- 전체 문의 수를 가져오는 쿼리 -->
-    <select id="getTotalInquiryCount" resultType="int">
-        SELECT COUNT(*) FROM inquiry
-    </select>
-
-    <!-- 페이지별 문의 목록을 가져오는 쿼리 (MySQL, MariaDB) -->
-    <select id="getInquiryListByPage" parameterType="map" resultType="inquiry">
-   SELECT * FROM (
-        SELECT
-            *,
-            CAST(ROW_NUMBER() OVER (ORDER BY num DESC) AS SIGNED) AS rn  <!-- CAST 추가 -->
-        FROM
-            inquiry
-    ) AS numbered_inquiry
-    WHERE rn BETWEEN #{start} AND #{end}
-</select>
-    <update id="updateAnswer" parameterType="map">
-        UPDATE inquiry
-        SET answer = #{answer}
-        WHERE user_id = #{userId}
-    </update>
-
-    <update id="markAsAnswered" parameterType="String">
-        UPDATE inquiry
-        SET checks = 1
-        WHERE user_id = #{userId}
-    </update>
+    <insert id="insertInquiry" parameterType="map">
+    	insert into inquiry(user_id,title,info,checks)
+    	values
+    	(#{id},#{title},#{info},0)
+    </insert>
 </mapper>
