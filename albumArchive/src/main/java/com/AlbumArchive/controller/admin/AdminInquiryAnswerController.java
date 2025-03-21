@@ -1,31 +1,32 @@
 package com.AlbumArchive.controller.admin;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import com.AlbumArchive.DAO.AdminDAO;
 import com.AlbumArchive.DAO.InquiryDAO;
+import com.AlbumArchive.DAO.PurchaseDAO;
 import com.AlbumArchive.VO.InquiryVO;
+import com.AlbumArchive.VO.PurchaseVO;
 import com.AlbumArchive.frontcontroller.Controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class AdminInquiryListController implements Controller{
+public class AdminInquiryAnswerController implements Controller{
 
 	@Override
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		ArrayList<InquiryVO> list = null;
+		String id = request.getParameter("id");
+		System.out.println("id = " + id);
+		InquiryVO info = InquiryDAO.getInstance().getInquiryInfo(id);
 		
-		list = (ArrayList<InquiryVO>) InquiryDAO.getInstance().getAllInquiryList();
+		request.setAttribute("info", info);
 		
-		request.setAttribute("list", list);
-		
-		return "admin/adminInquiryList";
+		return "admin/adminInquiryAnswer";
 	}
 
 }

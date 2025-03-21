@@ -40,7 +40,6 @@
             <div class="album-list">
                 <c:forEach var="album" items="${albumList}">
                     <div class="album-item">
-                        <img src="${pageContext.request.contextPath}${album.img}" alt="${album.name}" class="album-img">
                         <h3>${album.name}</h3>
                     </div>
                 </c:forEach>
@@ -66,7 +65,6 @@
                 <div class="slider">
                     <c:forEach var="album" items="${topLikedAlbums}">
                         <a href="albumDetail.do?albumName=${album.name}">
-                            <img src="${pageContext.request.contextPath}${album.img}" alt="${album.name}">
                         </a>
                     </c:forEach>
                 </div>

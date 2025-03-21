@@ -1,6 +1,8 @@
 package com.AlbumArchive.DAO;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -29,6 +31,57 @@ public class InquiryDAO {
 		}
 		
 		return list;
+		
+	}
+	
+	public InquiryVO getInquiryInfo(String id) {
+		
+		InquiryVO i = null;
+		
+		try(SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+			i = session.selectOne("getInquiryInfo", id);
+		}catch(Exception e) {
+			System.out.println(" getInquiryInfo 에러");
+			e.printStackTrace();
+		}
+		
+		return i;
+		
+	}
+	
+	public int sendInquiryAnswer(String answer,String id) {
+		
+		int cnt = 0;
+		Map<String, String> m = new HashMap<>();
+		m.put("id", id);
+		m.put("answer", answer);
+		
+		try(SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+			
+			cnt = session.update("sendInquiryAnswer",m);
+			session.commit();
+		}catch(Exception e) {
+			System.out.println(" sendInquiryAnswer 에러");
+			e.printStackTrace();
+		}
+		
+		return cnt;
+		
+	}
+	
+	public int adminDeleteInquiry(String id) {
+		
+		int cnt = 0;
+		
+		try(SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+			cnt = session.delete("adminDeleteInquiry",id);
+			session.commit();
+		}catch(Exception e) {
+			System.out.println(" adminDeleteInquiry 에러");
+			e.printStackTrace();
+		}
+		
+		return cnt;
 		
 	}
 	
