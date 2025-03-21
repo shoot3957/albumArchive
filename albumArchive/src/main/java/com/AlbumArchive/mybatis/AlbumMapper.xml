@@ -40,6 +40,16 @@
 		SELECT * FROM album
 		WHERE name = #{name}
 	</select>
+
+	<!-- 앨범의 수록곡 가져오기 -->
+	<select id="getSongList" resultType="List" parameterType="int">
+		SELECT * FROM song
+		WHERE  album_num = #{num}
+	</select>
 	
+	<delete id="albumDelete">
+		delete from album
+		where num = #{num}
+	</delete>
 
 </mapper>

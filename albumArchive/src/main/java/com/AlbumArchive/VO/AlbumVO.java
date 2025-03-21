@@ -1,28 +1,42 @@
 package com.AlbumArchive.VO;
 
 public class AlbumVO {
-
-	private String id; // 앨범명
+	private int num; // 앨범 번호 (AUTO_INCREMENT)
 	private String name; // 앨범명
-	private int artistId; // 아티스트 번호
+	private int artistNum; // 아티스트 번호
 	private String info; // 앨범 설명
 	private String img; // 앨범 이미지 경로
 	private int price; // 가격
 	private int likes; // 좋아요 수
-	private int total_qty; // 총 수량
+	private int totalQty; // 총 수량
 	private String category; // 카테고리
 	private String dates; // 등록일
 
-
-	public String getId() {
-		return id;
+	public AlbumVO() {
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public AlbumVO(int num, String name, int artistNum, String info, String img, int price, int likes, int totalQty,
+			String category, String dates) {
+		this.num = num;
+		this.name = name;
+		this.artistNum = artistNum;
+		this.info = info;
+		this.img = img;
+		this.price = price;
+		this.likes = likes;
+		this.totalQty = totalQty;
+		this.category = category;
+		this.dates = dates;
 	}
 
-	// Getters and Setters
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -31,12 +45,12 @@ public class AlbumVO {
 		this.name = name;
 	}
 
-	public int getArtistId() {
-		return artistId;
+	public int getArtistNum() {
+		return artistNum;
 	}
 
-	public void setArtistId(int artistId) {
-		this.artistId = artistId;
+	public void setArtistNum(int artistNum) {
+		this.artistNum = artistNum;
 	}
 
 	public String getInfo() {
@@ -71,12 +85,12 @@ public class AlbumVO {
 		this.likes = likes;
 	}
 
-	public int getTotal_qty() {
-		return total_qty;
+	public int getTotalQty() {
+		return totalQty;
 	}
 
-	public void setTotal_qty(int total_qty) {
-		this.total_qty = total_qty;
+	public void setTotalQty(int totalQty) {
+		this.totalQty = totalQty;
 	}
 
 	public String getCategory() {

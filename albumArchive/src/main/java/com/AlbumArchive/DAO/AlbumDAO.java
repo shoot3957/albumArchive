@@ -2,7 +2,10 @@ package com.AlbumArchive.DAO;
 
 import org.apache.ibatis.session.SqlSession;
 import com.AlbumArchive.VO.AlbumVO;
+import com.AlbumArchive.VO.SongVO;
 import com.AlbumArchive.util.MybatisConfig;
+
+import java.util.HashMap;
 import java.util.List;
 
 public class AlbumDAO {
@@ -80,13 +83,27 @@ public class AlbumDAO {
 		AlbumVO album = null;
 		try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
 			album = session.selectOne("com.AlbumArchive.mybatis.AlbumMapper.getOneAlbumInfo", name);
-			System.out.println("앨범아이디는 " + album.getId());
+			System.out.println("앨범아이디는 " + album.getNum());
 			System.out.println("앨범이름ㅇㅡㄴ " + album.getName());
 		} catch (Exception e) {
 			System.out.println("getOneAlbumInfo 에러");
 			e.printStackTrace();
 		}
 		return album;
+	}
+
+	public List<SongVO> getSongList(int num) {
+		
+		List<SongVO> list = null;
+		
+		try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+			list = session.selectOne("com.AlbumArchive.mybatis.AlbumMapper.getSongList", num);
+		} catch (Exception e) {
+			System.out.println("getOneAlbumInfo 에러");
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 
 }
