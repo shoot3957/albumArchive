@@ -1,80 +1,111 @@
 package com.AlbumArchive.VO;
 
-import java.util.UUID;
-
 public class AlbumVO {
-    
-    private UUID album_id;  // UUID 타입으로 앨범 ID
-    private String name;    // 앨범 이름
-    private UUID artist_id; // 아티스트 ID (UUID)
-    private String info;    // 앨범 정보
-    private int price;      // 가격
-    private int likes;      // 좋아요 수
-    private int total_qty;  // 총 재고 수량
+	private int num; // 앨범 번호 (AUTO_INCREMENT)
+	private String name; // 앨범명
+	private int artistNum; // 아티스트 번호
+	private String info; // 앨범 설명
+	private String img; // 앨범 이미지 경로
+	private int price; // 가격
+	private int likes; // 좋아요 수
+	private int totalQty; // 총 수량
+	private String category; // 카테고리
+	private String dates; // 등록일
 
-    // 기본 생성자
-    public AlbumVO() {}
+	public AlbumVO() {
+	}
 
-    // Getters and Setters
-    public UUID getAlbum_id() {
-        return album_id;
-    }
+	public AlbumVO(int num, String name, int artistNum, String info, String img, int price, int likes, int totalQty,
+			String category, String dates) {
+		this.num = num;
+		this.name = name;
+		this.artistNum = artistNum;
+		this.info = info;
+		this.img = img;
+		this.price = price;
+		this.likes = likes;
+		this.totalQty = totalQty;
+		this.category = category;
+		this.dates = dates;
+	}
 
-    public void setAlbum_id(UUID album_id) {
-        this.album_id = album_id;
-    }
+	public int getNum() {
+		return num;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setNum(int num) {
+		this.num = num;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public UUID getArtist_id() {
-        return artist_id;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setArtist_id(UUID artist_id) {
-        this.artist_id = artist_id;
-    }
+	public int getArtistNum() {
+		return artistNum;
+	}
 
-    public String getInfo() {
-        return info;
-    }
+	public void setArtistNum(int artistNum) {
+		this.artistNum = artistNum;
+	}
 
-    public void setInfo(String info) {
-        this.info = info;
-    }
+	public String getInfo() {
+		return info;
+	}
 
-    public int getPrice() {
-        return price;
-    }
+	public void setInfo(String info) {
+		this.info = info;
+	}
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
+	public String getImg() {
+		return img;
+	}
 
-    public int getLikes() {
-        return likes;
-    }
+	public void setImg(String img) {
+		this.img = img;
+	}
 
-    public void setLikes(int likes) {
-        this.likes = likes;
-    }
+	public int getPrice() {
+		return price;
+	}
 
-    public int getTotal_qty() {
-        return total_qty;
-    }
+	public void setPrice(int price) {
+		this.price = price;
+	}
 
-    public void setTotal_qty(int total_qty) {
-        this.total_qty = total_qty;
-    }
+	public int getLikes() {
+		return likes;
+	}
 
-    @Override
-    public String toString() {
-        return "AlbumVO [album_id=" + album_id + ", name=" + name + ", artist_id=" + artist_id + ", info=" + info
-                + ", price=" + price + ", likes=" + likes + ", total_qty=" + total_qty + "]";
-    }
+	public void setLikes(int likes) {
+		this.likes = likes;
+	}
+
+	public int getTotalQty() {
+		return totalQty;
+	}
+
+	public void setTotalQty(int totalQty) {
+		this.totalQty = totalQty;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getDates() {
+		return dates;
+	}
+
+	public void setDates(String dates) {
+		this.dates = dates;
+	}
 }
