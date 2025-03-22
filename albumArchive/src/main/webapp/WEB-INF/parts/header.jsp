@@ -27,7 +27,7 @@
 					<a href="${ctx}/login.do">로그인</a>
 			</c:if>
 			<c:if test="${loginId ne null and loginId ne 'admin'}">
-                        <a href="${ctx}/cart.do">장바구니</a>
+                        <a href="${ctx}/cartList.do?id=${loginId}">장바구니</a>
                         <a href="/albumArchive/adminInquiryList.do">문의하기</a>
                         <a href="${ctx}/myPage.do?id=${loginId}">마이페이지</a>
                         <a href="/albumArchive/memberPurchaseList.do?id=${loginId}">구매내역</a>

@@ -10,7 +10,7 @@
     <div>
         <c:forEach var="album" items="${albumListByGenre}">
             <div>
-                <img src="${album.img}" alt="${album.name}" width="100">
+                <img src="${pageContext.request.contextPath}${album.img}" alt="${album.name}" width="100">
                 <h3>${album.name}</h3>
                 <p>${album.info}</p>
                 <p>가격: ${album.price}</p>

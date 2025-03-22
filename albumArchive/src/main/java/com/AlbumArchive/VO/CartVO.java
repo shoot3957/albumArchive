@@ -3,7 +3,7 @@ package com.AlbumArchive.VO;
 public class CartVO {
 
     private int num;        // 장바구니 번호
-    private String album_id; // 앨범 ID
+    private String album_num; // 앨범 ID
     private String user_id;  // 회원 ID
     private int price;      // 가격
     private int qty;        // 수량
@@ -20,12 +20,12 @@ public class CartVO {
         this.num = num;
     }
 
-    public String getAlbum_id() {
-        return album_id;
+    public String getAlbum_num() {
+        return album_num;
     }
 
-    public void setAlbum_id(String album_id) {
-        this.album_id = album_id;
+    public void setAlbum_num(String album_num) {
+        this.album_num = album_num;
     }
 
     public String getUser_id() {
@@ -54,6 +54,6 @@ public class CartVO {
 
     @Override
     public String toString() {
-        return "CartVO [num=" + num + ", album_id=" + album_id + ", user_id=" + user_id + ", price=" + price + ", qty=" + qty + "]";
+        return "CartVO [num=" + num + ", album_num=" + album_num+ ", user_id=" + user_id + ", price=" + price + ", qty=" + qty + "]";
     }
 }
