@@ -17,24 +17,39 @@ public class CartListController implements Controller {
     public String requestHandler(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // URL 파라미터에서 user_id를 받아옴
-        String userId = request.getParameter("id");
-        
-        System.out.println("User ID from request: " + userId);  // 디버깅용 로그 추가
-        
-        // userId가 null이면 로그인되지 않은 상태, 로그인 페이지로 리디렉션
-        if (userId == null || userId.isEmpty()) {
+        // 사용자가 로그인한 상태에서 user_id를 받아옴
+        String userId = (String) request.getSession().getAttribute("user_id");
+        if (userId == null) {
             response.sendRedirect("main.do");
             return null;
         }
 
         // 장바구니 목록을 가져옴
         List<CartVO> cartList = CartDAO.getInstance().getCartList(userId);
-
-        // 장바구니 목록을 request에 저장
         request.setAttribute("cartList", cartList);
 
-        // 장바구니 목록 페이지로 이동
         return "member/cartList";  // cartList.jsp로 이동
+    }
+
+    // 장바구니 수량 업데이트
+    public String updateCartQty(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        int cartId = Integer.parseInt(request.getParameter("cartId"));
+        int qty = Integer.parseInt(request.getParameter("qty"));
+        
+        CartDAO.getInstance().updateCartQty(cartId, qty);
+
+        return "redirect:/cartList.do";  // 장바구니 페이지로 리디렉션
+    }
+
+    // 장바구니 항목 삭제
+    public String removeFromCart(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        int cartId = Integer.parseInt(request.getParameter("cartId"));
+        CartDAO.getInstance().removeFromCart(cartId);
+
+        return "redirect:/cartList.do";  // 장바구니 페이지로 리디렉션
     }
 }

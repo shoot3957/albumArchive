@@ -17,4 +17,12 @@
     <delete id="removeFromCart" parameterType="int">
         DELETE FROM cart WHERE num = #{cartId}
     </delete>
+
+    <!-- 장바구니에서 특정 앨범의 수량 업데이트 -->
+    <update id="updateCartQty" parameterType="com.AlbumArchive.VO.CartVO">
+        UPDATE cart 
+        SET qty = #{qty} 
+        WHERE num = #{num}
+    </update>
 </mapper>
+

@@ -15,7 +15,7 @@ public class CartDAO {
     public static CartDAO getInstance() {
         if (instance == null) {
             instance = new CartDAO();
-        }
+        }	
         return instance;
     }
 
@@ -43,6 +43,14 @@ public class CartDAO {
     public void removeFromCart(int cartId) {
         try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession(true)) {
             session.delete("com.AlbumArchive.mybatis.CartMapper.removeFromCart", cartId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void updateCartQty(int cartId, int qty) {
+        try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession(true)) {
+            session.update("com.AlbumArchive.mybatis.CartMapper.updateCartQty", new CartVO(cartId, qty));
         } catch (Exception e) {
             e.printStackTrace();
         }

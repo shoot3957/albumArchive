@@ -86,10 +86,10 @@ public class HandlerMapping {
 		
 		// 장바구니 컨트롤러 추가
         mappings.put("/cartAdd.do", new AddToCartController());  // 장바구니 추가
-        mappings.put("/cartList.do", new CartListController()); // 장바구니 목록 조회
-     //   mappings.put("/cartRemove.do", new CartRemoveController()); // 장바구니 항목 삭제
-       // mappings.put("/cartCheckout.do", new CartCheckoutController()); // 결제 컨트롤러
-
+        mappings.put("/cartList.do", new CartListController());
+        mappings.put("/removeFromCart.do", new CartListController());
+        mappings.put("/updateCartQty.do", new CartListController());
+        
         mappings.put("/search.do", new SearchController());  // 검색 처리
         mappings.put("/searchAlbumForDropdown.do", new SearchDropdownController());  // 검색 처리
 		
