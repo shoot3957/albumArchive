@@ -105,5 +105,15 @@ public class AlbumDAO {
 		
 		return list;
 	}
-
+	
+	 public List<AlbumVO> searchAlbums(String query) {
+	        List<AlbumVO> albumList = null;
+	        try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+	            // SQL Mapper 호출: searchAlbums는 SQL 쿼리와 맵핑된 메서드
+	            albumList = session.selectList("com.AlbumArchive.mybatis.AlbumMapper.searchAlbums", "%" + query + "%");
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        return albumList;
+	    }
 }

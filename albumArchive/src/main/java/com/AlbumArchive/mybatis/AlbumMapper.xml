@@ -51,5 +51,10 @@
 		delete from album
 		where num = #{num}
 	</delete>
-
+	
+	    <!-- 검색 쿼리 -->
+    <select id="searchAlbums" resultType="com.AlbumArchive.VO.AlbumVO">
+        SELECT * FROM album
+        WHERE name LIKE #{query}
+    </select>
 </mapper>
