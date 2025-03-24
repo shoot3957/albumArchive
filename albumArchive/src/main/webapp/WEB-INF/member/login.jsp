@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../parts/header.jsp"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
-
   <div class="inner">
   <h1 > 로그인</h1>
 

@@ -16,10 +16,10 @@ public class AdminMemberDeleteController implements Controller{
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String num = request.getParameter("num");
-		System.out.println("num = " + num);
+		String id = request.getParameter("id");
+		System.out.println("id = " + id);
 		
-		AdminDAO.getInstance().deleteMember(num);
+		AdminDAO.getInstance().deleteMember(id);
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter writer = response.getWriter();
 		writer.println("<script>alert('회원삭제완료'); window.location.href='" + request.getContextPath() + "/adminMemberList.do';</script>");

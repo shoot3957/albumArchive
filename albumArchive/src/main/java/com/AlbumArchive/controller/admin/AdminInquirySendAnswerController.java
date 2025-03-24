@@ -34,7 +34,7 @@ public class AdminInquirySendAnswerController implements Controller{
 			return null;
 		}else {
 			PrintWriter writer = response.getWriter();
-			writer.println("<script>alert('답장 완료'); window.location.href='" + request.getContextPath() + "/adminInquiryAnswer.do';</script>");
+			writer.println("<script>alert('답장 완료'); window.location.href='" + request.getContextPath() + "/adminInquiryList.do';</script>");
 			writer.close();
 			return null;
 		}
