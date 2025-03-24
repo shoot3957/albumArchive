@@ -17,8 +17,8 @@
         OFFSET #{start}
     </select>
 
-    <select id="getInquiryInfo" parameterType="String" resultType="inquiry">
-        SELECT * FROM inquiry WHERE user_id = #{id}
+    <select id="getInquiryInfo" parameterType="Integer" resultType="inquiry">
+        SELECT * FROM inquiry WHERE num = #{num}
     </select>
 
     <update id="sendInquiryAnswer" parameterType="map">

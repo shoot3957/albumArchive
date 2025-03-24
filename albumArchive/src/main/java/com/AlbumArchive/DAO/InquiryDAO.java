@@ -48,10 +48,10 @@ public class InquiryDAO {
     }
 
     // 나머지 메서드는 변경 없음
-    public InquiryVO getInquiryInfo(String id) {
+    public InquiryVO getInquiryInfo(int num) {
         InquiryVO i = null;
         try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
-            i = session.selectOne("getInquiryInfo", id);
+            i = session.selectOne("getInquiryInfo", num);
         } catch (Exception e) {
             System.out.println("getInquiryInfo 에러");
             e.printStackTrace();

@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="${ctx}/css/login.css">
 <title>albumArchive</title>
 
 <body></body>

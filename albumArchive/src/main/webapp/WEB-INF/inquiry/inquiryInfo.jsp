@@ -15,7 +15,7 @@
         ${info.answer}
       </div>
     </c:if>
-    <c:if test="${info.checks == 0 and id eq 'admin'}">
+    <c:if test="${info.checks == 0}">
     	<form action="${ctx}/adminSendAnswer.do?id=${info.user_id}" method="post">
     		<textarea rows="5" cols="80" name="answer"></textarea>
     		<button type="submit">답변하기</button>

@@ -15,8 +15,10 @@ import com.AlbumArchive.controller.album.AlbumSortedByArtist;
 import com.AlbumArchive.controller.album.AlbumSortedByGenre;
 import com.AlbumArchive.controller.album.AlbumSortedByLikes;
 import com.AlbumArchive.controller.inquiry.InquiryFormController;
+import com.AlbumArchive.controller.inquiry.InquiryInfoController;
 import com.AlbumArchive.controller.inquiry.InsertInquiryController;
 import com.AlbumArchive.controller.member.CheckRdCode;
+import com.AlbumArchive.controller.member.DeleteMemberController;
 import com.AlbumArchive.controller.member.FindIdController;
 import com.AlbumArchive.controller.member.FindPwController;
 import com.AlbumArchive.controller.member.JoinController;
@@ -51,6 +53,8 @@ public class HandlerMapping {
 		mappings.put("/myPage.do", new MyPageController());
 		mappings.put("/updateMember.do", new UpdateMemberController());
 		mappings.put("/memberPurchaseList.do", new MemberPurchaseListController());
+		mappings.put("/deleteMember.do", new DeleteMemberController());
+		
 		
 		
 		// 앨범 컨트롤러
@@ -71,6 +75,7 @@ public class HandlerMapping {
 		// 문의 컨트롤러
 		mappings.put("/inquiryForm.do", new InquiryFormController());
 		mappings.put("/insertInquiry.do", new InsertInquiryController());
+		mappings.put("/inquiryInfo.do", new InquiryInfoController());
 		
 		
 	}

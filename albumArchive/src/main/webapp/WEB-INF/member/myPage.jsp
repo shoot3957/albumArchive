@@ -38,6 +38,11 @@
             <input type="submit" id="updateButton" value="정보 수정">
         </td>
     </tr>
+	<tr>
+        <td colspan="2" align="center">
+			<a href="/albumArchive/deleteMember.do?id=${m.id}">회원탈퇴</a>           
+        </td>
+    </tr>
 </form>
 </table>
 <script>

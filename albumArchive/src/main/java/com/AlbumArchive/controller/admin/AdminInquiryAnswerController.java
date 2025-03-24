@@ -20,11 +20,14 @@ public class AdminInquiryAnswerController implements Controller{
 	public String requestHandler(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		int num = Integer.parseInt(request.getParameter("num"));
 		String id = request.getParameter("id");
 		System.out.println("id = " + id);
-		InquiryVO info = InquiryDAO.getInstance().getInquiryInfo(id);
+		System.out.println("num = " + num);
+		InquiryVO info = InquiryDAO.getInstance().getInquiryInfo(num);
 		
 		request.setAttribute("info", info);
+		request.setAttribute("id", id);
 		
 		return "admin/adminInquiryAnswer";
 	}

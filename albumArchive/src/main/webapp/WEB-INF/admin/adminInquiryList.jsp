@@ -22,7 +22,7 @@
               <c:choose>
                 <c:when test="${loginId eq list.user_id or loginId eq 'admin'}">
                    <%-- 본인이거나 admin 일때 상세정보 접근 가능 --%>
-                   <a href="${ctx}/adminInquiryAnswer.do?id=${list.user_id}">${list.title}</a>
+                   <a href="${ctx}/adminInquiryAnswer.do?num=${list.num}&id=${loginId}">${list.title}</a>
                 </c:when>
                 <c:otherwise>
                    <%-- 그 외에는 상세정보 접근 불가 --%>
