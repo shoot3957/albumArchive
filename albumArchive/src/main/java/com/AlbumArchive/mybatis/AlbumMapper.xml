@@ -57,4 +57,10 @@
         SELECT * FROM album
         WHERE name LIKE #{query}
     </select>
+    
+    <select id="searchAlbumsForDropdown" parameterType="string" resultType="com.AlbumArchive.VO.AlbumVO">
+        SELECT num, name FROM album
+        WHERE name LIKE #{query}
+        LIMIT 5  <!-- 원하는 수만큼만 검색 결과를 제한 -->
+    </select>
 </mapper>

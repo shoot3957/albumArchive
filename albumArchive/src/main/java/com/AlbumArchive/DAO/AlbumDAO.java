@@ -116,4 +116,10 @@ public class AlbumDAO {
 	        }
 	        return albumList;
 	    }
+	 
+	 public List<AlbumVO> searchAlbumsForDropdown(String query) {
+	        try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+	            return session.selectList("com.AlbumArchive.mybatis.AlbumMapper.searchAlbumsForDropdown", "%" + query + "%");
+	        }
+	    }
 }

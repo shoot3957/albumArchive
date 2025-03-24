@@ -66,7 +66,30 @@ nav ul li a:hover {
     background-color: #ff8c00;
     color: white;
 }
+/* 드롭다운 메뉴 스타일 */
+        nav ul li:hover .dropdown {
+            display: block;
+        }
 
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            color: #333;
+            padding: 8px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #f0f0f0;
+        }
 /* 메인 콘텐츠와 서브 콘텐츠 레이아웃 */
 .content-container {
     display: flex;

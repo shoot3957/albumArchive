@@ -34,6 +34,7 @@ import com.AlbumArchive.controller.member.UpdateMemberController;
 import com.AlbumArchive.controller.member.VaildIdAjaxController;
 import com.AlbumArchive.controller.member.ValidEmailAjaxController;
 import com.AlbumArchive.controller.search.SearchController;
+import com.AlbumArchive.controller.search.SearchDropdownController;
 
 
 
@@ -90,6 +91,7 @@ public class HandlerMapping {
        // mappings.put("/cartCheckout.do", new CartCheckoutController()); // 결제 컨트롤러
 
         mappings.put("/search.do", new SearchController());  // 검색 처리
+        mappings.put("/searchAlbumForDropdown.do", new SearchDropdownController());  // 검색 처리
 		
 	}
 
