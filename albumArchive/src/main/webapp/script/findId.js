@@ -1,5 +1,6 @@
 document.getElementById('form').addEventListener('submit', function (event) {
     event.preventDefault();
+
 	document.addEventListener("DOMContentLoaded", function () {
 	    emailjs.init("service_q57z5p7");  // EmailJS 초기화
 	});
@@ -22,7 +23,7 @@ document.getElementById('form').addEventListener('submit', function (event) {
         },
         body: 'email=' + encodeURIComponent(email)
     })
-    .then(response => response.json())  // JSON 응답 처리
+    .then(response => response.json())
     .then(data => {
         if (!data.id) {
             alert("해당 이메일 주소를 가진 아이디가 존재하지 않습니다.");
@@ -44,8 +45,8 @@ function sendEmail(userId, email) {
     const btn = document.getElementById('button');
     btn.value = 'Sending...';
 
-    const serviceID = 'service_q57z5p7';  // EmailJS 서비스 ID
-    const templateID = 'template_v9y5tt2';  // EmailJS 템플릿 ID
+    const serviceID = 'service_q57z5p7';
+    const templateID = 'template_v9y5tt2';
 
     // 전송할 데이터 확인
     const emailParams = {
@@ -59,7 +60,10 @@ function sendEmail(userId, email) {
         console.log("EmailJS 응답:", response);
         btn.value = 'Send Email';
         alert('이메일이 성공적으로 전송되었습니다!');
-		
+
+        // main.do로 페이지 이동
+        window.location.href = "/albumArchive/login.do";
+
     })
     .catch(err => {
         console.error('이메일 전송 오류:', err);
