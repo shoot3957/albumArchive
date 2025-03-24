@@ -9,48 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>앨범 판매 사이트</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css"> <!-- CSS 연결 -->
-    <style>
-        /* 드롭다운 메뉴 스타일 */
-        nav ul li:hover .dropdown {
-            display: block;
-        }
-
-        .dropdown {
-            display: none;
-            position: absolute;
-            background-color: white;
-            border: 1px solid #ddd;
-            padding: 10px;
-            z-index: 1000;
-        }
-
-        .dropdown a {
-            color: #333;
-            padding: 8px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown a:hover {
-            background-color: #f0f0f0;
-        }
-    </style>
+    <script src="${pageContext.request.contextPath}/script/main.js"></script> <!-- JavaScript 연결 -->
 </head>
 <body>
-    <!-- 상단 네비게이션 바 -->
-    <header>
-        <div class="header-left">
-            <button>로그인</button>
-        </div>
-        <div class="header-search">
-            <input type="text" placeholder="검색">
-        </div>
-        <div class="header-right">
-            <button>메뉴</button>
-        </div>
-    </header>
 
-    <!-- 네비게이션 메뉴 -->
     <nav>
         <ul>
             <li>
