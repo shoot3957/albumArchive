@@ -31,6 +31,7 @@ import com.AlbumArchive.controller.member.RdCodeResultController;
 import com.AlbumArchive.controller.member.UpdateMemberController;
 import com.AlbumArchive.controller.member.VaildIdAjaxController;
 import com.AlbumArchive.controller.member.ValidEmailAjaxController;
+import com.AlbumArchive.controller.search.SearchController;
 
 
 
@@ -83,6 +84,7 @@ public class HandlerMapping {
      //   mappings.put("/cartRemove.do", new CartRemoveController()); // 장바구니 항목 삭제
        // mappings.put("/cartCheckout.do", new CartCheckoutController()); // 결제 컨트롤러
 
+        mappings.put("/search.do", new SearchController());  // 검색 처리
 		
 	}
 

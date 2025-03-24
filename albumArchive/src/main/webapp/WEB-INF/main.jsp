@@ -42,9 +42,14 @@
         <div class="header-left">
             <button>로그인</button>
         </div>
-        <div class="header-search">
-            <input type="text" placeholder="검색">
-        </div>
+        <!-- 검색 폼 추가 -->
+		<div class="header-search">
+			<form action="${ctx}/search.do" method="get">
+    			<input type="text" name="query" placeholder="앨범 검색" required>
+    			<button type="submit">검색</button>
+			</form>
+		</div>
+
         <div class="header-right">
             <button>메뉴</button>
         </div>
