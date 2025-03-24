@@ -5,11 +5,12 @@
 
  <form id="form">
   <div class="field">
+   <h1>아이디 찾기</h1>
     <label for="email">이메일</label>
     <input type="text" name="email" id="email">
   </div>
 
-  <input type="submit" id="button" value="Send Email" >
+  <input type="submit" id="button" value="이메일 보내기" >
 </form>
 
 <script type="text/javascript"

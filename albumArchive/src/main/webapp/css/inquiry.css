@@ -1,0 +1,367 @@
+/* Inquiry List Container */
+.inquiry-inner {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Inquiry List No Reservation */
+.no-reservation {
+    text-align: center;
+    color: #666;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 20px;
+}
+
+/* Inquiry List Title */
+.inquiry-list {
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+/* Inquiry List Table */
+.inquiry-inner table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 14px;
+}
+
+.inquiry-inner table tr:first-child td {
+    background: none;
+    color: #555;
+    font-weight: normal;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.inquiry-inner table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    color: #555;
+}
+
+.inquiry-inner table tr:hover {
+    background: #f5f5f5;
+    transition: background 0.3s ease;
+}
+
+.inquiry-inner table img {
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+/* Inquiry List Links */
+.inquiry-inner a:not([href*="/adminDeleteInquiry.do"]):not([href*="/inquiryForm.do"]) {
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 10px;
+    display: inline-block;
+}
+
+.inquiry-inner a:not([href*="/adminDeleteInquiry.do"]):not([href*="/inquiryForm.do"]):hover {
+    color: #45a049;
+}
+
+.inquiry-inner a[href*="/adminDeleteInquiry.do"] {
+    color: white;
+    background: #e74c3c;
+    border-radius: 5px;
+    padding: 8px 12px;
+    transition: background 0.3s ease;
+    text-decoration: none;
+}
+
+.inquiry-inner a[href*="/adminDeleteInquiry.do"]:hover {
+    background: #c0392b;
+    color: white;
+}
+
+.inquiry-inner a[href*="/inquiryForm.do"] {
+    color: white;
+    background: #4CAF50;
+    border-radius: 5px;
+    padding: 8px 20px;
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    width: 150px;
+    text-align: center;
+    margin: 20px auto;
+    transition: background 0.3s ease;
+}
+
+.inquiry-inner a[href*="/inquiryForm.do"]:hover {
+    background: #45a049;
+    color: white;
+}
+
+/* Inquiry List Pagination */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.pagination a {
+    color: #4CAF50;
+    text-decoration: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.pagination a:hover {
+    background: #4CAF50;
+    color: white;
+}
+
+.pagination span {
+    color: #999;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.pagination span:not([class]) {
+    color: #333;
+    font-weight: 600;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+}
+
+/* Inquiry Form Container */
+.inquiry-form-inner {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Inquiry Form Title */
+.inquiry-form-inner h2 {
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+/* Inquiry Form Table */
+.inquiry-form-inner table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 14px;
+}
+
+.inquiry-form-inner table th {
+    background: #4CAF50;
+    color: white;
+    font-weight: 600;
+    padding: 12px;
+    border: 1px solid #ddd;
+    width: 150px;
+}
+
+.inquiry-form-inner table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    color: #555;
+}
+
+/* Inquiry Form Controls */
+.inquiry-form-inner .form-control {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 0;
+    font-size: 14px;
+    box-sizing: border-box;
+    background: #f9f9f9;
+}
+
+.inquiry-form-inner .form-control:focus {
+    outline: none;
+    border: none;
+    background: #f0f0f0;
+}
+
+.inquiry-form-inner textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Inquiry Form Buttons */
+.inquiry-form-inner .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin: 5px;
+}
+
+.inquiry-form-inner .btn-primary {
+    background: #4CAF50;
+    color: white;
+}
+
+.inquiry-form-inner .btn-primary:hover {
+    background: #45a049;
+}
+
+.inquiry-form-inner .btn-secondary {
+    background: #e74c3c;
+    color: white;
+}
+
+.inquiry-form-inner .btn-secondary:hover {
+    background: #c0392b;
+}
+
+.inquiry-form-inner .text-center {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Inquiry Detail Container */
+.inquiry-detail-inner {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Inquiry Detail Styles */
+.inquiry-detail-inner h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.inquiry-detail-inner h3 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1.5em;
+}
+
+.inquiry-detail-inner textarea {
+    width: 100%;
+    padding: 10px;
+    border: none; /* 테두리 제거 */
+    border-radius: 0;
+    font-size: 14px;
+    box-sizing: border-box;
+    background: #f9f9f9; /* 입력란과 구분 */
+    resize: vertical;
+    min-height: 150px; /* 적절한 크기 조절 */
+    margin-bottom: 10px;
+}
+
+.inquiry-detail-inner textarea:focus {
+    outline: none;
+    border: none;
+    background: #f0f0f0;
+}
+
+.inquiry-detail-inner button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #4CAF50; /* 초록색 버튼 */
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: block;
+    margin: 0 auto; /* 가운데 정렬 */
+}
+
+.inquiry-detail-inner button:hover {
+    background: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .inquiry-inner, .inquiry-form-inner, .inquiry-detail-inner {
+        margin: 20px;
+        padding: 15px;
+    }
+    
+    .inquiry-inner h2, .inquiry-form-inner h2, .inquiry-detail-inner h2 {
+        font-size: 24px;
+    }
+    
+    .inquiry-inner table, .inquiry-form-inner table {
+        font-size: 12px;
+    }
+    
+    .inquiry-inner table td, .inquiry-form-inner table th, .inquiry-form-inner table td {
+        padding: 8px;
+    }
+    
+    .inquiry-inner table img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .inquiry-inner a:not([href*="/inquiryForm.do"]) {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+    
+    .inquiry-inner a[href*="/inquiryForm.do"] {
+        width: 120px;
+        padding: 6px 15px;
+        font-size: 12px;
+    }
+    
+    .inquiry-form-inner .form-control {
+        font-size: 12px;
+    }
+    
+    .inquiry-form-inner .btn {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+    
+    .inquiry-detail-inner textarea {
+        font-size: 12px;
+        min-height: 120px;
+    }
+    
+    .inquiry-detail-inner button {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+    
+    .pagination {
+        font-size: 12px;
+    }
+    
+    .pagination a, .pagination span {
+        padding: 4px 8px;
+        margin: 0 3px;
+    }
+}

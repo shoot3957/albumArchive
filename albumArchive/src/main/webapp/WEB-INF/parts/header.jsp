@@ -7,6 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${ctx}/css/login.css">
+<link rel="stylesheet" href="${ctx}/css/list.css">
+<link rel="stylesheet" href="${ctx}/css/inquiry.css">
+<link rel="stylesheet" href="${ctx}/css/purchase.css">
+<link rel="stylesheet" href="${ctx}/css/myPage.css">
 <title>albumArchive</title>
 
 <body></body>

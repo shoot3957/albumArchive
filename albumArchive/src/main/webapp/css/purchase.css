@@ -1,0 +1,79 @@
+/* Purchase List Container */
+.purchase-inner {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Purchase List No Reservation */
+.no-reservation {
+    text-align: center;
+    color: #666;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 20px;
+}
+
+/* Purchase List Title */
+.purchase-list {
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+/* Purchase List Table */
+.purchase-inner table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 14px;
+}
+
+.purchase-inner table th {
+    background: #4CAF50; /* 초록색 헤더 */
+    color: white;
+    font-weight: 600;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.purchase-inner table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    color: #555;
+    text-align: center; /* 내용 가운데 정렬 */
+}
+
+.purchase-inner table tr:hover {
+    background: #f5f5f5; /* 마우스 오버 시 배경색 변화 */
+    transition: background 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .purchase-inner {
+        margin: 20px;
+        padding: 15px;
+    }
+    
+    .purchase-list {
+        font-size: 24px;
+    }
+    
+    .no-reservation {
+        font-size: 20px;
+    }
+    
+    .purchase-inner table {
+        font-size: 12px;
+    }
+    
+    .purchase-inner table th, .purchase-inner table td {
+        padding: 8px;
+    }
+}

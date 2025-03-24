@@ -2,7 +2,7 @@
 <%@ include file="../parts/header.jsp"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
-<div class="inner">
+<div class="inquiry-form-inner">
   <h2>문의 작성</h2>
   <form action="${ctx}/insertInquiry.do?id=${id}" method="post" enctype="multipart/form-data">
     <table class="table table-bordered">

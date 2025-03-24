@@ -2,7 +2,7 @@
 <%@ include file="../parts/header.jsp"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
-<div class="inner">
+<div class="purchase-inner">
   <c:choose>
     <c:when test="${empty list}">
       <h2 class="no-reservation">구매 내역이 없습니다</h2>
