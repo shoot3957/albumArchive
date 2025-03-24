@@ -11,11 +11,15 @@ public class CartVO {
     // 기본 생성자
     public CartVO() {}
 
+    public CartVO(int num, int qty) {
+        this.num = num;
+        this.qty = qty;
+    }
     // Getter & Setter
     public int getNum() {
         return num;
     }
-
+    
     public void setNum(int num) {
         this.num = num;
     }

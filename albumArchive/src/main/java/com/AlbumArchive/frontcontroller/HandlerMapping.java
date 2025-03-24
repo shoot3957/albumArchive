@@ -17,6 +17,8 @@ import com.AlbumArchive.controller.album.AlbumSortedByLikes;
 import com.AlbumArchive.controller.album.ArtistListAllController;
 import com.AlbumArchive.controller.cart.AddToCartController;
 import com.AlbumArchive.controller.cart.CartListController;
+import com.AlbumArchive.controller.cart.CartRemoveController;
+import com.AlbumArchive.controller.cart.CartUpdateController;
 import com.AlbumArchive.controller.inquiry.InquiryFormController;
 import com.AlbumArchive.controller.inquiry.InquiryInfoController;
 import com.AlbumArchive.controller.inquiry.InsertInquiryController;
@@ -86,10 +88,10 @@ public class HandlerMapping {
 		
 		// 장바구니 컨트롤러 추가
         mappings.put("/cartAdd.do", new AddToCartController());  // 장바구니 추가
-        mappings.put("/cartList.do", new CartListController()); // 장바구니 목록 조회
-     //   mappings.put("/cartRemove.do", new CartRemoveController()); // 장바구니 항목 삭제
-       // mappings.put("/cartCheckout.do", new CartCheckoutController()); // 결제 컨트롤러
-
+        mappings.put("/cartList.do", new CartListController());   // 장바구니 목록
+        mappings.put("/cartUpdate.do", new CartUpdateController());  // 장바구니 수량 업데이트
+        mappings.put("/cartRemove.do", new CartRemoveController());  // 장바구니 항목 삭제
+        
         mappings.put("/search.do", new SearchController());  // 검색 처리
         mappings.put("/searchAlbumForDropdown.do", new SearchDropdownController());  // 검색 처리
 		
