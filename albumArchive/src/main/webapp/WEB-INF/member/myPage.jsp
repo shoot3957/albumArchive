@@ -2,49 +2,52 @@
 <%@ include file="../parts/header.jsp"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
-<h2 class="member-list">마이페이지</h2>
-<table border="1">
-   <form id="updateForm" action="${ctx}/updateMember.do" method="post">
-    <tr>
-        <td>아이디</td>
-        <td><input type="text" id="id" name="id" value="${m.id}" readonly></td>
-    </tr>
-    <tr>
-        <td>비밀번호</td>
-        <td><input type="password" id="pw" name="pw" value="${m.pw}"></td>
-    </tr>
-    <tr>
-        <td>이름</td>
-        <td><input type="text" id="name" name="name" value="${m.name}" readonly></td>
-    </tr>
-    <tr>
-        <td>주소</td>
-        <td><input type="text" id="address" name="address" value="${m.address}"></td>
-    </tr>
-    <tr>
-        <td>이메일</td>
-        <td><input type="email" id="email" name="email" value="${m.email}"></td>
-    </tr>
-    <tr>
-        <td>번호</td>
-        <td><input type="text" id="phone" name="phone" value="${m.phone}" readonly></td>
-    </tr>
-    <tr>
-        <td>나이</td>
-        <td><input type="number" id="age" name="age" value="${m.age}" readonly></td>
-    </tr>
-    <tr>
-        <td colspan="2" align="center">
-            <input type="submit" id="updateButton" value="정보 수정">
-        </td>
-    </tr>
-	<tr>
-        <td colspan="2" align="center">
-			<a href="/albumArchive/deleteMember.do?id=${m.id}">회원탈퇴</a>           
-        </td>
-    </tr>
-</form>
-</table>
+<div class="member-inner">
+    <h2 class="member-list">마이페이지</h2>
+    <form id="updateForm" action="${ctx}/updateMember.do" method="post">
+        <table border="1">
+            <tr>
+                <td>아이디</td>
+                <td><input type="text" id="id" name="id" value="${m.id}" readonly></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" id="pw" name="pw" value="${m.pw}"></td>
+            </tr>
+            <tr>
+                <td>이름</td>
+                <td><input type="text" id="name" name="name" value="${m.name}" readonly></td>
+            </tr>
+            <tr>
+                <td>주소</td>
+                <td><input type="text" id="address" name="address" value="${m.address}"></td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td><input type="email" id="email" name="email" value="${m.email}"></td>
+            </tr>
+            <tr>
+                <td>번호</td>
+                <td><input type="text" id="phone" name="phone" value="${m.phone}" readonly></td>
+            </tr>
+            <tr>
+                <td>나이</td>
+                <td><input type="number" id="age" name="age" value="${m.age}" readonly></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" id="updateButton" value="정보 수정">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <a href="/albumArchive/deleteMember.do?id=${m.id}">회원탈퇴</a>           
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const updateForm = document.getElementById('updateForm');

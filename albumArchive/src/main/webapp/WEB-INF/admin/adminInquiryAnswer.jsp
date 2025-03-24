@@ -2,7 +2,7 @@
 <%@ include file="../parts/header.jsp"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
-<div class="inner">
+<div class="inquiry-detail-inner">
   <div style="width: 80%; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
     <h2 style="text-align: center; font-size: 2em; margin-bottom: 20px;">${info.title}</h2>
     <div style="font-size: 1.2em; line-height: 1.6; margin-bottom: 30px; padding: 10px; border: 1px solid #eee; border-radius: 3px;">

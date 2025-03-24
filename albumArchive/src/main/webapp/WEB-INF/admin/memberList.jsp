@@ -2,15 +2,14 @@
 <%@ include file="../parts/header.jsp"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
-<div class="inner">
-
+<div class="inner member-container">
   <c:choose>
     <c:when test="${empty memberList}">
       <h2 class="no-reservation">회원이 없습니다!</h2>
     </c:when>
     <c:otherwise>
       <h2 class="member-list">회원 리스트</h2>
-      <table border="1">
+      <table border="1" class="member-table">
         <tr height="40">
           <th width="150" align="center">이름</th>
           <th width="150" align="center">아이디</th>

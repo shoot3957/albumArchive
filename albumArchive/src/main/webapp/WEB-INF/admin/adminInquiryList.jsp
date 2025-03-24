@@ -2,7 +2,7 @@
 <%@ include file="../parts/header.jsp"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
-<div class="inner">
+<div class="inquiry-inner">
   <c:choose>
     <c:when test="${empty list}">
       <h2 class="no-reservation">문의가 없습니다</h2>
@@ -19,16 +19,8 @@
               <img src="${ctx}/${list.img}" alt="문의 이미지" width="100" height="100">
             </td>
             <td align="center">
-              <c:choose>
-                <c:when test="${loginId eq list.user_id or loginId eq 'admin'}">
                    <%-- 본인이거나 admin 일때 상세정보 접근 가능 --%>
                    <a href="${ctx}/adminInquiryAnswer.do?num=${list.num}&id=${loginId}">${list.title}</a>
-                </c:when>
-                <c:otherwise>
-                   <%-- 그 외에는 상세정보 접근 불가 --%>
-                   ${list.title} <%-- 또는 접근 불가 메시지를 표시 --%>
-                </c:otherwise>
-              </c:choose>
             </td>
             <td align="center">${list.user_id}</td>
             <td align="center">${list.info}</td>
@@ -78,10 +70,10 @@
         </c:if>
         <c:forEach var="i" begin="${startPage}" end="${endPage}">
           <c:if test="${i == currentPage}">
-            <span>[${i}]</span>
+            <span>${i}</span>
           </c:if>
           <c:if test="${i != currentPage}">
-            <a href="${ctx}/adminInquiryList.do?page=${i}">[${i}]</a>
+            <a href="${ctx}/adminInquiryList.do?page=${i}">${i}</a>
           </c:if>
         </c:forEach>
         <c:if test="${endPage < totalPages}">

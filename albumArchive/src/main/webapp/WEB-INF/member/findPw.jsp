@@ -39,7 +39,7 @@
                                     <input type="hidden" name="rdCode" id="rdCode" value="${rdCode}">
                                     <input type="hidden" name="myCode" id="myCode" value="0">
                                 </div>
-                                <input type="submit" id="button" value="Send Email">
+                                <input type="submit" id="button" value="이메일 보내기">
                             </form>
                         </td>
                     </tr>
