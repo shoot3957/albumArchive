@@ -2,7 +2,45 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-<mapper namespace="com.AlbumArchive.mybatis.LikesMapper">  
-	
+
+<mapper namespace="com.AlbumArchive.mybatis.LikesMapper">
+
+    <!-- 특정 사용자가 특정 앨범에 좋아요를 눌렀는지 확인 -->
+    <select id="checkLike" resultType="int" parameterType="map">
+        SELECT COUNT(*) FROM likes
+        WHERE album_num = #{albumNum} AND name = #{userId}
+    </select>
+
+    <!-- 좋아요 추가 -->
+    <insert id="addLike" parameterType="map">
+        INSERT INTO likes (album_num, name)
+        VALUES (#{albumNum}, #{userId})
+    </insert>
+
+    <!-- 좋아요 삭제 -->
+    <delete id="removeLike" parameterType="map">
+        DELETE FROM likes
+        WHERE album_num = #{albumNum} AND name = #{userId}
+    </delete>
+
+    <!-- 앨범의 좋아요 수 증가 -->
+    <update id="incrementLikes" parameterType="int">
+        UPDATE album
+        SET likes = likes + 1
+        WHERE num = #{albumNum}
+    </update>
+
+    <!-- 앨범의 좋아요 수 감소 -->
+    <update id="decrementLikes" parameterType="int">
+        UPDATE album
+        SET likes = likes - 1
+        WHERE num = #{albumNum}
+    </update>
+
+    <!-- 앨범의 현재 좋아요 수 조회 -->
+    <select id="getLikesCount" resultType="int" parameterType="int">
+        SELECT likes FROM album
+        WHERE num = #{albumNum}
+    </select>
+
 </mapper>

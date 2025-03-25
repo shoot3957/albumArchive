@@ -5,11 +5,16 @@
 <configuration>
   <properties resource="com/AlbumArchive/mybatis/db.properties"/> 
 
+  <settings>
+    <!-- 컬럼 이름(underscore)과 속성 이름(camelCase) 간 자동 매핑 활성화 -->
+    <setting name="mapUnderscoreToCamelCase" value="true"/>
+  </settings>
+
   <typeAliases>
       <typeAlias type="com.AlbumArchive.VO.CartVO" alias="cart"/>
       <typeAlias type="com.AlbumArchive.VO.MemberVO" alias="member"/>
       <typeAlias type="com.AlbumArchive.VO.AlbumVO" alias="album"/>
-      <typeAlias type="com.AlbumArchive.VO.ArtistVO" alias="aritst"/>
+      <typeAlias type="com.AlbumArchive.VO.ArtistVO" alias="aritst"/> <!-- 오타: "aritst" → "artist"로 수정 권장 -->
       <typeAlias type="com.AlbumArchive.VO.InquiryVO" alias="inquiry"/>
       <typeAlias type="com.AlbumArchive.VO.LikesVO" alias="likes"/>
       <typeAlias type="com.AlbumArchive.VO.PurchaseVO" alias="purchase"/>
