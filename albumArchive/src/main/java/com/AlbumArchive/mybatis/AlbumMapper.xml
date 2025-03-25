@@ -5,48 +5,41 @@
 
 <mapper namespace="com.AlbumArchive.mybatis.AlbumMapper">
 
-	<select id="getAllAlbums"
-		resultType="album">
+	<select id="getAllAlbums" resultType="album">
 		SELECT * FROM album
 		ORDER BY dates DESC
 	</select>
 
-	<select id="getAlbumsByGenre"
-		resultType="album">
+	<select id="getAlbumsByGenre" resultType="album">
 		SELECT * FROM album
 		WHERE category = #{category}
 		ORDER BY
 		dates DESC
 	</select>
 
-	<select id="getAlbumsByLikes"
-		resultType="album">
+	<select id="getAlbumsByLikes" resultType="album">
 		SELECT * FROM album
 		ORDER BY likes DESC
 	</select>
 
-	<select id="getAlbumsByArtist"
-		resultType="album">
+	<select id="getAlbumsByArtist" resultType="album">
 		SELECT * FROM album
 		WHERE artist_num = #{artist_num}
 	</select>
 
-	<select id="getTopLikedAlbums"
-		resultType="album">
+	<select id="getTopLikedAlbums" resultType="album">
 		SELECT * FROM album
 		ORDER BY likes DESC
 		LIMIT 10
 	</select>
 
-	<select id="getOneAlbumInfo"
-		resultType="album" parameterType=" String ">
+	<select id="getOneAlbumInfo" resultType="album" parameterType="string">
 		SELECT * FROM
 		album
 		WHERE name = #{name}
 	</select>
 
-	<select id="getSongList" resultType="song"
-		parameterType="int">
+	<select id="getSongList" resultType="song" parameterType="int">
 		SELECT id, album_num AS albumNum, name
 		FROM song
 		WHERE
@@ -64,8 +57,7 @@
 		WHERE name LIKE #{query}
 	</select>
 
-	<select id="searchAlbumsForDropdown" parameterType="string"
-		resultType="album">
+	<select id="searchAlbumsForDropdown" parameterType="string" resultType="album">
 		SELECT num, name FROM album
 		WHERE name LIKE #{query}
 		LIMIT 5
