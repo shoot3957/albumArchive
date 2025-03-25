@@ -18,6 +18,7 @@
           <th width="150" align="center">이메일</th>
           <th width="150" align="center">번호</th>
           <th width="150" align="center">나이</th>
+          <th width="150" align="center">캐시</th>
           <th width="90" align="center">삭제</th>
         </tr>
         <c:forEach var="member" items="${memberList}">
@@ -29,6 +30,7 @@
             <td align="center">${member.email}</td>
             <td align="center">${member.phone}</td>
             <td align="center">${member.age}</td>
+            <td align="center">${member.money}원</td>
             <td align="center">
               <form action="${ctx}/adminMemberDelete.do" method="post" style="display:inline;">
                 <input type="hidden" name="id" value="${member.id}">

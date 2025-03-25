@@ -8,7 +8,8 @@ CREATE TABLE member (
     address VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
     phone VARCHAR(20) NOT NULL,
-    age INT NOT NULL
+    age INT NOT NULL,
+    money INT NOT NULL DEFAULT 0  -- money 컬럼 추가, 기본값 0으로 설정
 );
 
 -- 아티스트(artist) 테이블
@@ -96,10 +97,11 @@ CREATE TABLE song (
 );
 
 -- 데이터 삽입
-INSERT INTO member (id, pw, name, address, email, phone, age) VALUES
-('user1', 'pass1234', '김민수', '서울시 강남구', 'minsu@example.com', '010-1234-5678', 25),
-('user2', 'abc4321', '이영희', '부산시 해운대구', 'younghee@example.com', '010-9876-5432', 30),
-('user3', 'xyz7890', '박지훈', '대구시 중구', 'jihoon@example.com', '010-5555-6666', 22);
+INSERT INTO member (id, pw, name, address, email, phone, age, money) VALUES
+('user1', 'pass1234', '김민수', '서울시 강남구', 'minsu@example.com', '010-1234-5678', 25, 10000),
+('user2', 'abc4321', '이영희', '부산시 해운대구', 'younghee@example.com', '010-9876-5432', 30, 20000),
+('user3', 'xyz7890', '박지훈', '대구시 중구', 'jihoon@example.com', '010-5555-6666', 22, 15000);
+
 
 INSERT INTO artist (name, img) VALUES
 ('BTS', '/images/artists/bts.jpg'),

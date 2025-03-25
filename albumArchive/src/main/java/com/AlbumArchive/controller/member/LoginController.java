@@ -24,6 +24,7 @@ public class LoginController implements Controller {
 		String pw = request.getParameter("pw");
 
 		String ctx = request.getContextPath();
+		int money = MemberDAO.getInstance().getMyMoney(id);
 		
 		if(id.equals("admin") && pw.equals("admin")) {
 			HttpSession session = request.getSession();
@@ -40,6 +41,7 @@ public class LoginController implements Controller {
 		} else {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginId", id);
+			session.setAttribute("myMoney", money);
 			return "redirect:/main.do";
 		}
 		

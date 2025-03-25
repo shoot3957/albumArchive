@@ -17,7 +17,9 @@
     <select id="isValidEmail" parameterType="String" resultType ="String">
     select id from member where email = #{email}
     </select>
-    
+    <select id="getMyMoney" parameterType="String" resultType="Integer">
+    select money from member where id = #{id}
+    </select>
     <select id="getPw" parameterType="String" resultType = "String">
     select pw from member where email= #{email}
     </select>
@@ -37,6 +39,13 @@
         pw = #{pw},
         address = #{address},
         email = #{email}
+    WHERE
+        id = #{id}
+</update>
+<update id="chargeMoney" parameterType="map">
+    UPDATE member
+    SET
+        money = #{money}
     WHERE
         id = #{id}
 </update>
