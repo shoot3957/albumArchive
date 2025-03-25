@@ -16,10 +16,14 @@ public class CartRemoveController implements Controller {
             throws ServletException, IOException {
         
         int cartId = Integer.parseInt(request.getParameter("cartId"));
-        
+        String userId = request.getParameter("id");
         // 장바구니 항목 삭제
         CartDAO.getInstance().removeFromCart(cartId);
-
-        return "redirect:/cartList.do";  // 장바구니 페이지로 리디렉션
+        response.setContentType("text/html;charset=UTF-8");
+        response.getWriter().write("<script>");
+        response.getWriter().write("alert('장바구니에서 삭제합니다');");
+        response.getWriter().write("window.location.href = 'cartList.do?id=" + userId + "';");
+        response.getWriter().write("</script>");
+        return null;
     }
 }

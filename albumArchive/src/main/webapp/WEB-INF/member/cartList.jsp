@@ -21,14 +21,14 @@
         <p>가격: ${cartItem.price} 원</p>
         
         <!-- 수량 조절 -->
-        <form action="cartUpdate.do" method="post">
+        <form action="cartUpdate.do?id=${loginId}" method="post">
             <input type="hidden" name="cartId" value="${cartItem.num}" />
             <input type="number" name="qty" value="${cartItem.qty}" min="1" />
             <button type="submit">수량 업데이트</button>
         </form>
 
         <!-- 장바구니 항목 삭제 -->
-        <form action="cartRemove.do" method="post">
+        <form action="cartRemove.do?id=${loginId}" method="post">
             <input type="hidden" name="cartId" value="${cartItem.num}" />
             <button type="submit">삭제</button>
         </form>

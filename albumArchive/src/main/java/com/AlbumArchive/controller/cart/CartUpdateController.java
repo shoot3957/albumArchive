@@ -17,23 +17,23 @@ public class CartUpdateController implements Controller {
             throws ServletException, IOException {
 
         // 세션에서 user_id 가져오기
-        HttpSession session = request.getSession();
-        String userId = (String) session.getAttribute("id");
-
+        String userId = request.getParameter("id");
+        
         // 장바구니 수량 업데이트
         int cartId = Integer.parseInt(request.getParameter("cartId"));
         int qty = Integer.parseInt(request.getParameter("qty"));
 
         // 장바구니 수량 업데이트
         CartDAO.getInstance().updateCartQty(cartId, qty);
-        System.out.println("id:"+userId);
-        // 장바구니 목록 페이지로 리디렉션, userId를 URL에 포함
-        if (userId != null) {
-            response.sendRedirect("cartList.do?id=" + userId);  // id 파라미터 추가
-        } else {
-            response.sendRedirect("main.do");  // 로그인되지 않은 경우 메인 페이지로 리디렉션
-        }
-
+        System.out.println("id:" + userId);
+        
+        // JavaScript alert과 리디렉션을 위해 response에 내용 삽입
+        response.setContentType("text/html;charset=UTF-8");
+        response.getWriter().write("<script>");
+        response.getWriter().write("alert('장바구니 수량이 업데이트되었습니다.');");
+        response.getWriter().write("window.location.href = 'cartList.do?id=" + userId + "';");
+        response.getWriter().write("</script>");
+        
         return null;
     }
 }
