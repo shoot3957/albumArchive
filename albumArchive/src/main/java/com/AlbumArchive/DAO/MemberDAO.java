@@ -108,6 +108,37 @@ public class MemberDAO {
 		return m;
 	}
 	
+	public int chargeMoney(int money,String id) {
+		
+		int cnt = 0;
+		
+		Map<String, Object> m = new HashMap<>();
+	    m.put("id", id);
+	    m.put("money", money);
+		
+	    try(SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+			cnt = session.update("chargeMoney",m);
+			session.commit();
+		}catch(Exception e) {
+			System.out.println("chargeMoney 에러");
+			e.printStackTrace();
+		}
+	    return cnt;
+	}
+	
+	public int getMyMoney(String id) {
+		int money = 0;
+		
+		try(SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+			money = session.selectOne("getMyMoney",id);
+		}catch(Exception e) {
+			System.out.println("getMyMoney 에러");
+			e.printStackTrace();
+		}
+		
+		return money;
+	}
+	
 	public void updateMemberInfo(String pw,String address,String email,String id) {
 
 		

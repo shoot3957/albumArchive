@@ -20,6 +20,7 @@ import com.AlbumArchive.controller.cart.CartListController;
 import com.AlbumArchive.controller.inquiry.InquiryFormController;
 import com.AlbumArchive.controller.inquiry.InquiryInfoController;
 import com.AlbumArchive.controller.inquiry.InsertInquiryController;
+import com.AlbumArchive.controller.member.ChargeMoneyController;
 import com.AlbumArchive.controller.member.CheckRdCode;
 import com.AlbumArchive.controller.member.DeleteMemberController;
 import com.AlbumArchive.controller.member.FindIdController;
@@ -59,6 +60,8 @@ public class HandlerMapping {
 		mappings.put("/updateMember.do", new UpdateMemberController());
 		mappings.put("/memberPurchaseList.do", new MemberPurchaseListController());
 		mappings.put("/deleteMember.do", new DeleteMemberController());
+		mappings.put("/chargeMoney.do", new ChargeMoneyController());
+		
 		
 		
 		

@@ -1,4 +1,27 @@
 /* Member Container */
+
+/* Submit Button */
+.member-inner input[type="submit"], /* Submit 버튼 스타일 */
+.member-inner .charge-button { /* 캐시 충전 버튼 스타일 */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #4CAF50; /* 초록색 버튼 */
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: inline-block; /* 한 줄에 배치 */
+    margin: 10px 5px; /* 좌우 마진 추가 */
+    text-decoration: none; /* a 태그 밑줄 제거 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.member-inner input[type="submit"]:hover, /* Submit 버튼 호버 스타일 */
+.member-inner .charge-button:hover { /* 캐시 충전 버튼 호버 스타일 */
+    background: #45a049;
+}
+
 .member-inner {
     max-width: 600px; /* 좁은 폼에 적합한 너비 */
     margin: 50px auto;

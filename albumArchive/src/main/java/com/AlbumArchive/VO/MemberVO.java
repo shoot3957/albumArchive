@@ -8,7 +8,14 @@ public class MemberVO {
 	private String email;
 	private String phone;
 	private int age;
-	public MemberVO(String id, String pw, String name, String address, String email, String phone, int age) {
+	private int money;
+	public int getMoney() {
+		return money;
+	}
+	public void setMoney(int money) {
+		this.money = money;
+	}
+	public MemberVO(String id, String pw, String name, String address, String email, String phone, int age,int money) {
 		super();
 		this.id = id;
 		this.pw = pw;
@@ -17,6 +24,7 @@ public class MemberVO {
 		this.email = email;
 		this.phone = phone;
 		this.age = age;
+		this.money = money;
 	}
 	public MemberVO() {
 	}
