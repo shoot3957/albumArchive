@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>앨범 판매 사이트</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css"> <!-- CSS 연결 -->
-    <script src="${pageContext.request.contextPath}/script/main.js"></script> <!-- JavaScript 연결 -->
 </head>
 <body>
     <!-- 상단 네비게이션 바 -->

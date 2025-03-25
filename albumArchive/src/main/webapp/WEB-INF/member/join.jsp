@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../parts/header.jsp"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
-
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <div class="inner">
   <h1 > 회원가입</h1>
 
@@ -29,7 +29,9 @@
 	</tr>
 	<tr>
 	<td>주소</td>
-	<td><input type="text" name="address" id="address" required /></td>
+	<td><input type="text" name="address" id="address" required />
+    <input type="button" value="주소찾기" class="btn-submit" onclick="sample6_execDaumPostcode()" />
+    </td>
 	</tr>
 	<tr>
 	<td>전화번호</td>

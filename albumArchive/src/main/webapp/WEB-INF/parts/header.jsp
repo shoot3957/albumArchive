@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="${ctx}/css/purchase.css">
     <link rel="stylesheet" href="${ctx}/css/myPage.css">
     <link rel="stylesheet" href="${ctx}/css/header.css">
+    <script src="${pageContext.request.contextPath}/script/main.js"></script> <!-- JavaScript 연결 -->
     <title>albumArchive</title>
 </head>
 <body>

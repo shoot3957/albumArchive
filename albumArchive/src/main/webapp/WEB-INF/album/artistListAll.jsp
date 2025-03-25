@@ -32,7 +32,9 @@
         <!-- 아티스트 목록을 출력 -->
         <c:forEach var="artist" items="${artistList}">
             <div class="artist-item">
-                <img src="${pageContext.request.contextPath}/images/artist/${artist.id}.jpg" alt="${artist.name}" class="artist-img">
+                <a href="${pageContext.request.contextPath}/albumSortedByArtist.do?artist_num=${artist.num}">
+                    <img src="${pageContext.request.contextPath}/images/artists/${artist.name}.jpg" alt="${artist.name}" class="artist-img">
+                </a>
                 <h3>${artist.name}</h3>
             </div>
         </c:forEach>
