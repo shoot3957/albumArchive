@@ -5,62 +5,69 @@
 
 <mapper namespace="com.AlbumArchive.mybatis.AlbumMapper">
 
-	<!-- 앨범 전체 리스트 조회 (등록일 순) -->
-	<select id="getAllAlbums" resultType="album">
+	<select id="getAllAlbums"
+		resultType="album">
 		SELECT * FROM album
-		ORDER BY dates DESC;
+		ORDER BY dates DESC
 	</select>
 
-	<!-- 장르별 앨범 조회 -->
-	<select id="getAlbumsByGenre" resultType="album">
+	<select id="getAlbumsByGenre"
+		resultType="album">
 		SELECT * FROM album
 		WHERE category = #{category}
-		ORDER BY dates DESC;
+		ORDER BY
+		dates DESC
 	</select>
 
-	<select id="getAlbumsByLikes" resultType="album">
-		SELECT * FROM album
-		ORDER BY likes DESC;
-	</select>
-
-	<select id="getAlbumsByArtist" resultType="album">
-		SELECT * FROM album
-		where artist_num = #{artist_num};
-	</select>
-
-	<!-- 좋아요 순으로 상위 10개 앨범 가져오기 -->
-	<select id="getTopLikedAlbums" resultType="album">
+	<select id="getAlbumsByLikes"
+		resultType="album">
 		SELECT * FROM album
 		ORDER BY likes DESC
-		LIMIT 10;
 	</select>
 
-	<!-- 앨범 하나 가져오기 -->
-	<select id="getOneAlbumInfo" resultType="album" parameterType="String">
+	<select id="getAlbumsByArtist"
+		resultType="album">
 		SELECT * FROM album
+		WHERE artist_num = #{artist_num}
+	</select>
+
+	<select id="getTopLikedAlbums"
+		resultType="album">
+		SELECT * FROM album
+		ORDER BY likes DESC
+		LIMIT 10
+	</select>
+
+	<select id="getOneAlbumInfo"
+		resultType="album" parameterType=" String ">
+		SELECT * FROM
+		album
 		WHERE name = #{name}
 	</select>
 
-	<!-- 앨범의 수록곡 가져오기 -->
-	<select id="getSongList" resultType="List" parameterType="int">
-		SELECT * FROM song
-		WHERE  album_num = #{num}
+	<select id="getSongList" resultType="song"
+		parameterType="int">
+		SELECT id, album_num AS albumNum, name
+		FROM song
+		WHERE
+		album_num = #{album_num}
 	</select>
-	
+
 	<delete id="albumDelete">
-		delete from album
-		where num = #{num}
+		DELETE FROM album
+		WHERE num = #{num}
 	</delete>
-	
-	    <!-- 검색 쿼리 -->
-    <select id="searchAlbums" resultType="com.AlbumArchive.VO.AlbumVO">
-        SELECT * FROM album
-        WHERE name LIKE #{query}
-    </select>
-    
-    <select id="searchAlbumsForDropdown" parameterType="string" resultType="com.AlbumArchive.VO.AlbumVO">
-        SELECT num, name FROM album
-        WHERE name LIKE #{query}
-        LIMIT 5  <!-- 원하는 수만큼만 검색 결과를 제한 -->
-    </select>
+
+	<select id="searchAlbums"
+		resultType="album">
+		SELECT * FROM album
+		WHERE name LIKE #{query}
+	</select>
+
+	<select id="searchAlbumsForDropdown" parameterType="string"
+		resultType="album">
+		SELECT num, name FROM album
+		WHERE name LIKE #{query}
+		LIMIT 5
+	</select>
 </mapper>

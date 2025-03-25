@@ -1,0 +1,48 @@
+package com.AlbumArchive.controller.member;
+
+import com.AlbumArchive.DAO.AlbumDAO;
+import com.AlbumArchive.DAO.LikesDAO;
+import com.AlbumArchive.VO.AlbumVO;
+import com.AlbumArchive.VO.SongVO;
+import com.AlbumArchive.frontcontroller.Controller;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+
+public class AlbumDetailController implements Controller {
+    private AlbumDAO albumDAO;
+    private LikesDAO likesDAO;
+
+    public AlbumDetailController() {
+        this.albumDAO = AlbumDAO.getInstance();
+        this.likesDAO = LikesDAO.getInstance();
+    }
+
+    @Override
+    public String requestHandler(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String name = request.getParameter("albumName");
+        System.out.println("앨범 이름: " + name);
+
+        AlbumVO album = albumDAO.getOneAlbum(name);
+        if (album == null) {
+            System.out.println("앨범을 찾을 수 없습니다.");
+            return "error";
+        }
+
+        System.out.println("앨범 ID: " + album.getNum());
+        List<SongVO> songs = albumDAO.getSongList(album.getNum());
+
+        String userId = (String) request.getSession().getAttribute("userId");
+        boolean isLiked = userId != null && likesDAO.checkLike(userId, album.getNum());
+
+        request.setAttribute("album", album);
+        request.setAttribute("songs", songs);
+        request.setAttribute("isLiked", isLiked);
+
+        return "album/albumDetail";
+    }
+}

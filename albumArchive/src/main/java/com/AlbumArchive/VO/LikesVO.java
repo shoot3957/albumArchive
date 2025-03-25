@@ -1,15 +1,17 @@
 package com.AlbumArchive.VO;
 
 public class LikesVO {
-
     private int num;       // 좋아요 번호
-    private String album_id; // 앨범 ID
+    private int albumNum;  // 앨범 번호
     private String name;   // 회원 ID
 
-    // 기본 생성자
     public LikesVO() {}
 
-    // Getter & Setter
+    public LikesVO(int albumNum, String name) {
+        this.albumNum = albumNum;
+        this.name = name;
+    }
+
     public int getNum() {
         return num;
     }
@@ -18,12 +20,12 @@ public class LikesVO {
         this.num = num;
     }
 
-    public String getAlbum_id() {
-        return album_id;
+    public int getAlbumNum() {
+        return albumNum;
     }
 
-    public void setAlbum_id(String album_id) {
-        this.album_id = album_id;
+    public void setAlbumNum(int albumNum) {
+        this.albumNum = albumNum;
     }
 
     public String getName() {
@@ -36,6 +38,6 @@ public class LikesVO {
 
     @Override
     public String toString() {
-        return "LikesVO [num=" + num + ", album_id=" + album_id + ", name=" + name + "]";
+        return "LikesVO [num=" + num + ", albumNum=" + albumNum + ", name=" + name + "]";
     }
 }
