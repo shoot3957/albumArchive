@@ -15,7 +15,7 @@ public class CartDAO {
     public static CartDAO getInstance() {
         if (instance == null) {
             instance = new CartDAO();
-        }	
+        }
         return instance;
     }
 
@@ -47,7 +47,17 @@ public class CartDAO {
             e.printStackTrace();
         }
     }
-    
+
+    // 유저의 장바구니 전체 삭제
+    public void removeAllFromCartByUserId(String userId) {
+        try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession(true)) {
+            session.delete("com.AlbumArchive.mybatis.CartMapper.removeAllFromCartByUserId", userId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 장바구니 수량 업데이트
     public void updateCartQty(int cartId, int qty) {
         try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession(true)) {
             session.update("com.AlbumArchive.mybatis.CartMapper.updateCartQty", new CartVO(cartId, qty));

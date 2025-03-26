@@ -18,8 +18,8 @@ public class CartListController implements Controller {
             throws ServletException, IOException {
         
         // 사용자가 로그인한 상태에서 user_id를 받아옴
-    	String id = request.getParameter("id");
-    	System.out.println("list왔다감");
+        String id = request.getParameter("id");
+        System.out.println("list왔다감");
         if (id == null) {
             response.sendRedirect("main.do");
             return null;

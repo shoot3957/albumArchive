@@ -40,7 +40,7 @@
                                     <input type="hidden" name="myCode" id="myCode" value="0">
                                 </div>
                                 <input type="submit" id="button" value="이메일 보내기">
-                            </form>
+                            </f	orm>
                         </td>
                     </tr>
                 </c:if>

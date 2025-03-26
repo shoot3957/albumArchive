@@ -2,12 +2,47 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-<mapper namespace="com.AlbumArchive.mybatis.PurchaseMapper">  
-	<select id="getPurchaseList" resultType="purchase">
-	select * from purchase
-	</select>
-	<select id="getMemberPurchaseList" resultType="purchase">
-	select * from purchase where user_id = #{id}
-	</select>
+
+<mapper namespace="com.AlbumArchive.mybatis.PurchaseMapper">
+
+    <!-- resultMap 정의 -->
+    <resultMap id="purchaseResultMap" type="com.AlbumArchive.VO.PurchaseVO">
+        <result property="num" column="num"/>
+        <result property="user_id" column="user_id"/>
+        <result property="total_price" column="total_price"/>
+        <result property="total_qty" column="total_qty"/>
+        <result property="dday" column="dday"/>
+        <result property="album_name" column="album_name"/>
+        <result property="img" column="img"/>
+    </resultMap>
+
+    <!-- 모든 구매 내역 조회 -->
+    <select id="getPurchaseList" resultMap="purchaseResultMap">
+        SELECT p.num, 
+               p.user_id, 
+               p.total_price, 
+               p.total_qty, 
+               p.dday, 
+               a.name AS album_name, 
+               a.img 
+        FROM purchase AS p 
+        INNER JOIN album AS a 
+        ON p.album_num = a.num
+    </select>
+
+    <!-- 특정 사용자의 구매 내역 조회 -->
+    <select id="getMemberPurchaseList" resultMap="purchaseResultMap">
+        SELECT p.num, 
+               p.user_id, 
+               p.total_price, 
+               p.total_qty, 
+               p.dday, 
+               a.name AS album_name, 
+               a.img 
+        FROM purchase AS p 
+        INNER JOIN album AS a 
+        ON p.album_num = a.num 
+        WHERE user_id = #{id}
+    </select>
+
 </mapper>

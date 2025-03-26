@@ -18,11 +18,15 @@ public class MemberPurchaseListController implements Controller{
 			throws ServletException, IOException {
 
 		String id = request.getParameter("id");
+		System.out.println(id);
 		
 		ArrayList<PurchaseVO> list = new ArrayList<PurchaseVO>();
 		
 		list = (ArrayList<PurchaseVO>) PurchaseDAO.getInstance().getMemberPurchaseList(id);
 		request.setAttribute("list", list);
+		
+		System.out.println("Purchase List: " + list);
+
 		
 		return "purchase/adminPurchaseList";
 	}

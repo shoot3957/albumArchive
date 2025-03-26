@@ -20,7 +20,7 @@ public class MyPageController implements Controller{
 		String id = request.getParameter("id");
 	    System.out.println("id = " + id);
 	    
-	    MemberVO m = MemberDAO.getInstance().getMemerInfo(id);
+	    MemberVO m = MemberDAO.getInstance().getMemberInfo(id);
 	    request.setAttribute("m", m);
 	    
 	    return "member/myPage";

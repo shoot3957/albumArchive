@@ -7,6 +7,7 @@ public class CartVO {
     private String user_id;  // 회원 ID
     private int price;      // 가격
     private int qty;        // 수량
+    private String name;    // 앨범 이름 추가
 
     // 기본 생성자
     public CartVO() {}
@@ -15,11 +16,12 @@ public class CartVO {
         this.num = num;
         this.qty = qty;
     }
+
     // Getter & Setter
     public int getNum() {
         return num;
     }
-    
+
     public void setNum(int num) {
         this.num = num;
     }
@@ -56,8 +58,16 @@ public class CartVO {
         this.qty = qty;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
-        return "CartVO [num=" + num + ", album_num=" + album_num+ ", user_id=" + user_id + ", price=" + price + ", qty=" + qty + "]";
+        return "CartVO [num=" + num + ", album_num=" + album_num + ", user_id=" + user_id + ", price=" + price + ", qty=" + qty + ", name=" + name + "]";
     }
 }

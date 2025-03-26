@@ -95,7 +95,7 @@ public class MemberDAO {
 		return pw;
 	}
 	
-	public MemberVO getMemerInfo(String id) {
+	public MemberVO getMemberInfo(String id) {
 		MemberVO m = new MemberVO();
 		
 		try(SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
@@ -157,5 +157,17 @@ public class MemberDAO {
 		}
 		
 	}
+	
+    public void updateMemberMoney(String userId, int newMoney) {
+        try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession(true)) {
+            // money 차감 쿼리 호출
+            session.update("com.AlbumArchive.mybatis.MemberMapper.updateMemberMoney", new HashMap<String, Object>() {{
+                put("userId", userId);
+                put("newMoney", newMoney);
+            }});
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }

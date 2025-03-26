@@ -1,12 +1,14 @@
 package com.AlbumArchive.DAO;
 
-import com.AlbumArchive.util.MybatisConfig;
-import com.AlbumArchive.VO.AlbumVO;
-import com.AlbumArchive.VO.SongVO;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.AlbumArchive.VO.AlbumVO;
+import com.AlbumArchive.VO.SongVO;
+import com.AlbumArchive.util.MybatisConfig;
 
 public class AlbumDAO {
 
@@ -120,4 +122,19 @@ public class AlbumDAO {
             return null;
         }
     }
+ // AlbumDAO에서 updateAlbumQty 메서드 확인
+    public void updateAlbumQty(String albumNum, int qty) {
+        try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession(true)) {
+            // album 테이블에서 수량을 업데이트
+            session.update("com.AlbumArchive.mybatis.AlbumMapper.updateAlbumQty", 
+                new HashMap<String, Object>() {{
+                    put("albumNum", albumNum);  // 앨범 번호
+                    put("qty", qty);            // 구매한 수량
+                }}
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

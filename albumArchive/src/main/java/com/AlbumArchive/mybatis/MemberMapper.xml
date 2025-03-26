@@ -49,4 +49,9 @@
     WHERE
         id = #{id}
 </update>
+<update id="updateMemberMoney" parameterType="map">
+    UPDATE member
+    SET money = #{newMoney}
+    WHERE id = #{userId}
+</update>
 </mapper>

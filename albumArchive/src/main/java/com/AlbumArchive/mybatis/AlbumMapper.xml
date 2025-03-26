@@ -62,4 +62,9 @@
 		WHERE name LIKE #{query}
 		LIMIT 5
 	</select>
+	<update id="updateAlbumQty" parameterType="map">
+        UPDATE album
+        SET total_qty = total_qty - #{qty}
+        WHERE num = #{albumNum}
+    </update>
 </mapper>

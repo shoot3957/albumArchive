@@ -17,7 +17,7 @@
 <c:forEach var="cartItem" items="${cartList}">
     <div class="cart-item">
         <img src="${pageContext.request.contextPath}/images/${cartItem.album_num}.jpg" alt="${cartItem.album_num}" class="cart-item-img">
-        <h3>${cartItem.album_num}</h3>
+        <h3>${cartItem.name}</h3>
         <p>가격: ${cartItem.price} 원</p>
         
         <!-- 수량 조절 -->
@@ -37,6 +37,12 @@
         <p>총 금액: ${cartItem.price * cartItem.qty} 원</p>
     </div>
 </c:forEach>
+
+<!-- 구매하기 버튼 -->
+<form action="checkout.do?id=${loginId}" method="post">
+    <button type="submit">구매하기</button>
+</form>
+
 
 </body>
 </html>

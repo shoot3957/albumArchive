@@ -26,8 +26,9 @@ public class JoinController implements Controller {
 		String phone = request.getParameter("phone");
 		String address = request.getParameter("address");
 		int age = Integer.parseInt(request.getParameter("age"));
+		int money = 0;
 		
-		MemberVO m = new MemberVO(id,pw,name,address,email,phone,age);
+		MemberVO m = new MemberVO(id,pw,name,address,email,phone,age,money);
 		int cnt = MemberDAO.getInstance().memberJoin(m);
 		System.out.println("cnt = " + cnt);
 		if(cnt > 0) {

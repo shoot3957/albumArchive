@@ -20,10 +20,13 @@ import com.AlbumArchive.controller.cart.AddToCartController;
 import com.AlbumArchive.controller.cart.CartListController;
 import com.AlbumArchive.controller.cart.CartRemoveController;
 import com.AlbumArchive.controller.cart.CartUpdateController;
+import com.AlbumArchive.controller.cart.CheckoutController;
+import com.AlbumArchive.controller.cart.ProcessPurchaseController;
 import com.AlbumArchive.controller.inquiry.InquiryFormController;
 import com.AlbumArchive.controller.inquiry.InquiryInfoController;
 import com.AlbumArchive.controller.inquiry.InsertInquiryController;
 import com.AlbumArchive.controller.member.AlbumDetailController;
+import com.AlbumArchive.controller.member.ChargeMoneyController;
 import com.AlbumArchive.controller.member.CheckRdCode;
 import com.AlbumArchive.controller.member.DeleteMemberController;
 import com.AlbumArchive.controller.member.FindIdController;
@@ -61,6 +64,7 @@ public class HandlerMapping {
         mappings.put("/updateMember.do", new UpdateMemberController());
         mappings.put("/memberPurchaseList.do", new MemberPurchaseListController());
         mappings.put("/deleteMember.do", new DeleteMemberController());
+        mappings.put("/chargeMoney.do", new ChargeMoneyController());
         
         // 앨범 컨트롤러
         mappings.put("/albumListAll.do", new AlbumListAllController());
@@ -88,7 +92,8 @@ public class HandlerMapping {
         mappings.put("/cartList.do", new CartListController());
         mappings.put("/cartUpdate.do", new CartUpdateController());
         mappings.put("/cartRemove.do", new CartRemoveController());
-        
+        mappings.put("/checkout.do", new CheckoutController());
+        mappings.put("/processPurchase.do", new ProcessPurchaseController());        
         // 검색 컨트롤러
         mappings.put("/search.do", new SearchController());
         mappings.put("/searchAlbumForDropdown.do", new SearchDropdownController());

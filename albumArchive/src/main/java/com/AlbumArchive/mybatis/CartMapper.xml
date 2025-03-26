@@ -9,9 +9,13 @@
     </insert>
 
     <!-- 특정 유저의 장바구니 목록 조회 -->
-    <select id="getCartList" parameterType="string" resultType="com.AlbumArchive.VO.CartVO">
-        SELECT * FROM cart WHERE user_id = #{userId}
-    </select>
+  <select id="getCartList" parameterType="string" resultType="com.AlbumArchive.VO.CartVO">
+    SELECT c.album_num, c.user_id, c.price, c.qty, a.name
+    FROM cart AS c
+    JOIN album AS a ON c.album_num = a.num
+    WHERE c.user_id = #{user_id}
+</select>
+
 
     <!-- 장바구니에서 앨범 삭제 -->
     <delete id="removeFromCart" parameterType="int">
@@ -24,5 +28,10 @@
         SET qty = #{qty} 
         WHERE num = #{num}
     </update>
+    
+        <!-- 유저의 모든 장바구니 항목 삭제 -->
+    <delete id="removeAllFromCartByUserId" parameterType="string">
+        DELETE FROM cart WHERE user_id = #{userId}
+    </delete>
 </mapper>
 
