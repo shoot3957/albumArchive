@@ -16,9 +16,6 @@
         <c:forEach var="list" items="${list}">
           <tr>
             <td align="center">
-              <img src="${ctx}/${list.img}" alt="문의 이미지" width="100" height="100">
-            </td>
-            <td align="center">
                    <%-- 본인이거나 admin 일때 상세정보 접근 가능 --%>
                    <a href="${ctx}/adminInquiryAnswer.do?num=${list.num}&id=${loginId}">${list.title}</a>
             </td>
