@@ -96,13 +96,14 @@
     align-items: center;
     gap: 15px;
     flex-shrink: 0;
+    background: none;
 }
 
 .nav-links a {
     color: #4CAF50;
     text-decoration: none;
-    font-size: 16px;
-    padding: 8px 15px;
+    font-size: 13px;
+    padding: 5px 8px;
     transition: color 0.3s ease, background 0.3s ease;
 }
 

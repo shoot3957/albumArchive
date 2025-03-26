@@ -95,20 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
              pwInput.style.border = '';
         }
 
-        // 주소 유효성 검사
-        if (!addressInput.value) {
-            alert('주소를 입력해주세요');
-            addressInput.focus();
-            pwInput.style.border = '2px solid red';
-            return;
-        } else if (!/^[가-힣]+시\s*[가-힣]+구$/.test(addressInput.value)) {
-            alert('주소는 "XX시 XX구" 형식이어야 합니다 (예: 서울시 강남구)');
-            addressInput.focus();
-            pwInput.style.border = '2px solid red';
-            return;
-        } else {
-            pwInput.style.border = '';
-        }
+
 
         // 이메일 유효성 검사
         if (!emailInput.value) {

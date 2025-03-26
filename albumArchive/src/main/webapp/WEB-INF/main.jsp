@@ -11,23 +11,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css"> <!-- CSS 연결 -->
 </head>
 <body>
-    <!-- 상단 네비게이션 바 -->
-    <header>
-        <div class="header-left">
-            <button>로그인</button>
-        </div>
-        <!-- 검색 폼 추가 -->
-        <div class="header-search">
-            <form id="searchForm" action="${ctx}/search.do" method="get">
-                <input type="text" id="searchQuery" name="query" placeholder="앨범 검색" required>
-                <button type="submit">검색</button>
-                <div id="searchResults" class="dropdown-content"></div>
-            </form>
-        </div>
-        <div class="header-right">
-            <button>메뉴</button>
-        </div>
-    </header>
 
     <!-- 네비게이션 메뉴 -->
     <nav>
@@ -80,7 +63,7 @@
                 <div class="slider">
                     <c:forEach var="album" items="${topLikedAlbums}">
                         <a href="albumDetail.do?albumName=${album.name}">
-                            <img src="${pageContext.request.contextPath}${album.img}" alt="${album.name}"> <!-- 이미지 경로 수정 -->
+                            <img src="${pageContext.request.contextPath}/images/albums/dynamite.jpg" alt="${album.name}"> <!-- 이미지 경로 수정 -->
                         </a>
                     </c:forEach>
                 </div>
@@ -88,12 +71,7 @@
         </section>
     </div>
 
-    <footer>
-        <p>앨범 판매 사이트 &copy; 2025</p>
-    </footer>
-
     <script src="${pageContext.request.contextPath}/script/slider.js"></script> <!-- 슬라이드쇼 JS -->
 </body>
 </html>
-
 <%@ include file="parts/footer.jsp"%>

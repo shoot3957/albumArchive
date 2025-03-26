@@ -26,6 +26,16 @@ public class MemberVO {
 		this.age = age;
 		this.money = money;
 	}
+	public MemberVO(String id, String pw, String name, String address, String email, String phone, int age) {
+		super();
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.address = address;
+		this.email = email;
+		this.phone = phone;
+		this.age = age;
+	}
 	public MemberVO() {
 	}
 	public String getId() {
