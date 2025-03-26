@@ -37,70 +37,77 @@ import com.AlbumArchive.controller.member.RdCodeResultController;
 import com.AlbumArchive.controller.member.UpdateMemberController;
 import com.AlbumArchive.controller.member.VaildIdAjaxController;
 import com.AlbumArchive.controller.member.ValidEmailAjaxController;
+import com.AlbumArchive.controller.review.ReviewDeleteController;
+import com.AlbumArchive.controller.review.ReviewLisetController;
+import com.AlbumArchive.controller.review.ReviewUpdateController;
 import com.AlbumArchive.controller.search.SearchController;
 import com.AlbumArchive.controller.search.SearchDropdownController;
 
 public class HandlerMapping {
-    private HashMap<String, Controller> mappings;
+	private HashMap<String, Controller> mappings;
 
-    public HandlerMapping() {
-        mappings = new HashMap<String, Controller>();
+	public HandlerMapping() {
+		mappings = new HashMap<String, Controller>();
 
-        // 멤버 컨트롤러
-        mappings.put("/main.do", new MainController());
-        mappings.put("/join.do", new JoinController());
-        mappings.put("/login.do", new LoginController());
-        mappings.put("/vaildIdAjax.do", new VaildIdAjaxController());
-        mappings.put("/logout.do", new LogoutController());
-        mappings.put("/findId.do", new FindIdController());
-        mappings.put("/findPw.do", new FindPwController());
-        mappings.put("/validEmailAjax.do", new ValidEmailAjaxController());
-        mappings.put("/checkRdCode.do", new CheckRdCode());
-        mappings.put("/rdCodeResult.do", new RdCodeResultController());
-        mappings.put("/myPage.do", new MyPageController());
-        mappings.put("/updateMember.do", new UpdateMemberController());
-        mappings.put("/memberPurchaseList.do", new MemberPurchaseListController());
-        mappings.put("/deleteMember.do", new DeleteMemberController());
-        
-        // 앨범 컨트롤러
-        mappings.put("/albumListAll.do", new AlbumListAllController());
-        mappings.put("/albumSortedByGenre.do", new AlbumSortedByGenre());
-        mappings.put("/albumSortedByLikes.do", new AlbumSortedByLikes());
-        mappings.put("/albumSortedByArtist.do", new AlbumSortedByArtist());
-        mappings.put("/artistListAll.do", new ArtistListAllController());
-        
-        // 관리자 컨트롤러
-        mappings.put("/adminMemberList.do", new AdminMemberListController());
-        mappings.put("/adminMemberDelete.do", new AdminMemberDeleteController());
-        mappings.put("/adminPurchaseList.do", new AdminPurchaseListController());
-        mappings.put("/adminInquiryList.do", new AdminInquiryListController());
-        mappings.put("/adminInquiryAnswer.do", new AdminInquiryAnswerController());
-        mappings.put("/adminSendAnswer.do", new AdminInquirySendAnswerController());
-        mappings.put("/adminDeleteInquiry.do", new AdminDeleteInquiryController());
-        
-        // 문의 컨트롤러
-        mappings.put("/inquiryForm.do", new InquiryFormController());
-        mappings.put("/insertInquiry.do", new InsertInquiryController());
-        mappings.put("/inquiryInfo.do", new InquiryInfoController());
-        
-        // 장바구니 컨트롤러
-        mappings.put("/cartAdd.do", new AddToCartController());
-        mappings.put("/cartList.do", new CartListController());
-        mappings.put("/cartUpdate.do", new CartUpdateController());
-        mappings.put("/cartRemove.do", new CartRemoveController());
-        
-        // 검색 컨트롤러
-        mappings.put("/search.do", new SearchController());
-        mappings.put("/searchAlbumForDropdown.do", new SearchDropdownController());
-        
-        // 앨범 상세 컨트롤러
-        mappings.put("/albumDetail.do", new AlbumDetailController());
-        
-        // 좋아요 컨트롤러 추가
-        mappings.put("/like.do", new LikesController());
-    }
+		// 멤버 컨트롤러
+		mappings.put("/main.do", new MainController());
+		mappings.put("/join.do", new JoinController());
+		mappings.put("/login.do", new LoginController());
+		mappings.put("/vaildIdAjax.do", new VaildIdAjaxController());
+		mappings.put("/logout.do", new LogoutController());
+		mappings.put("/findId.do", new FindIdController());
+		mappings.put("/findPw.do", new FindPwController());
+		mappings.put("/validEmailAjax.do", new ValidEmailAjaxController());
+		mappings.put("/checkRdCode.do", new CheckRdCode());
+		mappings.put("/rdCodeResult.do", new RdCodeResultController());
+		mappings.put("/myPage.do", new MyPageController());
+		mappings.put("/updateMember.do", new UpdateMemberController());
+		mappings.put("/memberPurchaseList.do", new MemberPurchaseListController());
+		mappings.put("/deleteMember.do", new DeleteMemberController());
 
-    public Controller getController(String key) {
-        return mappings.get(key);
-    }
+		// 앨범 컨트롤러
+		mappings.put("/albumListAll.do", new AlbumListAllController());
+		mappings.put("/albumSortedByGenre.do", new AlbumSortedByGenre());
+		mappings.put("/albumSortedByLikes.do", new AlbumSortedByLikes());
+		mappings.put("/albumSortedByArtist.do", new AlbumSortedByArtist());
+		mappings.put("/artistListAll.do", new ArtistListAllController());
+
+		// 관리자 컨트롤러
+		mappings.put("/adminMemberList.do", new AdminMemberListController());
+		mappings.put("/adminMemberDelete.do", new AdminMemberDeleteController());
+		mappings.put("/adminPurchaseList.do", new AdminPurchaseListController());
+		mappings.put("/adminInquiryList.do", new AdminInquiryListController());
+		mappings.put("/adminInquiryAnswer.do", new AdminInquiryAnswerController());
+		mappings.put("/adminSendAnswer.do", new AdminInquirySendAnswerController());
+		mappings.put("/adminDeleteInquiry.do", new AdminDeleteInquiryController());
+
+		// 문의 컨트롤러
+		mappings.put("/inquiryForm.do", new InquiryFormController());
+		mappings.put("/insertInquiry.do", new InsertInquiryController());
+		mappings.put("/inquiryInfo.do", new InquiryInfoController());
+
+		// 장바구니 컨트롤러
+		mappings.put("/cartAdd.do", new AddToCartController());
+		mappings.put("/cartList.do", new CartListController());
+		mappings.put("/cartUpdate.do", new CartUpdateController());
+		mappings.put("/cartRemove.do", new CartRemoveController());
+
+		// 검색 컨트롤러
+		mappings.put("/search.do", new SearchController());
+		mappings.put("/searchAlbumForDropdown.do", new SearchDropdownController());
+
+		// 앨범 상세 컨트롤러
+		mappings.put("/albumDetail.do", new AlbumDetailController());
+
+		// 좋아요 컨트롤러 추가
+		mappings.put("/like.do", new LikesController());
+
+		mappings.put("/review.do", new ReviewLisetController());
+		mappings.put("/reviewUpdate.do", new ReviewUpdateController());
+		mappings.put("/reviewDelete.do", new ReviewDeleteController());
+	}
+
+	public Controller getController(String key) {
+		return mappings.get(key);
+	}
 }

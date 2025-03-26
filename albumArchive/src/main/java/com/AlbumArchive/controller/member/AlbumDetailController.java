@@ -2,8 +2,10 @@ package com.AlbumArchive.controller.member;
 
 import com.AlbumArchive.DAO.AlbumDAO;
 import com.AlbumArchive.DAO.LikesDAO;
+import com.AlbumArchive.DAO.ReviewDAO;
 import com.AlbumArchive.VO.AlbumVO;
 import com.AlbumArchive.VO.SongVO;
+import com.AlbumArchive.VO.ReviewVO;
 import com.AlbumArchive.frontcontroller.Controller;
 
 import jakarta.servlet.ServletException;
@@ -15,10 +17,12 @@ import java.util.List;
 public class AlbumDetailController implements Controller {
     private AlbumDAO albumDAO;
     private LikesDAO likesDAO;
+    private ReviewDAO reviewDAO;
 
     public AlbumDetailController() {
         this.albumDAO = AlbumDAO.getInstance();
         this.likesDAO = LikesDAO.getInstance();
+        this.reviewDAO = ReviewDAO.getInstance();
     }
 
     @Override
@@ -35,13 +39,16 @@ public class AlbumDetailController implements Controller {
 
         System.out.println("앨범 ID: " + album.getNum());
         List<SongVO> songs = albumDAO.getSongList(album.getNum());
+        List<ReviewVO> reviews = reviewDAO.getReviewsByAlbum(album.getNum());
 
         String userId = (String) request.getSession().getAttribute("userId");
         boolean isLiked = userId != null && likesDAO.checkLike(userId, album.getNum());
 
         request.setAttribute("album", album);
         request.setAttribute("songs", songs);
+        request.setAttribute("reviews", reviews);
         request.setAttribute("isLiked", isLiked);
+        request.setAttribute("loginId", userId);
 
         return "album/albumDetail";
     }
