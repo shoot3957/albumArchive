@@ -3,6 +3,7 @@ package com.AlbumArchive.VO;
 public class PurchaseVO {
 
     private int num;              // 구매 번호
+    private int album_num;
     private String album_name;    // 앨범 이름
     private String user_id;       // 사용자 아이디
     private int total_price;      // 총 가격
@@ -14,8 +15,9 @@ public class PurchaseVO {
     public PurchaseVO() {}
 
     // 모든 필드를 받는 생성자
-    public PurchaseVO(int num, String album_name, String user_id, int total_price, String dday, int total_qty, String img) {
+    public PurchaseVO(int num, int album_num, String album_name, String user_id, int total_price, String dday, int total_qty, String img) {
         this.num = num;
+        this.album_num = album_num;
         this.album_name = album_name;
         this.user_id = user_id;
         this.total_price = total_price;
@@ -23,8 +25,16 @@ public class PurchaseVO {
         this.total_qty = total_qty;
         this.img = img;
     }
+    
+    public PurchaseVO(int album_num, String user_id, int total_price, String dday, int total_qty) {
+		this.album_num = album_num;
+		this.user_id = user_id;
+		this.total_price = total_price;
+		this.dday = dday;
+		this.total_qty = total_qty;
+	}
 
-    // Getter & Setter
+	// Getter & Setter
     public int getNum() {
         return num;
     }

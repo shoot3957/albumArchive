@@ -123,18 +123,29 @@ public class AlbumDAO {
         }
     }
  // AlbumDAO에서 updateAlbumQty 메서드 확인
-    public void updateAlbumQty(String albumNum, int qty) {
+    public void updateAlbumQty(int albumNum, int qty) {
         try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession(true)) {
             // album 테이블에서 수량을 업데이트
             session.update("com.AlbumArchive.mybatis.AlbumMapper.updateAlbumQty", 
                 new HashMap<String, Object>() {{
-                    put("albumNum", albumNum);  // 앨범 번호
+                    put("albumNum", albumNum);  // 앨범 번호 (int)
                     put("qty", qty);            // 구매한 수량
                 }}
             );
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    
+    public String getAlbumImage(int albumNum) {
+        String albumImage = null;
+        try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+            albumImage = session.selectOne("com.AlbumArchive.mybatis.AlbumMapper.getAlbumImage", albumNum);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return albumImage;
     }
 
 }

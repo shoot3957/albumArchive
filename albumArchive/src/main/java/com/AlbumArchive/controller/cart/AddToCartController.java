@@ -23,13 +23,13 @@ public class AddToCartController implements Controller {
         }
 
         // 요청 파라미터에서 앨범 ID, 가격, 수량을 받아옴
-        String album_num = request.getParameter("album_num");
+        int album_num = Integer.parseInt(request.getParameter("album_num"));
         int price = Integer.parseInt(request.getParameter("price"));
         int qty = Integer.parseInt(request.getParameter("qty"));
 
         // CartVO 객체 생성
         CartVO cart = new CartVO();
-        cart.setAlbum_num(album_num);
+        cart.setAlbumNum(album_num);
         cart.setUser_id(userId);
         cart.setPrice(price);
         cart.setQty(qty);

@@ -3,8 +3,8 @@ package com.AlbumArchive.VO;
 public class CartVO {
 
     private int num;        // 장바구니 번호
-    private String album_num; // 앨범 ID
-    private String user_id;  // 회원 ID
+    private int albumNum; // 앨범 ID
+    private String userId;  // 회원 ID
     private int price;      // 가격
     private int qty;        // 수량
     private String name;    // 앨범 이름 추가
@@ -26,20 +26,20 @@ public class CartVO {
         this.num = num;
     }
 
-    public String getAlbum_num() {
-        return album_num;
+    public int getAlbumNum() {
+        return albumNum;
     }
 
-    public void setAlbum_num(String album_num) {
-        this.album_num = album_num;
+    public void setAlbumNum(int albumNum) {
+        this.albumNum = albumNum;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUser_id(String userId) {
+        this.userId = userId;
     }
 
     public int getPrice() {
@@ -68,6 +68,6 @@ public class CartVO {
 
     @Override
     public String toString() {
-        return "CartVO [num=" + num + ", album_num=" + album_num + ", user_id=" + user_id + ", price=" + price + ", qty=" + qty + ", name=" + name + "]";
+        return "CartVO [num=" + num + ", albumNum=" + albumNum + ", userId=" + userId + ", price=" + price + ", qty=" + qty + ", name=" + name + "]";
     }
 }

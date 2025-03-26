@@ -47,5 +47,12 @@ public class PurchaseDAO {
 		
 		return list;
 	}
-	
+    // 구매 내역 추가
+    public void addPurchase(PurchaseVO purchase) {
+        try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession(true)) {
+            session.insert("com.AlbumArchive.mybatis.PurchaseMapper.addPurchase", purchase);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

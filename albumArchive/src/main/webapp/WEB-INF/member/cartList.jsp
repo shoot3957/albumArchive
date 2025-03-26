@@ -16,7 +16,7 @@
 <!-- 장바구니 목록 출력 -->
 <c:forEach var="cartItem" items="${cartList}">
     <div class="cart-item">
-        <img src="${pageContext.request.contextPath}/images/${cartItem.album_num}.jpg" alt="${cartItem.album_num}" class="cart-item-img">
+        <img src="${pageContext.request.contextPath}/images/${cartItem.albumNum}.jpg" alt="${cartItem.albumNum}" class="cart-item-img">
         <h3>${cartItem.name}</h3>
         <p>가격: ${cartItem.price} 원</p>
         

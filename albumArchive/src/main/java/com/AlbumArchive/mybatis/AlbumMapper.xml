@@ -67,4 +67,10 @@
         SET total_qty = total_qty - #{qty}
         WHERE num = #{albumNum}
     </update>
+    
+    <select id="getAlbumImage" resultType="String" parameterType="int">
+        SELECT img
+        FROM album
+        WHERE num = #{albumNum}
+    </select>
 </mapper>

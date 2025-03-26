@@ -44,5 +44,10 @@
         ON p.album_num = a.num 
         WHERE user_id = #{id}
     </select>
-
+	
+	    <!-- 구매 내역 추가 -->
+    <insert id="addPurchase" parameterType="com.AlbumArchive.VO.PurchaseVO">
+        INSERT INTO purchase (album_num, user_id, total_price, dday, total_qty)
+        VALUES (#{album_num}, #{user_id}, #{total_price}, #{dday}, #{total_qty})
+    </insert>
 </mapper>
