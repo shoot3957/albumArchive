@@ -174,4 +174,9 @@ public class AlbumDAO {
         return list;
     }
 
+	public boolean addAlbum(AlbumVO album) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
