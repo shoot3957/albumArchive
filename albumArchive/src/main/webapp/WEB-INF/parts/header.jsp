@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="${ctx}/css/myPage.css">
 <link rel="stylesheet" href="${ctx}/css/header.css">
 <link rel="stylesheet" href="${ctx}/css/footer.css">
+<link rel="stylesheet" href="${ctx}/css/artist.css">
 <script src="${pageContext.request.contextPath}/script/main.js"></script>
 <!-- JavaScript 연결 -->
 <title>albumArchive</title>

@@ -3,6 +3,7 @@ package com.AlbumArchive.DAO;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -146,6 +147,24 @@ public class AlbumDAO {
             e.printStackTrace();
         }
         return albumImage;
+    }
+    
+    public int updateAlbum(int num,String info,int price,int totalQty) {
+    	int cnt = 0;
+    	Map<String, Object> m = new HashMap<>();
+        m.put("num", num);
+        m.put("info", info);
+        m.put("price", price);
+        m.put("totalQty", totalQty);
+    	 try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+    		 cnt = session.update("updateAlbum", m);
+    		 session.commit();
+         } catch (Exception e) {
+        	 System.out.println("updateAlbum 에러");
+             e.printStackTrace();
+         }
+    	
+    	return cnt;
     }
 
     public boolean addAlbum(AlbumVO album) {
