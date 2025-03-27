@@ -73,4 +73,11 @@
         FROM album
         WHERE num = #{albumNum}
     </select>
+    
+    <select id="getAlbumsByMood" resultType="album">
+		SELECT * FROM album
+		WHERE mood = #{mood}
+		ORDER BY
+		dates DESC
+	</select>
 </mapper>

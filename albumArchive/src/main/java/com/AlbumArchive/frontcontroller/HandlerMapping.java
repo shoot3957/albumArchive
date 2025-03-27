@@ -16,6 +16,7 @@ import com.AlbumArchive.controller.album.AlbumSortedByGenre;
 import com.AlbumArchive.controller.album.AlbumSortedByLikes;
 import com.AlbumArchive.controller.album.ArtistListAllController;
 import com.AlbumArchive.controller.album.LikesController;
+import com.AlbumArchive.controller.album.WeatherController;
 import com.AlbumArchive.controller.cart.AddToCartController;
 import com.AlbumArchive.controller.cart.CartListController;
 import com.AlbumArchive.controller.cart.CartRemoveController;
@@ -103,7 +104,9 @@ public class HandlerMapping {
         
         // 좋아요 컨트롤러 추가
         mappings.put("/like.do", new LikesController());
-    }
+        
+        mappings.put("/weather.do", new WeatherController());
+    };
 
     public Controller getController(String key) {
         return mappings.get(key);

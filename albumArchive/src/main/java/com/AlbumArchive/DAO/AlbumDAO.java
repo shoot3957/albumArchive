@@ -147,5 +147,12 @@ public class AlbumDAO {
         }
         return albumImage;
     }
+    
+    public List<AlbumVO> getAlbumsByMood(String mood) {
+        SqlSession session = MybatisConfig.getSqlSessionFactory().openSession();
+        List<AlbumVO> list = session.selectList("getAlbumsByMood", mood);
+        session.close();
+        return list;
+    }
 
 }
