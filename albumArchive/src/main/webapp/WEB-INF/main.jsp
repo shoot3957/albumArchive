@@ -63,7 +63,7 @@
                 <div class="slider">
                     <c:forEach var="album" items="${topLikedAlbums}">
                         <a href="albumDetail.do?albumName=${album.name}">
-                            <img src="${pageContext.request.contextPath}/images/albums/dynamite.jpg" alt="${album.name}"> <!-- 이미지 경로 수정 -->
+                            <img src="${pageContext.request.contextPath}${album.img}" alt="${album.name}"> <!-- 이미지 경로 수정 -->
                         </a>
                     </c:forEach>
                 </div>

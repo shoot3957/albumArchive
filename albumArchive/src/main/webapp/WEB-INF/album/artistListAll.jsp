@@ -1,30 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>아티스트 목록</title>
-    <style>
-        .artist-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .artist-item {
-            border: 1px solid #ddd;
-            padding: 20px;
-            text-align: center;
-            width: 200px;
-            height: 250px;
-        }
-        .artist-img {
-            width: 100%;
-            height: auto;
-        }
-    </style>
-</head>
-<body>
+<%@ include file="../parts/header.jsp"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+ 
 
     <h1>아티스트 목록</h1>
     
@@ -39,6 +17,5 @@
             </div>
         </c:forEach>
     </div>
-
-</body>
-</html>
+<%@ include file="../parts/footer.jsp"%>
+    
