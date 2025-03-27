@@ -1,13 +1,17 @@
 package com.AlbumArchive.controller.album;
 
+import java.io.IOException;
+import java.util.List;
+
+import com.AlbumArchive.DAO.AlbumDAO;
+import com.AlbumArchive.VO.AlbumVO;
+import com.AlbumArchive.VO.WeatherVO;
+import com.AlbumArchive.frontcontroller.Controller;
 import com.AlbumArchive.util.WeatherAPIClient;
-import org.json.JSONObject;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import com.AlbumArchive.frontcontroller.Controller;
-
-import java.io.IOException;
 
 public class WeatherController implements Controller {
 
@@ -15,17 +19,19 @@ public class WeatherController implements Controller {
     public String requestHandler(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // 날씨 데이터 가져오기
-        JSONObject weatherData = WeatherAPIClient.getWeatherData();
-
-        // 데이터를 JSP에 전달
-        if (weatherData != null) {
-            request.setAttribute("weatherData", weatherData);
-        } else {
-            request.setAttribute("error", "날씨 정보를 가져오는 데 실패했습니다.");
+        WeatherVO weather = WeatherAPIClient.getParsedWeatherData();
+        if (weather == null) {
+            request.setAttribute("errorMsg", "날씨 정보를 불러올 수 없습니다.");
+            return "weather/weather"; // 에러 페이지 또는 안내 메시지 포함 가능
         }
 
-        // 날씨 정보를 출력할 JSP 페이지로 리디렉션
-        return "weather.jsp";
+        String mood = WeatherAPIClient.determineMood(weather);
+        List<AlbumVO> albumList = AlbumDAO.getInstance().getAlbumsByMood(mood);
+
+        request.setAttribute("weatherVO", weather);
+        request.setAttribute("mood", mood);
+        request.setAttribute("albumList", albumList);
+
+        return "album/weather"; // /WEB-INF/views/weather/weather.jsp
     }
 }

@@ -1,0 +1,83 @@
+/* 공통 스타일 */
+body {
+    font-family: 'Pretendard', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* mood: hot */
+body.hot {
+    background: linear-gradient(135deg, #ffe0b2, #ffccbc); /* 살구 + 복숭아빛 */
+}
+
+/* mood: cold */
+body.cold {
+    background: linear-gradient(135deg, #cfd8dc, #b0bec5); /* 차분한 블루그레이 */
+}
+
+/* mood: rainy */
+body.rainy {
+    background: linear-gradient(135deg, #cfd1d4, #b0bec5); /* 흐릿한 비색 */
+}
+
+/* mood: snowy */
+body.snowy {
+    background: linear-gradient(135deg, #ffffff, #e0f7fa); /* 순백 + 아이스블루 */
+    color: #333;
+}
+
+/* mood: normal */
+body.normal {
+    background: linear-gradient(135deg, #bbdefb, #e3f2fd); /* 맑은 하늘 */
+}
+
+/* 앨범 리스트 박스 */
+.album-list {
+    background: rgba(255, 255, 255, 0.65);
+    padding: 30px;
+    border-radius: 24px;
+    margin: 40px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 앨범 아이템 */
+.album-item {
+    display: inline-block;
+    width: 180px;
+    margin: 15px;
+    text-align: center;
+    border-radius: 16px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.album-item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.album-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* 추천 문구 */
+.mood-tagline {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 30px 20px 10px;
+    padding: 10px 20px;
+    border-left: 5px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    display: inline-block;
+    text-shadow: 1px 1px 3px rgba(255,255,255,0.7);
+}

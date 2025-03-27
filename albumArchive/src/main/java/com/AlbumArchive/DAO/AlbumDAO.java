@@ -3,7 +3,6 @@ package com.AlbumArchive.DAO;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -149,37 +148,11 @@ public class AlbumDAO {
         return albumImage;
     }
     
-    public int updateAlbum(int num,String info,int price,int totalQty) {
-    	int cnt = 0;
-    	Map<String, Object> m = new HashMap<>();
-        m.put("num", num);
-        m.put("info", info);
-        m.put("price", price);
-        m.put("totalQty", totalQty);
-    	 try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
-    		 cnt = session.update("updateAlbum", m);
-    		 session.commit();
-         } catch (Exception e) {
-        	 System.out.println("updateAlbum 에러");
-             e.printStackTrace();
-         }
-    	
-    	return cnt;
-    }
-
-    public boolean addAlbum(AlbumVO album) {
-        try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
-            int result = session.insert("com.AlbumArchive.mybatis.AlbumMapper.addAlbum", album);
-            if (result > 0) {
-                session.commit();
-                return true;
-            }
-            return false;
-        } catch (Exception e) {
-            System.out.println("addAlbum 에러");
-            e.printStackTrace();
-            return false;
-        }
+    public List<AlbumVO> getAlbumsByMood(String mood) {
+        SqlSession session = MybatisConfig.getSqlSessionFactory().openSession();
+        List<AlbumVO> list = session.selectList("getAlbumsByMood", mood);
+        session.close();
+        return list;
     }
 
 }

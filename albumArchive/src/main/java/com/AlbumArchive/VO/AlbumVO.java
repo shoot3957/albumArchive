@@ -11,6 +11,7 @@ public class AlbumVO {
     private String category;
     private String dates;
     private String img;
+    private String mood;
 
     public AlbumVO() {}
 
@@ -34,6 +35,8 @@ public class AlbumVO {
     public void setDates(String dates) { this.dates = dates; }
     public String getImg() { return img; }
     public void setImg(String img) { this.img = img; }
+    public String getMood() { return mood; }
+    public void setMood(String mood) { this.mood = mood; }
 
     @Override
     public String toString() {

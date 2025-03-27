@@ -26,7 +26,7 @@
                 </div>
             </li>
             <li><a href="artistListAll.do">아티스트별 보기</a></li>
-            <li><a href="#">오늘의 앨범</a></li>
+            <li><a href="weather.do">오늘의 앨범</a></li>
         </ul>
     </nav>
 
