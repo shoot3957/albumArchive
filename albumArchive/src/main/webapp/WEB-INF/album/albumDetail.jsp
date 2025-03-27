@@ -2,7 +2,7 @@
 <%@ taglib uri="jakarta.tags.core" prefix="c"%>
 <%@ include file="../parts/header.jsp"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>앨범 정보 - ${album.name}</title>
@@ -75,9 +75,12 @@
         .review-actions a:hover {
             text-decoration: underline;
         }
+        .video-container {
+            margin-top: 20px;
+            text-align: center;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  
 </head>
 <body>
     <h1>앨범 정보</h1>
@@ -87,30 +90,37 @@
             <p>앨범 데이터를 불러오지 못했습니다.</p>
         </c:when>
         <c:otherwise>
-            <form action="" method="post">
-                <div class="container">
-                    <div class="album-cover">
-                        <c:if test="${not empty album.img}">
-                            <img src="./${album.img}" alt="Album Cover" style="width: 50%; height: 50%;">
-                        </c:if>
+            <div class="container">
+                <div class="album-cover">
+                    <c:if test="${not empty album.img}">
+                        <img src="./${album.img}" alt="Album Cover" style="width: 50%; height: 50%;">
+                    </c:if>
+                </div>
+                <div class="album-details">
+                    <div class="album-title">${album.name}</div>
+                    <div class="price-info">
+                        <span style="color: red;">가격: ${album.price}원</span>
                     </div>
-                    <div class="album-details">
-                        <div class="album-title">${album.name}</div>
-                        <div class="price-info">
-                            <span style="color: red;">가격: ${album.price}원</span>
-                        </div>
-                        <div class="release-info">발매일: ${album.dates}</div>
-                        <div class="likes-info">
-                            좋아요: <span id="likesCount">${album.likes}</span>
-                            <span id="likeButton" class="like-button"></span>
-                        </div>
-                        <div class="buttons">
+                    <div class="release-info">발매일: ${album.dates}</div>
+                    <div class="likes-info">
+                        좋아요: <span id="likesCount">${album.likes}</span>
+                        <span id="likeButton" class="like-button"></span>
+                    </div>
+                    <div class="buttons">
+                        <c:if test="${loginId != 'admin'}">
                             <button type="button" class="btn btn-cart">장바구니</button>
                             <button type="button" class="btn btn-buy">구매</button>
-                        </div>
+                        </c:if>
+                        <c:if test="${loginId == 'admin'}">
+                            <a href="/albumArchive/edit.do?num=${album.num}" class="btn btn-edit">수정</a>
+                            <form action="/albumArchive/delete.do" method="post" style="display: inline;">
+                                <input type="hidden" name="num" value="${album.num}">
+                                <button type="submit" class="btn btn-delete" onclick="return confirm('정말 삭제하시겠습니까?')">삭제</button>
+                            </form>
+                        </c:if>
                     </div>
                 </div>
-            </form>
+            </div>
 
             <div class="tab-container">
                 <div class="tab-list">
@@ -153,25 +163,27 @@
                                     <p class="review-info">${review.info}</p>
                                     <small>작성자: ${review.userId}</small>
                                     <div class="review-actions">
-                                        <c:if test="${loginId == review.userId}">
+                                        <c:if test="${loginId == review.userId || loginId == 'admin'}">
                                             <a href="#" class="edit-review" data-review-num="${review.num}">수정</a>
-                                            <a href="/albumArchive/reviewDelete.do?reviewNum=${review.num}&albumName=${album.name}" onclick="return confirm('정말 삭제하시겠습니까, 씨발?')">삭제</a>
-                                        </c:if>
-                                        <c:if test="${loginId == 'admin'}">
-                                            <a href="/albumArchive/reviewDelete.do?reviewNum=${review.num}&albumName=${album.name}" onclick="return confirm('정말 삭제하시겠습니까, 씨발?')">삭제</a>
+                                            <a href="/albumArchive/reviewDelete.do?reviewNum=${review.num}&albumName=${album.name}" onclick="return confirm('정말 삭제하시겠습니까?')">삭제</a>
                                         </c:if>
                                     </div>
                                 </div>
                             </c:if>
                             <c:if test="${review.num == null || review.num <= 0}">
-                                <p>리뷰 번호가 유효하지 않습니다: ${review.title} 뭐야 이게</p>
+                                <p>리뷰 번호가 유효하지 않습니다: ${review.title}</p>
                             </c:if>
                         </c:forEach>
                         <c:if test="${empty reviews}">
-                            <p>아직 리뷰가 없습니다, 씨발.</p>
+                            <p>아직 리뷰가 없습니다</p>
                         </c:if>
                     </div>
                 </div>
+            </div>
+
+            <div class="video-container" id="videoContainer">
+                <h3>관련 영상</h3>
+                <div id="youtubePlayer"></div>
             </div>
 
             <div class="footer-note">
@@ -179,11 +191,11 @@
             </div>
 
             <input id="albumNum" type="hidden" value="${album.num}">
+            <input id="albumName" type="hidden" value="${album.name}">
             <input id="loginId" type="hidden" value="${loginId}">
             <input id="artistNum" type="hidden" value="${album.artistNum}">
             <input id="isLike" type="hidden" value="${isLiked}">
-            
         </c:otherwise>
     </c:choose>
-    <script src="${ctx}/script/albumDetail.js"></script>
-    <%@ include file="../parts/footer.jsp"%>
+	<script src="${ctx}/script/albumDetail.js"></script>
+	<%@ include file="../parts/footer.jsp"%>

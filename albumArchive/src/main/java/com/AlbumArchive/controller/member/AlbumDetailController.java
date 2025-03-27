@@ -41,14 +41,14 @@ public class AlbumDetailController implements Controller {
         List<SongVO> songs = albumDAO.getSongList(album.getNum());
         List<ReviewVO> reviews = reviewDAO.getReviewsByAlbum(album.getNum());
 
-        String userId = (String) request.getSession().getAttribute("userId");
-        boolean isLiked = userId != null && likesDAO.checkLike(userId, album.getNum());
+        String loginId = (String) request.getSession().getAttribute("loginId");
+        boolean isLiked = loginId != null && likesDAO.checkLike(loginId, album.getNum());
 
         request.setAttribute("album", album);
         request.setAttribute("songs", songs);
         request.setAttribute("reviews", reviews);
         request.setAttribute("isLiked", isLiked);
-        request.setAttribute("loginId", userId);
+        request.setAttribute("loginId", loginId);
 
         return "album/albumDetail";
     }

@@ -35,6 +35,7 @@
 			</div>
 			<nav class="nav-links">
 				<c:if test="${loginId eq 'admin'}">
+					<a href="/albumArchive/adminAlbumList.do">앨범관리</a>
 					<a href="/albumArchive/adminMemberList.do">회원관리</a>
 					<a href="/albumArchive/adminInquiryList.do">문의관리</a>
 					<a href="/albumArchive/adminPurchaseList.do">판매리스트</a>

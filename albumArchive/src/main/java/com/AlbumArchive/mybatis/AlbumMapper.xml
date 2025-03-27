@@ -7,7 +7,8 @@
 
 	<select id="getAllAlbums" resultType="album">
 		SELECT * FROM album
-		ORDER BY dates DESC
+		ORDER BY
+		dates DESC
 	</select>
 
 	<select id="getAlbumsByGenre" resultType="album">
@@ -33,14 +34,16 @@
 		LIMIT 10
 	</select>
 
-	<select id="getOneAlbumInfo" resultType="album" parameterType="string">
+	<select id="getOneAlbumInfo" resultType="album"
+		parameterType="string">
 		SELECT * FROM
 		album
 		WHERE name = #{name}
 	</select>
 
 	<select id="getSongList" resultType="song" parameterType="int">
-		SELECT id, album_num AS albumNum, name
+		SELECT
+		id, album_num AS albumNum, name
 		FROM song
 		WHERE
 		album_num = #{album_num}
@@ -51,26 +54,34 @@
 		WHERE num = #{num}
 	</delete>
 
-	<select id="searchAlbums"
-		resultType="album">
+	<select id="searchAlbums" resultType="album">
 		SELECT * FROM album
-		WHERE name LIKE #{query}
+		WHERE
+		name LIKE #{query}
 	</select>
 
-	<select id="searchAlbumsForDropdown" parameterType="string" resultType="album">
+	<select id="searchAlbumsForDropdown" parameterType="string"
+		resultType="album">
 		SELECT num, name FROM album
 		WHERE name LIKE #{query}
 		LIMIT 5
 	</select>
 	<update id="updateAlbumQty" parameterType="map">
-        UPDATE album
-        SET total_qty = total_qty - #{qty}
-        WHERE num = #{albumNum}
-    </update>
-    
-    <select id="getAlbumImage" resultType="String" parameterType="int">
-        SELECT img
-        FROM album
-        WHERE num = #{albumNum}
-    </select>
+		UPDATE album
+		SET total_qty = total_qty - #{qty}
+		WHERE num = #{albumNum}
+	</update>
+
+	<select id="getAlbumImage" resultType="String"
+		parameterType="int">
+		SELECT img
+		FROM album
+		WHERE num = #{albumNum}
+	</select>
+	<insert id="addAlbum" parameterType="album">
+		INSERT INTO album (name, artist_num, info, price,likes, total_qty, category,
+		dates, img)
+		VALUES (#{name}, #{artistNum}, #{info}, #{price},#{likes}, #{totalQty}, #{category},
+		#{dates}, #{img})
+	</insert>
 </mapper>

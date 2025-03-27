@@ -3,6 +3,7 @@ package com.AlbumArchive.frontcontroller;
 import java.util.HashMap;
 
 import com.AlbumArchive.controller.MainController;
+import com.AlbumArchive.controller.admin.AdminAlbumInseretController;
 import com.AlbumArchive.controller.admin.AdminDeleteInquiryController;
 import com.AlbumArchive.controller.admin.AdminInquiryAnswerController;
 import com.AlbumArchive.controller.admin.AdminInquiryListController;
@@ -10,6 +11,7 @@ import com.AlbumArchive.controller.admin.AdminInquirySendAnswerController;
 import com.AlbumArchive.controller.admin.AdminMemberDeleteController;
 import com.AlbumArchive.controller.admin.AdminMemberListController;
 import com.AlbumArchive.controller.admin.AdminPurchaseListController;
+import com.AlbumArchive.controller.admin.adminAlbumListController;
 import com.AlbumArchive.controller.album.AlbumListAllController;
 import com.AlbumArchive.controller.album.AlbumSortedByArtist;
 import com.AlbumArchive.controller.album.AlbumSortedByGenre;
@@ -40,6 +42,9 @@ import com.AlbumArchive.controller.member.RdCodeResultController;
 import com.AlbumArchive.controller.member.UpdateMemberController;
 import com.AlbumArchive.controller.member.VaildIdAjaxController;
 import com.AlbumArchive.controller.member.ValidEmailAjaxController;
+import com.AlbumArchive.controller.review.ReviewDeleteController;
+import com.AlbumArchive.controller.review.ReviewLisetController;
+import com.AlbumArchive.controller.review.ReviewUpdateController;
 import com.AlbumArchive.controller.search.SearchController;
 import com.AlbumArchive.controller.search.SearchDropdownController;
 
@@ -81,6 +86,8 @@ public class HandlerMapping {
         mappings.put("/adminInquiryAnswer.do", new AdminInquiryAnswerController());
         mappings.put("/adminSendAnswer.do", new AdminInquirySendAnswerController());
         mappings.put("/adminDeleteInquiry.do", new AdminDeleteInquiryController());
+        mappings.put("/adminAlbumList.do", new adminAlbumListController());
+        mappings.put("/addAlbum.do", new AdminAlbumInseretController());
         
         // 문의 컨트롤러
         mappings.put("/inquiryForm.do", new InquiryFormController());
@@ -103,6 +110,10 @@ public class HandlerMapping {
         
         // 좋아요 컨트롤러 추가
         mappings.put("/like.do", new LikesController());
+
+        mappings.put("/review.do", new ReviewLisetController());
+        mappings.put("/reviewDelete.do", new ReviewDeleteController());
+        mappings.put("/reviewUpdate.do", new ReviewUpdateController());
     }
 
     public Controller getController(String key) {
