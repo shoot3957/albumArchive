@@ -91,7 +91,7 @@
                 <div class="container">
                     <div class="album-cover">
                         <c:if test="${not empty album.img}">
-                            <img src="${album.img}" alt="Album Cover" style="width: 50%; height: 50%;">
+                            <img src="./${album.img}" alt="Album Cover" style="width: 50%; height: 50%;">
                         </c:if>
                     </div>
                     <div class="album-details">
@@ -181,109 +181,9 @@
             <input id="albumNum" type="hidden" value="${album.num}">
             <input id="loginId" type="hidden" value="${loginId}">
             <input id="artistNum" type="hidden" value="${album.artistNum}">
+            <input id="isLike" type="hidden" value="${isLiked}">
+            
         </c:otherwise>
     </c:choose>
+    <script src="${ctx}/script/albumDetail.js"></script>
     <%@ include file="../parts/footer.jsp"%>
-</body>
-</html>
-
-  <script>
-        $(document).ready(function() {
-            const albumNum = $("#albumNum").val();
-            let isLiked = ${isLiked ? 'true' : 'false'};
-
-            updateLikeButton(isLiked);
-
-            $("#likeButton").click(function() {
-                $.ajax({
-                    url: "/albumArchive/like.do",
-                    type: "POST",
-                    data: { albumNum: albumNum },
-                    dataType: "json",
-                    success: function(response) {
-                        isLiked = response.liked;
-                        $("#likesCount").text(response.likes);
-                        updateLikeButton(isLiked);
-                    },
-                    error: function(xhr) {
-                        if (xhr.status === 401) {
-                            alert("로그인이 필요합니다, ");
-                            window.location.href = "/albumArchive/login.do";
-                        } else {
-                            alert("오류가 발생했습니다,");
-                        }
-                    }
-                });
-            });
-
-            function updateLikeButton(liked) {
-                const button = $("#likeButton");
-                if (liked) {
-                    button.addClass("liked");
-                    button.html("♥");
-                } else {
-                    button.removeClass("liked");
-                    button.html("♡");
-                }
-            }
-
-            $('.tab').click(function() {
-                $('.tab').removeClass('active');
-                $(this).addClass('active');
-
-                $('.tab-content').removeClass('active');
-                const target = $(this).data('target');
-                $('#' + target).addClass('active');
-            });
-
-            $('.tab[data-target="tracks"]').click();
-
-            $('.edit-review').click(function(e) {
-                e.preventDefault();
-                // $(this).data('review-num') 방식 사용
-                const reviewNum = { num : $(this).data('review-num')};
-                // 데이터가 제대로 가져와지지 않을 경우 attr()로 대체 시도
-                if (!!$(this).data('review-num')) {
-                    reviewNum.num= $(this).attr('data-review-num');
-                }
-                const reviewItem = $(this).closest('.review-item');
-                const title = reviewItem.find('.review-title').text().trim();
-                const info = reviewItem.find('.review-info').text().trim();
-                const albumName = "${album.name}";
-
-                console.log("reviewNum: " + reviewNum.num + ", 이게 제대로 나와야 함");
-                console.log("title: " + title);
-                console.log("info: " + info);
-                console.log("albumName: " + albumName);
-         
-				test($(this).attr('data-review-num'));
-
-			     const formHtml = `
-	                    <form name="editForm" id="editForm" action="/albumArchive/reviewUpdate.do" method="post">
-	                        <input type="hidden" name="reviewNum" >
-	                        <input type="hidden" name="albumName" value="The Album">
-	                        <label>제목: <input type="text" name="title"  required></label><br>
-	                        <label>내용: <textarea name="info" rows="4" cols="50" required></textarea></label><br>
-	                        <input type="button" onClick="test(form, ${reviewNum.num})" class="btn" value="수정완료"></input>
-	                        <input type="reset" class="btn cancel-edit" value="취소"></input>
-	                    </form>
-	                `;
-	                
-                reviewItem.html(formHtml);
-
-                $('.cancel-edit').click(function() {
-                    window.location.reload();
-                });
-            });
-        });
-        
-        function test(form , num) {
-        console.log(num)
-
-            console.log("reviewNum: " + form.reviewNum.value);
-         //   console.log("title: " + form.title.value);
-         //   console.log("info: " + form.info.value);
-          //  console.log("albumName: " + form.albumName.value);
-        	
-          }
-    </script>
