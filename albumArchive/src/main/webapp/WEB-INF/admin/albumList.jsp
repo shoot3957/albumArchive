@@ -96,8 +96,7 @@ th {
 					<td>${album.category}</td>
 					<td>${album.dates}</td>
 					<td class="action-links"><a
-						href="editAlbum.jsp?num=${album.num}">수정</a> <a
-						href="deleteAlbum?num=${album.num}"
+						href="deleteAlbum.do?num=${album.num}"
 						onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a></td>
 				</tr>
 			</c:forEach>
@@ -121,7 +120,8 @@ th {
 		<div class="modal-content">
 			<span class="close">&times;</span>
 			<h2>새 앨범 추가</h2>
-			<form id="addAlbumForm" action="/albumArchive/addAlbum.do" method="post">
+			<form id="addAlbumForm" action="/albumArchive/addAlbum.do"
+				method="post">
 				<label>앨범 이름: <input type="text" name="name" required></label><br>
 				<label>아티스트 번호: <input type="number" name="artistNum"
 					required></label><br> <label>설명: <textarea name="info"

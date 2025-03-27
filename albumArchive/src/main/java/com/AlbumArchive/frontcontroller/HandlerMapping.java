@@ -3,6 +3,7 @@ package com.AlbumArchive.frontcontroller;
 import java.util.HashMap;
 
 import com.AlbumArchive.controller.MainController;
+import com.AlbumArchive.controller.admin.AdminAlbumDeleteController;
 import com.AlbumArchive.controller.admin.AdminAlbumInseretController;
 import com.AlbumArchive.controller.admin.AdminAlbumUpdateController;
 import com.AlbumArchive.controller.admin.AdminDeleteInquiryController;
@@ -92,6 +93,7 @@ public class HandlerMapping {
         mappings.put("/adminAlbumUpdate.do", new AdminAlbumUpdateController());
         mappings.put("/adminAlbumList.do", new adminAlbumListController());
         mappings.put("/addAlbum.do", new AdminAlbumInseretController());
+        mappings.put("/deleteAlbum.do", new AdminAlbumDeleteController());
         
         // 문의 컨트롤러
         mappings.put("/inquiryForm.do", new InquiryFormController());

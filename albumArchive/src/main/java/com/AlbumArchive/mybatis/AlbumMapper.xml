@@ -84,4 +84,9 @@
 		ORDER BY
 		dates DESC
 	</select>
+	
+	<delete id="deleteAlbum" parameterType="int">
+        DELETE FROM album
+        WHERE num = #{albumNum}
+    </delete>
 </mapper>
