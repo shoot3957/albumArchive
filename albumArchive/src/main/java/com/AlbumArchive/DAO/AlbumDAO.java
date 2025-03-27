@@ -174,9 +174,19 @@ public class AlbumDAO {
         return list;
     }
 
-	public boolean addAlbum(AlbumVO album) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    public boolean addAlbum(AlbumVO album) {
+        try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+            int result = session.insert("com.AlbumArchive.mybatis.AlbumMapper.addAlbum", album);
+            if (result > 0) {
+                session.commit();
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            System.out.println("addAlbum 에러");
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 }
