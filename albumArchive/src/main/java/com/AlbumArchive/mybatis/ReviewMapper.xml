@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.AlbumArchive.mybatis.ReviewMapper">
+
+    <insert id="addReview" parameterType="com.AlbumArchive.VO.ReviewVO">
+        INSERT INTO review (info, user_id, album_num, title)
+        VALUES (#{info}, #{userId}, #{albumNum}, #{title})
+    </insert>
+
+    <select id="getReviewsByAlbum" parameterType="int" resultType="com.AlbumArchive.VO.ReviewVO">
+        SELECT num, info, user_id AS userId, album_num AS albumNum, title
+        FROM review
+        WHERE album_num = #{albumNum}
+        ORDER BY num DESC
+    </select>
+
+    <update id="updateReview" parameterType="com.AlbumArchive.VO.ReviewVO">
+        UPDATE review
+        SET title = #{title}, info = #{info}
+        WHERE num = #{num}
+    </update>
+
+    <delete id="deleteReview" parameterType="int">
+        DELETE FROM review
+        WHERE num = #{reviewNum}
+    </delete>
+
+    <select id="getReviewByNum" parameterType="int" resultType="com.AlbumArchive.VO.ReviewVO">
+        SELECT num, info, user_id AS userId, album_num AS albumNum, title
+        FROM review
+        WHERE num = #{reviewNum}
+    </select>
+
+</mapper>

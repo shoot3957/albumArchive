@@ -21,6 +21,7 @@
       <typeAlias type="com.AlbumArchive.VO.ReviewVO" alias="review"/>
       <typeAlias type="com.AlbumArchive.VO.SearchVO" alias="search"/>
       <typeAlias type="com.AlbumArchive.VO.SongVO" alias="song"/> 
+      <typeAlias type="com.AlbumArchive.VO.ReviewVO" alias="review"/> 
   </typeAliases> 
 
   <environments default="development">
@@ -43,5 +44,6 @@
     <mapper resource="com/AlbumArchive/mybatis/InquiryMapper.xml"/>
     <mapper resource="com/AlbumArchive/mybatis/LikesMapper.xml"/>
     <mapper resource="com/AlbumArchive/mybatis/PurchaseMapper.xml"/> 
+    <mapper resource="com/AlbumArchive/mybatis/ReviewMapper.xml"/> 
   </mappers>
 </configuration>
