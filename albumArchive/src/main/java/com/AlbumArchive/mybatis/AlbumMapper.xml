@@ -73,4 +73,9 @@
         FROM album
         WHERE num = #{albumNum}
     </select>
+    <update id="updateAlbum" parameterType="map">
+    update album
+    set info = #{info}, price = #{price}, total_qty = #{totalQty}
+    where num = #{num}
+    </update>
 </mapper>
