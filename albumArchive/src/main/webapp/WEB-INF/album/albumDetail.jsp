@@ -140,7 +140,7 @@
                 <div class="modal-content">
                     <span class="close" id="closeEditModal">×</span>
                     <h3>앨범 수정</h3>
-                    <form id="editForm" action="/albumArchive/adminAlbumUpdate.do" method="post">
+                    <form id="editForm" action="${ctx}/adminAlbumUpdate.do" method="post">
                         <input type="hidden" name="num" value="${album.num}">
                         <div>
                             <label>앨범 번호:</label>
