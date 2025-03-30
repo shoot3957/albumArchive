@@ -1,0 +1,103 @@
+/* 기본 전체 레이아웃 및 폰트 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f8f9fa, #e0e7ff);
+    color: #333;
+}
+
+/* header, footer 기본 정렬 대응 */
+header, footer {
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1, footer p {
+    margin: 0;
+    font-size: 18px;
+}
+
+/* 검색 결과 제목 */
+h1 {
+    text-align: center;
+    margin: 40px 0 20px;
+    font-size: 28px;
+    color: #2c3e50;
+}
+
+/* 앨범 리스트 레이아웃 */
+.album-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+    padding: 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+}
+
+/* 앨범 링크 스타일 */
+.album-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.album-link:hover {
+    transform: scale(1.02);
+}
+
+/* 앨범 카드 */
+.album-item {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 15px;
+    text-align: center;
+    height: 100%;
+}
+
+.album-link:hover .album-item {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-6px);
+}
+
+/* 앨범 이미지 */
+.album-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.album-link:hover .album-img {
+    transform: scale(1.05);
+}
+
+/* 앨범 정보 텍스트 */
+.album-item h3 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+    color: #2d3436;
+}
+
+.album-item p {
+    font-size: 14px;
+    color: #666;
+    margin: 4px 0;
+}
+
+/* 결과 없음 메시지 */
+p.no-result {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 60px;
+    color: #999;
+}
