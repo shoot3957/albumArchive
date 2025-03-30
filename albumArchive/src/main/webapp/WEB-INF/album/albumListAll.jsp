@@ -3,6 +3,7 @@
 <html>
 <head>
 <title>앨범 리스트</title>
+<link rel="stylesheet" href="${ctx}/css/albumList.css">
 <script src="/script/album.js"></script>
 <!-- album.js 파일 로드 -->
 </head>

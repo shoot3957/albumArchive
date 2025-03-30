@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>어드민 앨범리스트</title>
+<link rel="stylesheet" href="${ctx}/css/memberList.css"> 
 </head>
 <body>
 	<h1 style="text-align: center;">어드민 앨범리스트</h1>

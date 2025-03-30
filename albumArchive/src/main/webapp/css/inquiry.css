@@ -1,126 +1,28 @@
-/* 전체 레이아웃 설정 */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
-}
-
-.inquiry-inner {
-    width: 80%;
-    margin: 20px auto;
+.container {
+    max-width: 500px;
+    margin: auto;
     padding: 20px;
-    background-color: #fff;
+    background: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    color: #333;
-}
-
-.no-reservation {
-    font-size: 18px;
-    color: #555;
-    text-align: center;
-}
-
-.inquiry-list {
-    text-align: center;
     font-size: 24px;
-    margin-bottom: 20px;
+    font-weight: bold;
 }
 
-/* 문의 리스트 테이블 */
-.inquiry-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+.form-label {
+    font-weight: 600;
 }
 
-.inquiry-table th, .inquiry-table td {
+.form-control {
     padding: 10px;
-    text-align: center;
-    border: 1px solid #ddd;
+    font-size: 16px;
 }
 
-.inquiry-table th {
-    background-color: #f4f4f4;
-}
-
-.inquiry-title {
-    text-decoration: none;
-    color: #007bff;
-}
-
-.inquiry-title:hover {
-    text-decoration: underline;
-}
-
-.btn-inquiry {
+.btn {
+    font-size: 16px;
     padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
     border-radius: 5px;
-    display: inline-block;
-    margin: 10px 0;
-}
-
-.btn-inquiry:hover {
-    background-color: #0056b3;
-}
-
-.btn-delete {
-    padding: 5px 10px;
-    background-color: #dc3545;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.btn-delete:hover {
-    background-color: #c82333;
-}
-
-/* 페이징 스타일 */
-.pagination {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.page-link {
-    text-decoration: none;
-    color: #007bff;
-    padding: 8px 12px;
-    margin: 0 5px;
-}
-
-.page-link:hover {
-    background-color: #f1f1f1;
-    border-radius: 4px;
-}
-
-.disabled {
-    color: #ddd;
-    padding: 8px 12px;
-}
-
-.page-number {
-    font-size: 16px;
-    padding: 8px 12px;
-    margin: 0 5px;
-}
-
-.page-number.current {
-    background-color: #007bff;
-    color: white;
-    border-radius: 4px;
-}
-
-.ellipsis {
-    font-size: 16px;
-    padding: 8px 12px;
-    margin: 0 5px;
-    color: #555;
 }

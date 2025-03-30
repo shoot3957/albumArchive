@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>장바구니</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/cart.css">
+    <link rel="stylesheet" href="${ctx}/css/cartList.css">
 </head>
 <body>
 

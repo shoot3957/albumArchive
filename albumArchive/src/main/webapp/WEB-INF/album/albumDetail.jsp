@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>앨범 정보 - ${album.name}</title>
+<link rel="stylesheet" href="${ctx}/css/albumDetail.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>

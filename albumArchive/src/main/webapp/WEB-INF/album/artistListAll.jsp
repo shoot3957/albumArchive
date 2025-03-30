@@ -3,7 +3,7 @@
 <%@ include file="../parts/header.jsp"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
  
-
+<link rel="stylesheet" href="${ctx}/css/artist.css"> 
     <h1>아티스트 목록</h1>
     
     <div class="artist-list">

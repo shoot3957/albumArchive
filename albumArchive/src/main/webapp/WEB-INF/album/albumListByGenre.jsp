@@ -3,8 +3,7 @@
 <html>
 <head>
 <title>장르별 앨범 리스트</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/genreAlbumList.css">
+<link rel="stylesheet" href="${ctx}/css/list.css">
 <!-- CSS 스타일 추가 -->
 <script src="${pageContext.request.contextPath}/script/album.js"></script>
 <!-- album.js 파일 로드 -->
