@@ -243,6 +243,13 @@ nav ul li:hover .dropdown {
     border-radius: 12px;
 }
 
+.section-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #333;
+}
 
 
 /* 반응형 콘텐츠 방향 */

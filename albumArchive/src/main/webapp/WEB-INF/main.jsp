@@ -62,7 +62,9 @@
             </div>
         </section>
         <!-- Sub content: 좋아요 순 슬라이드 -->
+<!-- Sub content: 좋아요 순 슬라이드 -->
 <section class="sub-content">
+    <h2 class="section-title">👍 좋아요 TOP 10</h2>
     <div class="album-fade">
         <c:forEach var="album" items="${topLikedAlbums}" varStatus="status">
             <a href="albumDetail.do?albumName=${album.name}" 
@@ -74,6 +76,7 @@
         </c:forEach>
     </div>
 </section>
+
 
 
     </div>
