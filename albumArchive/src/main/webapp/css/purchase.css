@@ -1,79 +1,74 @@
-/* Purchase List Container */
+/* 전체 레이아웃 설정 */
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f9f9f9;
+	margin: 0;
+	padding: 0;
+}
+
 .purchase-inner {
-    max-width: 1000px;
-    margin: 50px auto;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	width: 80%;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Purchase List No Reservation */
-.no-reservation {
-    text-align: center;
-    color: #666;
-    font-size: 24px;
-    font-weight: 500;
-    padding: 20px;
-}
-
-/* Purchase List Title */
+/* 판매 리스트 제목 */
 .purchase-list {
-    text-align: center;
-    color: #333;
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 30px;
+	text-align: center;
+	font-size: 24px;
+	margin-bottom: 20px;
 }
 
-/* Purchase List Table */
-.purchase-inner table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #fff;
-    font-size: 14px;
+/* 판매 내역이 없을 때 메시지 */
+.no-reservation {
+	text-align: center;
+	font-size: 18px;
+	color: #555;
+	margin-top: 20px;
 }
 
-.purchase-inner table th {
-    background: #4CAF50; /* 초록색 헤더 */
-    color: white;
-    font-weight: 600;
-    padding: 12px;
-    border: 1px solid #ddd;
+/* 테이블 스타일 */
+.purchase-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
 }
 
-.purchase-inner table td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    color: #555;
-    text-align: center; /* 내용 가운데 정렬 */
+.purchase-table th, .purchase-table td {
+	padding: 12px;
+	text-align: center;
+	border: 1px solid #ddd;
 }
 
-.purchase-inner table tr:hover {
-    background: #f5f5f5; /* 마우스 오버 시 배경색 변화 */
-    transition: background 0.3s ease;
+.purchase-table th {
+	background-color: #f4f4f4;
+	font-weight: bold;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .purchase-inner {
-        margin: 20px;
-        padding: 15px;
-    }
-    
-    .purchase-list {
-        font-size: 24px;
-    }
-    
-    .no-reservation {
-        font-size: 20px;
-    }
-    
-    .purchase-inner table {
-        font-size: 12px;
-    }
-    
-    .purchase-inner table th, .purchase-inner table td {
-        padding: 8px;
-    }
+.purchase-table td {
+	background-color: #fff;
+}
+
+/* 테이블 행 hover 효과 */
+.purchase-table tr:hover {
+	background-color: #f1f1f1;
+}
+
+/* 테이블 헤더 스타일 */
+.purchase-table th {
+	background-color: #007bff;
+	color: white;
+}
+
+/* 테이블 내용 스타일 */
+.purchase-table td {
+	background-color: #ffffff;
+	color: #333;
+}
+
+.purchase-table tr:nth-child(even) td {
+	background-color: #f9f9f9;
 }

@@ -1,0 +1,94 @@
+/* 전체 페이지 레이아웃 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* 회원 리스트 컨테이너 */
+.member-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 리스트 제목 */
+.member-list {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* 회원이 없을 때 메시지 스타일 */
+.no-reservation {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    margin-top: 20px;
+}
+
+/* 회원 테이블 */
+.member-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.member-table th,
+.member-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* 테이블 헤더 스타일 */
+.member-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* 테이블 내용 스타일 */
+.member-table td {
+    background-color: #ffffff;
+    color: #333;
+}
+
+.member-table tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+/* 테이블 행 hover 효과 */
+.member-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* 삭제 버튼 스타일 */
+.action-btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-btn {
+    background-color: #ff4747;
+    color: white;
+    border-radius: 5px;
+}
+
+.delete-btn:hover {
+    background-color: #ff1e1e;
+}
+
+/* 폼 숨기기 */
+form {
+    display: inline-block;
+}
+
+/* 버튼 클릭 시 확인 대화 상자 */
+.delete-btn:focus {
+    outline: none;
+}

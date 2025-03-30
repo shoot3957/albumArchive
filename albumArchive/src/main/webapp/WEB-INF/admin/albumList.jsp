@@ -7,69 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>어드민 앨범리스트</title>
-<style>
-/* 테이블 스타일 */
-table {
-	width: 90%;
-	margin: 20px auto;
-	border-collapse: collapse;
-}
-
-th, td {
-	padding: 12px;
-	text-align: center;
-	border: 1px solid #ddd;
-}
-
-th {
-	background-color: #f2f2f2;
-	color: #333;
-}
-
-.action-links a {
-	margin: 0 5px;
-	text-decoration: none;
-	color: #007bff;
-}
-
-.action-links a:hover {
-	text-decoration: underline;
-}
-
-/* 모달 스타일 */
-.modal {
-	display: none;
-	position: fixed;
-	z-index: 1;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-	background-color: #fff;
-	margin: 15% auto;
-	padding: 20px;
-	border: 1px solid #888;
-	width: 50%;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.close {
-	color: #aaa;
-	float: right;
-	font-size: 28px;
-	font-weight: bold;
-	cursor: pointer;
-}
-
-.close:hover, .close:focus {
-	color: #000;
-	text-decoration: none;
-}
-</style>
 </head>
 <body>
 	<h1 style="text-align: center;">어드민 앨범리스트</h1>

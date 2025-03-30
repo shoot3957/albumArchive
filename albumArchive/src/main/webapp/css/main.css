@@ -123,6 +123,7 @@ nav ul li:hover .dropdown {
   clip-path: path('M0,70 C30,40 60,70 90,40 S150,70 180,40 S240,70 270,40 S330,70 360,40 S420,70 450,40 S510,70 540,40 S600,70 630,40 S690,70 720,40 S780,70 810,40 S870,70 900,40 S960,70 990,40 S1050,70 1080,40 S1140,70 1170,40 S1230,70 1260,40 V70 H0 Z'); /* 곡선 간격과 높이를 더 둥글게 조정 */
   opacity: 0;
   transition: opacity 0.3s ease;
+  translate: 0 -66px;
 }
 
 .album-item:hover::after {
