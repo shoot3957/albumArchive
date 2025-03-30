@@ -1,0 +1,91 @@
+/* 기본 설정 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f0f4ff, #e0e7ff);
+    color: #333;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-top: 30px;
+    color: #2c3e50;
+}
+
+/* 장바구니 항목 스타일 */
+.cart-item {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    transition: transform 0.2s ease;
+}
+
+.cart-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.cart-item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #1e272e;
+}
+
+.cart-item p {
+    font-size: 15px;
+    margin: 6px 0;
+    color: #555;
+}
+
+/* 총 금액 표시 */
+h2 {
+    margin-top: 40px;
+    font-size: 24px;
+    color: #1e3a8a;
+}
+
+/* 사용자 캐시 */
+p {
+    text-align: center;
+    font-size: 16px;
+    color: #444;
+    margin-top: 10px;
+}
+.warning-message {
+    background-color: #ffe6e6;
+    color: #d10000;
+    border: 1px solid #ff4d4d;
+    padding: 12px 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* 결제 버튼 */
+form {
+    text-align: center;
+    margin-top: 30px;
+}
+
+button[type="submit"] {
+    background: #4a6eff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background: #324eda;
+}
+

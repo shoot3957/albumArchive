@@ -14,8 +14,6 @@
 <div class="cart-container">
     <c:forEach var="cartItem" items="${cartList}">
         <div class="cart-item">
-            <img src="${pageContext.request.contextPath}/images/${cartItem.albumNum}.jpg" alt="${cartItem.name}" class="cart-item-img">
-            
             <div class="cart-details">
                 <h3>${cartItem.name}</h3>
                 <p>가격: ${cartItem.price} 원</p>
