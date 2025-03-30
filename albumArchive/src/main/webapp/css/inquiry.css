@@ -138,3 +138,249 @@
     margin: 0 10px;
     font-size: 18px;
 }
+
+
+/* inquiry.css */
+
+
+.inquiry-form-inner {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.my-4 {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 28px;
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+/* 폼 요소 스타일 */
+.form-label {
+    font-weight: 500;
+    color: #34495e;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 12px;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+    outline: none;
+}
+
+/* 내용 입력 textarea 스타일 개선 */
+textarea.form-control {
+    resize: vertical; /* 세로 크기 조절만 허용 */
+    min-height: 180px; /* 더 넉넉한 기본 높이 */
+    padding: 15px; /* 내부 여백 증가 */
+    line-height: 1.6; /* 가독성 좋은 줄 간격 */
+    font-size: 14px;
+    background-color: #fafafa; /* 살짝 밝은 배경 */
+    border: 1px solid #e0e0e0;
+}
+
+textarea.form-control::placeholder {
+    color: #aaa; /* 플레이스홀더 색상 */
+    font-style: italic;
+}
+
+/* 버튼 그룹 스타일 */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* 버튼 간격 */
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    border: none;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.btn-secondary {
+    background-color: #95a5a6;
+    border: none;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #7f8c8d;
+}
+
+.px-4 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* inquiry.css */
+
+/* 공통 스타일 (기존 유지) */
+.inquiry-detail-inner {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.detail-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.detail-title {
+    text-align: center;
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+}
+
+.detail-content {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background-color: #fafafa;
+    margin-bottom: 30px;
+}
+
+.answer-title {
+    font-size: 20px;
+    color: #34495e;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.answer-content {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+/* 답변 작성 폼 스타일 (수정) */
+.answer-form {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f5f7fa;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+}
+
+.answer-form-title {
+    font-size: 20px;
+    color: #34495e;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.answer-textarea {
+    width: 100%;
+    min-height: 160px;
+    padding: 15px;
+    font-size: 14px;
+    line-height: 1.6;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    resize: vertical;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.answer-textarea:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+    outline: none;
+}
+
+.answer-textarea::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+.answer-form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.answer-btn-primary {
+    padding: 12px 25px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.answer-btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.answer-btn-secondary {
+    padding: 12px 25px;
+    background-color: #95a5a6;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.answer-btn-secondary:hover {
+    background-color: #7f8c8d;
+}
