@@ -1,28 +1,140 @@
-.container {
-    max-width: 500px;
-    margin: auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* inquiry.css */
+
+.inquiry-inner {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+/* 문의가 없을 때 */
+.no-reservation {
+    text-align: center;
+    color: #888;
     font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* 문의 리스트 제목 */
+.inquiry-list {
+    text-align: center;
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* 테이블 스타일 */
+.inquiry-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.inquiry-table th, .inquiry-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.inquiry-table th {
+    background-color: #3498db;
+    color: #fff;
     font-weight: bold;
 }
 
-.form-label {
-    font-weight: 600;
+.inquiry-table td {
+    color: #555;
 }
 
-.form-control {
-    padding: 10px;
-    font-size: 16px;
+.inquiry-table tr:hover {
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
 }
 
-.btn {
-    font-size: 16px;
+.inquiry-title {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.inquiry-title:hover {
+    text-decoration: underline;
+}
+
+/* 버튼 스타일 */
+.btn-inquiry, .btn-delete {
+    display: inline-block;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-inquiry {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.btn-inquiry:hover {
+    background-color: #27ae60;
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+}
+
+/* 페이징 스타일 */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.page-link {
+    display: inline-block;
+    padding: 8px 14px;
+    margin: 0 5px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.page-link:hover {
+    background-color: #2980b9;
+}
+
+.page-number.current {
+    display: inline-block;
+    padding: 8px 14px;
+    margin: 0 5px;
+    background-color: #e74c3c;
+    color: #fff;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.disabled {
+    display: inline-block;
+    padding: 8px 14px;
+    margin: 0 5px;
+    color: #ccc;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+}
+
+.ellipsis {
+    color: #888;
+    margin: 0 10px;
+    font-size: 18px;
 }
