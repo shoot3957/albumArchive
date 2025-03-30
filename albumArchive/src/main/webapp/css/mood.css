@@ -43,11 +43,21 @@ body.normal {
     backdrop-filter: blur(6px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
-.album-list a {
-  text-decoration: none;
-  color: inherit;
-  display: block;
+.album-list {
+    background: rgba(255, 255, 255, 0.65);
+    padding: 30px;
+    border-radius: 24px;
+    margin: 40px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+
+    /* ✅ 추가: 4개씩 그리드 정렬 */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-items: center;
 }
+
 .album-list a h3 {
   color: #333;             /* 원하는 색상으로 고정 */
 }
@@ -55,9 +65,7 @@ body.normal {
 
 /* 앨범 아이템 */
 .album-item {
-    display: inline-block;
     width: 180px;
-    margin: 15px;
     text-align: center;
     border-radius: 16px;
     padding: 10px;
@@ -65,6 +73,7 @@ body.normal {
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 .album-item img {
     width: 150px;
@@ -90,3 +99,15 @@ body.normal {
     display: inline-block;
     text-shadow: 1px 1px 3px rgba(255,255,255,0.7);
 }
+@media (max-width: 768px) {
+  .album-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .album-list {
+    grid-template-columns: 1fr;
+  }
+}
+
