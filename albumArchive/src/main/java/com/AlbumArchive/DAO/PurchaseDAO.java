@@ -1,6 +1,7 @@
 package com.AlbumArchive.DAO;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -55,4 +56,22 @@ public class PurchaseDAO {
             e.printStackTrace();
         }
     }
+
+	public void deletePurchase(int num, int qty, int price,String loginId,String albumName) {
+		HashMap<String, Object> vo = new HashMap<String, Object>();
+		vo.put("id", loginId);
+		vo.put("qty", qty);
+		vo.put("name", albumName);
+		vo.put("price", price);
+		try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession(true)) {
+			session.update("com.AlbumArchive.mybatis.PurchaseMapper.updateQTY",vo);
+			session.commit();
+			session.update("com.AlbumArchive.mybatis.PurchaseMapper.updateMoney",vo);
+			session.commit();
+            session.insert("com.AlbumArchive.mybatis.PurchaseMapper.deletePurchase", num);
+            session.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+	}
 }

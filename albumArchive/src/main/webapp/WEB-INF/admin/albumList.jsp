@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>어드민 앨범리스트</title>
-    <link rel="stylesheet" href="${ctx}/css/adminAlbumList.css"> <!-- CSS 파일명 변경 -->
+    <link rel="stylesheet" href="${ctx}/css/adminAlbumList.css">
 </head>
 <body>
     <div class="album-container">
@@ -57,7 +57,7 @@
         <!-- 모달 창 -->
         <div id="addAlbumModal" class="modal">
             <div class="modal-content">
-                <span class="close">&times;</span>
+                <span class="close">×</span>
                 <h2>새 앨범 추가</h2>
                 <form id="addAlbumForm" action="/albumArchive/addAlbum.do" method="post">
                     <div class="form-group">

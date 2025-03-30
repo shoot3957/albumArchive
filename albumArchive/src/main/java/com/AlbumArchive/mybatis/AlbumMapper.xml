@@ -40,7 +40,7 @@
 	</select>
 
 	<select id="getSongList" resultType="song" parameterType="int">
-		SELECT id, album_num AS albumNum, name
+		SELECT num, album_num AS albumNum, name
 		FROM song
 		WHERE
 		album_num = #{album_num}
