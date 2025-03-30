@@ -23,14 +23,16 @@
         </c:choose>
     </div>
 
-    <div class="album-list">
-        <c:forEach var="album" items="${albumList}">
+<div class="album-list">
+    <c:forEach var="album" items="${albumList}">
+        <a href="albumDetail.do?albumName=${album.name}">
             <div class="album-item">
                 <img src="${pageContext.request.contextPath}${album.img}" alt="${album.name}">
                 <h3>${album.name}</h3>
             </div>
-        </c:forEach>
-    </div>
+        </a>
+    </c:forEach>
+</div>
 
 </body>
 </html>
