@@ -28,7 +28,7 @@ public class MemberPurchaseListController implements Controller{
 		System.out.println("Purchase List: " + list);
 
 		
-		return "purchase/adminPurchaseList";
+		return "purchase/memberPurchaseList";
 	}
 
 }

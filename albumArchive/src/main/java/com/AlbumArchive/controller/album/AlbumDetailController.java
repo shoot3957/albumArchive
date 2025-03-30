@@ -1,4 +1,4 @@
-package com.AlbumArchive.controller.member;
+package com.AlbumArchive.controller.album;
 
 import com.AlbumArchive.DAO.AlbumDAO;
 import com.AlbumArchive.DAO.LikesDAO;

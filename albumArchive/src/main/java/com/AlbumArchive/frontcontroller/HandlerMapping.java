@@ -14,6 +14,7 @@ import com.AlbumArchive.controller.admin.AdminMemberDeleteController;
 import com.AlbumArchive.controller.admin.AdminMemberListController;
 import com.AlbumArchive.controller.admin.AdminPurchaseListController;
 import com.AlbumArchive.controller.admin.adminAlbumListController;
+import com.AlbumArchive.controller.album.AlbumDetailController;
 import com.AlbumArchive.controller.album.AlbumListAllController;
 import com.AlbumArchive.controller.album.AlbumSortedByArtist;
 import com.AlbumArchive.controller.album.AlbumSortedByGenre;
@@ -30,7 +31,6 @@ import com.AlbumArchive.controller.cart.ProcessPurchaseController;
 import com.AlbumArchive.controller.inquiry.InquiryFormController;
 import com.AlbumArchive.controller.inquiry.InquiryInfoController;
 import com.AlbumArchive.controller.inquiry.InsertInquiryController;
-import com.AlbumArchive.controller.member.AlbumDetailController;
 import com.AlbumArchive.controller.member.ChargeMoneyController;
 import com.AlbumArchive.controller.member.CheckRdCode;
 import com.AlbumArchive.controller.member.DeleteMemberController;
@@ -45,6 +45,7 @@ import com.AlbumArchive.controller.member.RdCodeResultController;
 import com.AlbumArchive.controller.member.UpdateMemberController;
 import com.AlbumArchive.controller.member.VaildIdAjaxController;
 import com.AlbumArchive.controller.member.ValidEmailAjaxController;
+import com.AlbumArchive.controller.member.memberPurchase;
 import com.AlbumArchive.controller.review.ReviewDeleteController;
 import com.AlbumArchive.controller.review.ReviewLisetController;
 import com.AlbumArchive.controller.review.ReviewUpdateController;
@@ -73,6 +74,7 @@ public class HandlerMapping {
         mappings.put("/memberPurchaseList.do", new MemberPurchaseListController());
         mappings.put("/deleteMember.do", new DeleteMemberController());
         mappings.put("/chargeMoney.do", new ChargeMoneyController());
+        mappings.put("/deletePurchase.do", new memberPurchase());
         
         // 앨범 컨트롤러
         mappings.put("/albumListAll.do", new AlbumListAllController());
