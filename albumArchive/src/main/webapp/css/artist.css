@@ -1,91 +1,36 @@
-/* 기본 스타일 */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-
-/* 페이지 전체 컨테이너 */
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding-top: 20px;
-}
-
-/* 페이지 제목 */
-.page-title {
-    text-align: center;
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-/* 앨범 리스트 크기 */
-.album-count {
-    text-align: center;
-    color: #666;
-    font-size: 16px;
-}
-
-/* 앨범 리스트 */
-.album-list {
-    display: flex;
-    flex-wrap: wrap;
+.artist-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 바둑판 배열 */
     gap: 20px;
+    padding: 20px;
     justify-content: center;
 }
 
-/* 개별 앨범 항목 */
-.album-item {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    padding: 15px;
+.artist-item {
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.album-item:hover {
-    transform: translateY(-10px);
+.artist-item:hover {
+    transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* 앨범 이미지 */
-.album-image {
+.artist-img {
     width: 100%;
-    height: auto;
+    height: 200px; /* 일정한 높이 유지 */
+    object-fit: cover; /* 이미지 비율 유지 */
     border-radius: 8px;
-    margin-bottom: 15px;
 }
 
-/* 앨범 제목 */
-.album-title {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-/* 앨범 설명 */
-.album-info {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 10px;
-    height: 60px;
-    overflow: hidden;
-}
-
-/* 가격, 좋아요, 카테고리, 발매일 정보 */
-.album-price, .album-likes, .album-category, .album-dates {
-    font-size: 14px;
-    color: #444;
-    margin-bottom: 5px;
-}
-
-/* 앨범이 없을 경우 메시지 */
-.no-album-message {
-    text-align: center;
-    color: #999;
+.artist-item h3 {
     font-size: 18px;
+    color: #333;
+    margin-top: 10px;
 }

@@ -4,8 +4,7 @@
 <html>
 <head>
 <title>아티스트별 앨범 리스트</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/artistAlbumList.css">
+<link rel="stylesheet" href="${ctx}/css/artistAlbum.css"> 
 <script src="${pageContext.request.contextPath}/script/album.js"></script>
 </head>
 <body>

@@ -11,12 +11,14 @@
 <link rel="stylesheet" href="${ctx}/css/purchase.css">
 <link rel="stylesheet" href="${ctx}/css/inquiry.css">
 <link rel="stylesheet" href="${ctx}/css/list.css">
+<link rel="stylesheet" href="${ctx}/css/cartList.css">
 <link rel="stylesheet" href="${ctx}/css/header.css">
 <link rel="stylesheet" href="${ctx}/css/footer.css">
 <link rel="stylesheet" href="${ctx}/css/albumDetail.css">
 <link rel="stylesheet" href="${ctx}/css/albumList.css">
 <link rel="stylesheet" href="${ctx}/css/artist.css"> 
 <link rel="stylesheet" href="${ctx}/css/memberList.css"> 
+<link rel="stylesheet" href="${ctx}/css/artistAlbum.css"> 
 <script src="${pageContext.request.contextPath}/script/main.js"></script>
 <!-- JavaScript 연결 -->
 <title>albumArchive</title>
