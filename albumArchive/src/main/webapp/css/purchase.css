@@ -1,74 +1,120 @@
-/* 전체 레이아웃 설정 */
-body {
-	font-family: Arial, sans-serif;
-	background-color: #f9f9f9;
-	margin: 0;
-	padding: 0;
-}
-
+/* 구매 내역 컨테이너 스타일 */
 .purchase-inner {
-	width: 80%;
-	margin: 20px auto;
-	padding: 20px;
-	background-color: #fff;
-	border-radius: 8px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* 판매 리스트 제목 */
-.purchase-list {
-	text-align: center;
-	font-size: 24px;
-	margin-bottom: 20px;
-}
-
-/* 판매 내역이 없을 때 메시지 */
+/* 구매 내역이 없을 때 메시지 스타일 */
 .no-reservation {
-	text-align: center;
-	font-size: 18px;
-	color: #555;
-	margin-top: 20px;
+    font-size: 1.8em;
+    font-weight: 500;
+    color: #888;
+    text-align: center;
+    padding: 50px 0;
+    margin: 0;
+}
+
+/* 구매 리스트 제목 스타일 */
+.purchase-list {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin: 0 0 30px 0;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
 }
 
 /* 테이블 스타일 */
-.purchase-table {
-	width: 100%;
-	border-collapse: collapse;
-	margin-top: 20px;
-}
-
-.purchase-table th, .purchase-table td {
-	padding: 12px;
-	text-align: center;
-	border: 1px solid #ddd;
-}
-
-.purchase-table th {
-	background-color: #f4f4f4;
-	font-weight: bold;
-}
-
-.purchase-table td {
-	background-color: #fff;
-}
-
-/* 테이블 행 hover 효과 */
-.purchase-table tr:hover {
-	background-color: #f1f1f1;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 /* 테이블 헤더 스타일 */
-.purchase-table th {
-	background-color: #007bff;
-	color: white;
+th {
+    background-color: #4a90e2;
+    color: #fff;
+    font-weight: 600;
+    padding: 12px;
+    text-align: center;
+    border-bottom: 2px solid #357abd;
 }
 
-/* 테이블 내용 스타일 */
-.purchase-table td {
-	background-color: #ffffff;
-	color: #333;
+/* 테이블 셀 스타일 */
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    color: #555;
 }
 
-.purchase-table tr:nth-child(even) td {
-	background-color: #f9f9f9;
+/* 홀수 행 배경색 */
+tr:nth-child(odd) {
+    background-color: #f7f7f7;
+}
+
+/* 행 호버 효과 */
+tr:hover {
+    background-color: #eef4fa;
+    transition: background-color 0.2s ease;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .purchase-inner {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .purchase-list {
+        font-size: 1.6em;
+    }
+
+    .no-reservation {
+        font-size: 1.4em;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .purchase-inner {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .purchase-list {
+        font-size: 1.4em;
+    }
+
+    .no-reservation {
+        font-size: 1.2em;
+        padding: 30px 0;
+    }
+
+    /* 작은 화면에서 테이블을 스크롤 가능하게 */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th, td {
+        min-width: 100px;
+    }
 }

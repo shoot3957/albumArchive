@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<%@ include file="../parts/header.jsp"%>
 <html>
 <head>
 <title>장르별 앨범 리스트</title>
@@ -32,5 +33,6 @@
 			<p class="no-album-message">해당 장르의 앨범이 없습니다.</p>
 		</c:if>
 	</div>
+	<%@ include file="../parts/footer.jsp"%>
 </body>
 </html>

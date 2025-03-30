@@ -1,11 +1,12 @@
 /* 전체 컨테이너 스타일 */
-.inner {
-    max-width: 400px;
+.field {
+    max-width: 420px;
     margin: 60px auto;
     padding: 30px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 /* 제목 스타일 */
@@ -13,26 +14,23 @@ h1 {
     font-size: 2em;
     font-weight: bold;
     color: #333;
-    text-align: center;
     margin-bottom: 30px;
 }
 
-/* 폼 그룹 스타일 */
-.form-group {
-    margin-bottom: 20px;
+/* 테이블 스타일 (필요 시 사용) */
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-/* 라벨 스타일 */
-label {
-    display: block;
-    font-size: 1.1em;
-    color: #555;
-    margin-bottom: 8px;
+/* 테이블 셀 스타일 */
+td {
+    padding: 10px;
+    vertical-align: middle;
 }
 
 /* 입력 필드 스타일 */
-input[type="text"],
-input[type="password"] {
+input[type="text"] {
     width: 100%;
     padding: 12px;
     font-size: 1em;
@@ -42,14 +40,23 @@ input[type="password"] {
     transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
+input[type="text"]:focus {
     border-color: #4a90e2;
     outline: none;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
 }
 
-/* 제출 버튼 스타일 */
-.btn-submit {
+/* 라벨 스타일 */
+label {
+    display: block;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+/* 이메일 보내기 버튼 스타일 */
+#button {
     width: 100%;
     padding: 12px;
     font-size: 1.1em;
@@ -60,35 +67,16 @@ input[type="password"]:focus {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.btn-submit:hover {
-    background-color: #357abd;
-}
-
-/* 링크 컨테이너 스타일 */
-.links {
     margin-top: 20px;
-    text-align: center;
 }
 
-/* 링크 스타일 */
-.links a {
-    font-size: 0.95em;
-    color: #4a90e2;
-    text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.3s ease;
-}
-
-.links a:hover {
-    color: #357abd;
-    text-decoration: underline;
+#button:hover {
+    background-color: #357abd;
 }
 
 /* 반응형 디자인 */
 @media (max-width: 480px) {
-    .inner {
+    .field {
         margin: 30px 15px;
         padding: 20px;
     }
@@ -97,23 +85,17 @@ input[type="password"]:focus {
         font-size: 1.6em;
     }
 
-    .form-group {
-        margin-bottom: 15px;
+    td {
+        padding: 8px;
     }
 
-    input[type="text"],
-    input[type="password"] {
+    input[type="text"] {
         padding: 10px;
         font-size: 0.95em;
     }
 
-    .btn-submit {
+    #button {
         padding: 10px;
         font-size: 1em;
-    }
-
-    .links a {
-        display: inline-block;
-        margin: 5px 8px;
     }
 }

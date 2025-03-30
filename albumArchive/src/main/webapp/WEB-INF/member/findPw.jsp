@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../parts/header.jsp"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
-
+<link rel="stylesheet" href="${ctx}/css/findPW.css">
 <div class="inner">
     <h1>비밀번호 찾기</h1>
 
