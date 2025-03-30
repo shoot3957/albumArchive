@@ -11,7 +11,7 @@
         <c:forEach var="artist" items="${artistList}">
             <div class="artist-item">
                 <a href="albumSortedByArtist.do?artist_num=${artist.num}">
-                    <img src="${pageContext.request.contextPath}/images/artists/${artist.name}.jpg" alt="${artist.name}" class="artist-img">
+                    <img src="${pageContext.request.contextPath}${artist.img}" alt="${artist.name}" class="artist-img">
                 </a>
                 <h3>${artist.name}</h3>
             </div>
