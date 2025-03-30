@@ -1,108 +1,144 @@
-/* 🌟 전체 스타일 설정 */
+/* join.css */
 body {
     font-family: 'Noto Sans KR', sans-serif;
-    background-color: #f8f9fa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    background-color: #f5f6f8;
     margin: 0;
-    padding-top: 120px; /* 헤더와 겹치지 않도록 */
+    padding: 0;
 }
 
-/* 🔷 회원가입 컨테이너 */
+/* 헤더와 겹치지 않도록 본문에 상단 여백 추가 */
 .inner-join {
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
     width: 100%;
-    max-width: 480px;
-    text-align: center;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-/* ✨ 페이드 인 효과 */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    margin: 100px auto 20px; /* 상단 여백을 100px로 설정 (헤더 높이에 따라 조정) */
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 h1 {
-    font-size: 26px;
+    text-align: center;
+    font-size: 24px;
     color: #333;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    font-weight: 700;
 }
 
-/* 🔹 입력 필드 스타일 */
+form {
+    width: 100%;
+}
+
 table {
     width: 100%;
-    margin-top: 10px;
+    border-collapse: collapse;
 }
 
-td {
-    padding: 10px;
-    text-align: left;
-    font-weight: bold;
+tr {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+td:first-child {
+    width: 80px;
+    font-size: 14px;
     color: #555;
+    font-weight: 500;
 }
 
-input[type="text"], input[type="password"], input[type="number"] {
+td:last-child {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"] {
     width: 100%;
-    padding: 14px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
     box-sizing: border-box;
-    transition: all 0.3s ease-in-out;
-    background-color: #fafafa;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-input:focus {
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus {
     border-color: #007bff;
-    background-color: #fff;
     outline: none;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
 
-/* 🔵 버튼 스타일 */
 .btn-submit {
-    width: 100%;
-    background: linear-gradient(135deg, #007bff, #0056b3);
-    color: white;
-    padding: 14px;
+    background-color: #007bff;
+    color: #fff;
     border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    margin-top: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 91, 187, 0.3);
+    font-size: 14px;
+    transition: background-color 0.3s;
 }
 
-/* 🔥 버튼 호버 & 클릭 효과 */
 .btn-submit:hover {
-    background: linear-gradient(135deg, #0056b3, #004094);
-    transform: translateY(-2px);
+    background-color: #0056b3;
 }
 
-.btn-submit:active {
-    transform: scale(0.98);
-    box-shadow: none;
+#checkId {
+    background-color: #6c757d;
+    white-space: nowrap;
 }
 
-/* 📱 반응형 디자인 */
+#checkId:hover {
+    background-color: #5a6268;
+}
+
+button.btn-submit {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+/* 반응형 디자인 */
 @media (max-width: 768px) {
     .inner-join {
-        width: 90%;
-        padding: 30px;
+        margin: 80px auto 20px; /* 모바일에서 상단 여백 조정 */
+        padding: 20px;
+    }
+
+    tr {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    td:first-child {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    td:last-child {
+        width: 100%;
+    }
+
+    .btn-submit {
+        width: auto;
     }
 }
