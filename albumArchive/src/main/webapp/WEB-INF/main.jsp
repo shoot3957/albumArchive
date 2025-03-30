@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>앨범 판매 사이트</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css"> <!-- CSS 연결 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    
 </head>
 <body>
 
@@ -35,13 +37,16 @@
         <!-- Main content: 앨범 리스트와 페이징 -->
         <section class="main-content">
             <div class="album-list">
-                <c:forEach var="album" items="${albumList}">
-                    <div class="album-item">
-                        <img src="${pageContext.request.contextPath}${album.img}" alt="${album.name}" class="album-img"> <!-- 이미지 경로 수정 -->
-                        <h3>${album.name}</h3>
-                    </div>
-                </c:forEach>
+    <c:forEach var="album" items="${albumList}">
+        <a href="albumDetail.do?albumName=${album.name}">
+            <div class="album-item">
+                <img src="${pageContext.request.contextPath}${album.img}" alt="${album.name}" class="album-img">
+                <h3>${album.name}</h3>
             </div>
+        </a>
+    </c:forEach>
+</div>
+
 
             <!-- 페이징 버튼 -->
             <div class="pagination">
@@ -56,19 +61,21 @@
                 </c:if>
             </div>
         </section>
-
         <!-- Sub content: 좋아요 순 슬라이드 -->
-        <section class="sub-content">
-            <div class="album-slide">
-                <div class="slider">
-                    <c:forEach var="album" items="${topLikedAlbums}">
-                        <a href="albumDetail.do?albumName=${album.name}">
-                            <img src="${pageContext.request.contextPath}${album.img}" alt="${album.name}"> <!-- 이미지 경로 수정 -->
-                        </a>
-                    </c:forEach>
-                </div>
-            </div>
-        </section>
+<section class="sub-content">
+    <div class="album-fade">
+        <c:forEach var="album" items="${topLikedAlbums}" varStatus="status">
+            <a href="albumDetail.do?albumName=${album.name}" 
+               class="fade-album ${status.first ? 'active' : ''}">
+                <img 
+                    src="${pageContext.request.contextPath}${album.img}" 
+                    alt="${album.name}">
+            </a>
+        </c:forEach>
+    </div>
+</section>
+
+
     </div>
 
     <script src="${pageContext.request.contextPath}/script/slider.js"></script> <!-- 슬라이드쇼 JS -->

@@ -43,6 +43,15 @@ body.normal {
     backdrop-filter: blur(6px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
+.album-list a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.album-list a h3 {
+  color: #333;             /* 원하는 색상으로 고정 */
+}
+	
 
 /* 앨범 아이템 */
 .album-item {
