@@ -16,16 +16,18 @@
 		<c:if test="${not empty albumListByGenre}">
 			<div class="album-list">
 				<c:forEach var="album" items="${albumListByGenre}">
-					<div class="album-item">
-						<img src="${pageContext.request.contextPath}${album.img}"
-							alt="${album.name}" class="album-image">
-						<div class="album-details">
-							<h3 class="album-title">${album.name}</h3>
-							<p class="album-info">${album.info}</p>
-							<p class="album-price">가격: ${album.price}</p>
-						</div>
-					</div>
-				</c:forEach>
+    <a href="albumDetail.do?albumName=${album.name}" class="album-link">
+        <div class="album-item">
+            <img src="${pageContext.request.contextPath}${album.img}" alt="${album.name}" class="album-image">
+            <div class="album-details">
+                <h3 class="album-title">${album.name}</h3>
+                <p class="album-info">${album.info}</p>
+                <p class="album-price">가격: ${album.price}</p>
+            </div>
+        </div>
+    </a>
+</c:forEach>
+
 			</div>
 		</c:if>
 

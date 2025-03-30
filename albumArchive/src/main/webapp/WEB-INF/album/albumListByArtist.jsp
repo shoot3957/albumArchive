@@ -1,10 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ include file="../parts/header.jsp"%>
 <html>
 <head>
 <title>아티스트별 앨범 리스트</title>
-<link rel="stylesheet" href="${ctx}/css/artistAlbum.css"> 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/artistAlbum.css">
+
 <script src="${pageContext.request.contextPath}/script/album.js"></script>
 </head>
 <body>
@@ -21,18 +23,21 @@
 		<c:if test="${not empty albumListByArtist}">
 			<div class="album-list">
 				<c:forEach var="album" items="${albumListByArtist}">
-					<div class="album-item">
-						<img src="${album.img}" alt="${album.name}" class="album-image">
-						<div class="album-details">
-							<h3 class="album-title">${album.name}</h3>
-							<p class="album-info">${album.info}</p>
-							<p class="album-price">가격: ${album.price}원</p>
-							<p class="album-likes">좋아요: ${album.likes}</p>
-							<p class="album-category">카테고리: ${album.category}</p>
-							<p class="album-dates">발매일: ${album.dates}</p>
-						</div>
-					</div>
-				</c:forEach>
+    <a href="albumDetail.do?albumName=${album.name}" class="album-link">
+        <div class="album-item">
+            <img src="${pageContext.request.contextPath}${album.img}" alt="${album.name}" class="album-image">
+            <div class="album-details">
+                <h3 class="album-title">${album.name}</h3>
+                <p class="album-info">${album.info}</p>
+                <p class="album-price">가격: ${album.price}원</p>
+                <p class="album-likes">좋아요: ${album.likes}</p>
+                <p class="album-category">카테고리: ${album.category}</p>
+                <p class="album-dates">발매일: ${album.dates}</p>
+            </div>
+        </div>
+    </a>
+</c:forEach>
+
 			</div>
 		</c:if>
 
@@ -43,3 +48,4 @@
 	</div>
 </body>
 </html>
+<%@ include file="../parts/footer.jsp"%>

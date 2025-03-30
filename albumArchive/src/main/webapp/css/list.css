@@ -75,6 +75,11 @@
     color: #e74c3c;
     margin: 0;
 }
+.album-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
 
 /* 앨범이 없을 때 메시지 스타일 */
 .no-album-message {
