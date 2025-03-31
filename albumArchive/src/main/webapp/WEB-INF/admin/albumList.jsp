@@ -99,6 +99,5 @@
     </div>
 
     <script src="${ctx}/script/albumInsert.js"></script>
-    <%@ include file="../parts/footer.jsp"%>
 </body>
 </html>
