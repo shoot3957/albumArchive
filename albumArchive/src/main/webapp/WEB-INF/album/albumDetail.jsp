@@ -46,10 +46,6 @@
 						</c:if>
 						<c:if test="${loginId == 'admin'}">
 							<button type="button" class="btn btn-edit" id="openEditModal">수정</button>
-							<form action="/albumArchive/delete.do" method="post" style="display: inline;">
-								<input type="hidden" name="num" value="${album.num}">
-								<button type="submit" class="btn btn-delete" onclick="return confirm('정말 삭제하시겠습니까?')">삭제</button>
-							</form>
 						</c:if>
 					</div>
 				</div>
