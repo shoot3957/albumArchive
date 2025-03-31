@@ -55,6 +55,7 @@ public class AdminAlbumInseretController implements Controller {
             album.setCategory(category);
             album.setDates(dates);
             album.setImg(img);
+            album.setMood(info);
 
             // 데이터베이스에 앨범 추가
             boolean isSuccess = albumDAO.addAlbum(album);
