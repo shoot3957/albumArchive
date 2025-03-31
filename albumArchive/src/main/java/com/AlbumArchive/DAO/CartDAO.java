@@ -46,6 +46,7 @@ public class CartDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println("카트삭제");
     }
 
     // 유저의 장바구니 전체 삭제
@@ -64,5 +65,7 @@ public class CartDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println("카트업뎃");
+        System.out.println(cartId);
     }
 }

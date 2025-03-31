@@ -10,7 +10,7 @@
 
     <!-- 특정 유저의 장바구니 목록 조회 -->
   <select id="getCartList" parameterType="string" resultType="com.AlbumArchive.VO.CartVO">
-    SELECT c.album_num, c.user_id, c.price, c.qty, a.name
+    SELECT c.album_num, c.user_id, c.price, c.qty, a.name, c.num
     FROM cart AS c
     JOIN album AS a ON c.album_num = a.num
     WHERE c.user_id = #{userId}
