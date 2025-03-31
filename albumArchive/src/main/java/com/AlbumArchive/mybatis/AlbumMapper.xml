@@ -84,6 +84,12 @@
 		ORDER BY
 		dates DESC
 	</select>
+	<insert id="addAlbum" parameterType="album">
+		INSERT INTO album (name, artist_num, info, price,likes, total_qty, category,
+		dates, img)
+		VALUES (#{name}, #{artistNum}, #{info}, #{price},#{likes}, #{totalQty}, #{category},
+		#{dates}, #{img})
+	</insert>
 	
 	<delete id="deleteAlbum" parameterType="int">
         DELETE FROM album
