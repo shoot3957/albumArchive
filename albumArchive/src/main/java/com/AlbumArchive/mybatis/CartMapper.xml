@@ -16,7 +16,12 @@
     WHERE c.user_id = #{userId}
 </select>
 
-
+	<!-- 특정 사용자 + 앨범의 장바구니 항목 조회 -->
+<select id="getCartItem" resultType="com.AlbumArchive.VO.CartVO">
+    SELECT * FROM cart 
+    WHERE user_id = #{userId} AND album_num = #{albumNum}
+</select>
+	
     <!-- 장바구니에서 앨범 삭제 -->
     <delete id="removeFromCart" parameterType="int">
         DELETE FROM cart WHERE num = #{cartId}

@@ -1,6 +1,7 @@
 package com.AlbumArchive.DAO;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -17,6 +18,16 @@ public class CartDAO {
             instance = new CartDAO();
         }
         return instance;
+    }
+ // 특정 사용자와 앨범 번호에 해당하는 장바구니 항목 조회
+    public CartVO getCartItem(String userId, int albumNum) {
+        try (SqlSession session = MybatisConfig.getSqlSessionFactory().openSession()) {
+            return session.selectOne("com.AlbumArchive.mybatis.CartMapper.getCartItem", 
+                                    Map.of("userId", userId, "albumNum", albumNum));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     // 장바구니에 앨범 추가

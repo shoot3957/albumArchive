@@ -15,29 +15,39 @@ public class AddToCartController implements Controller {
     public String requestHandler(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // 사용자가 로그인한 상태에서 user_id를 받아옴
-        String userId = (String) request.getSession().getAttribute("user_id");
+        String userId = request.getParameter("id");
         if (userId == null) {
             response.sendRedirect("login.do");
             return null;
         }
 
-        // 요청 파라미터에서 앨범 ID, 가격, 수량을 받아옴
-        int album_num = Integer.parseInt(request.getParameter("album_num"));
+        int albumNum = Integer.parseInt(request.getParameter("album_num"));
         int price = Integer.parseInt(request.getParameter("price"));
-        int qty = Integer.parseInt(request.getParameter("qty"));
 
-        // CartVO 객체 생성
-        CartVO cart = new CartVO();
-        cart.setAlbumNum(album_num);
-        cart.setUser_id(userId);
-        cart.setPrice(price);
-        cart.setQty(qty);
+        CartDAO dao = CartDAO.getInstance();
 
-        // 장바구니에 앨범 추가
-        CartDAO.getInstance().addToCart(cart);
+        // 기존에 담긴 항목이 있는지 확인
+        CartVO existingItem = dao.getCartItem(userId, albumNum);
 
-        // 장바구니 페이지로 리디렉션
-        return "cart/cartList";  // cartList.jsp로 이동
+        if (existingItem != null) {
+            // 이미 존재하면 수량 +1 업데이트
+            int newQty = existingItem.getQty() + 1;
+            dao.updateCartQty(existingItem.getNum(), newQty);
+        } else {
+            // 존재하지 않으면 새로 추가
+            CartVO cart = new CartVO();
+            cart.setAlbumNum(albumNum);
+            cart.setUser_id(userId);
+            cart.setPrice(price);
+            cart.setQty(1);  // 기본 수량 1
+            
+            dao.addToCart(cart);
+        }
+
+        System.out.println("장바구니 추가");
+
+        // 📌 cartList.do로 리다이렉트 (userId 파라미터 함께)
+        return "redirect:/cartList.do?id=" + userId;
     }
+
 }
