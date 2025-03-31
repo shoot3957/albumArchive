@@ -149,41 +149,12 @@ nav ul li:hover .dropdown {
 	z-index: 1;
 }
 
-.album-item::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 70px;
-	background: rgba(0, 123, 255, 0.5);
-	z-index: 2;
-	opacity: 0;
-	transition: opacity 0.3s ease;
-	translate: 0 -54px;
-}
 
 .album-item:hover::after {
 	opacity: 1;
 	animation: riseBorder 1.5s infinite alternate ease-in-out;
 }
 
-@
-keyframes riseBorder { 0% {
-	clip-path: path('M0,70 C30,40 60,70 90,40 S150,70 180,40 S240,70 270,40 S330,70 360,40 S420,70 450,40 S510,70 540,40 S600,70 630,40 S690,70 720,40 S780,70 810,40 S870,70 900,40 S960,70 990,40 S1050,70 1080,40 S1140,70 1170,40 S1230,70 1260,40 V70 H0 Z'
-		);
-}
-
-100
-%
-{
-clip-path
-:
-path(
-'M0,70 C30,20 60,70 90,20 S150,70 180,20 S240,70 270,20 S330,70 360,20 S420,70 450,20 S510,70 540,20 S600,70 630,20 S690,70 720,20 S780,70 810,20 S870,70 900,20 S960,70 990,20 S1050,70 1080,20 S1140,70 1170,20 S1230,70 1260,20 V70 H0 Z'
-);
-}
-}
 .album-item h3 {
 	padding: 10px;
 	font-size: 16px;
